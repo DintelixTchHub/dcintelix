@@ -44,7 +44,7 @@ export default function Navbar() {
               <img
                 src={logo}
                 alt="DCintelix Digital Solutions"
-                className="w-full h-28 object-contain hover:animate-pulse transition-transform duration-300 hover:scale-105"
+                className="w-full h-28 object-contain hover:animate-pulse transition-transform duration-300 hover:scale-105 animate-[float_6s_ease-in-out_infinite]"
               />
             </div>
           </Link>

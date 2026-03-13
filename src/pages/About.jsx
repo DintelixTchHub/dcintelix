@@ -282,8 +282,11 @@ export default function About() {
               <div className="relative max-w-xs mx-auto lg:mx-0">
                 <img 
                   src={founderImage} 
-                  alt="Christian Dushime - Founder" 
+                  alt="Christian Dushime - Founder and Business Leader at DCintelix - Technology Specialist and Web Application Developer" 
                   className="w-full aspect-square max-w-[280px] mx-auto object-cover rounded-xl md:rounded-2xl"
+                  loading="eager"
+                  width="280"
+                  height="280"
                 />
                 <div className="absolute -bottom-3 -right-3 w-20 h-20 md:w-24 md:h-24 bg-[#F59E0B] rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-2xl md:text-3xl">CD</span>

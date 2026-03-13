@@ -482,8 +482,11 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center p-4">
                   <img 
                     src={gadImage} 
-                    alt="Gad" 
+                    alt="Gad Irahari - UI/UX Designer at DCintelix - Creative Designer Specializing in Beautiful and Intuitive User Interfaces" 
                     className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0F766E]/20"
+                    loading="lazy"
+                    width="160"
+                    height="160"
                   />
                   <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
                     UI/UX Designer
@@ -505,8 +508,11 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center p-4">
                   <img 
                     src={dannyImage} 
-                    alt="Danny" 
+                    alt="Danny - Frontend Developer at DCintelix - Specialist in Responsive and Interactive Web Applications with Modern Frameworks" 
                     className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0F766E]/20"
+                    loading="lazy"
+                    width="160"
+                    height="160"
                   />
                   <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
                     Frontend Developer

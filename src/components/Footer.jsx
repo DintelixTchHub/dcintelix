@@ -33,10 +33,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#0F172A] text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1 ">
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
                {/* Logo */}
                      <Link to="/" className="flex items-center space-x-2 ">
                        <div className="w-[150px] h-8  rounded-full flex items-center justify-center bg-white">
@@ -111,7 +111,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start">
             <h4 className="text-white font-semibold text-lg mb-6">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
