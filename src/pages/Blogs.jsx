@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiSearch, FiCalendar, FiUser, FiClock, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
+import SEO from '../components/SEO'
 
 const blogs = [
   {
@@ -107,7 +108,14 @@ export default function Blogs() {
   const featuredBlog = blogs[0]
 
   return (
-    <div className="pt-16">
+    <>
+      <SEO 
+        title="Blog - Latest Insights"
+        description="Read the latest articles on web development, digital marketing, and business growth. DCintelix blog provides insights and tips for your business."
+        keywords="blog, articles, web development tips, digital marketing, business growth, technology insights"
+        url="https://dcintelix.netlify.app/blogs"
+      />
+      <div className="pt-16">
       {/* Page Header */}
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -347,5 +355,6 @@ export default function Blogs() {
         </div>
       </section>
     </div>
+    </>
   )
 }

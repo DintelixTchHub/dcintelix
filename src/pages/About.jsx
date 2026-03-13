@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCheck, FiTarget, FiEye, FiAward, FiUsers, FiClock, FiShield, FiGlobe } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
+import SEO from '../components/SEO'
 import founderImage from '../assets/pasport.png'
 
 const values = [
@@ -77,7 +78,14 @@ function FadeIn({ children, delay = 0, className = '' }) {
 
 export default function About() {
   return (
-    <div className="pt-16">
+    <>
+      <SEO 
+        title="About Us - Learn About DCintelix"
+        description="Learn about DCintelix - our mission, values, and team. We're dedicated to providing professional web development and digital solutions for businesses worldwide."
+        keywords="about DCintelix, web development company, digital agency, our team, company mission, values"
+        url="https://dcintelix.netlify.app/about"
+      />
+      <div className="pt-16">
       {/* Page Header */}
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -368,5 +376,6 @@ export default function About() {
         </div>
       </section>
     </div>
+    </>
   )
 }

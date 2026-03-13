@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
 import emailjs from '@emailjs/browser'
 import { Card, SectionHeading } from '../components/Button'
+import SEO from '../components/SEO'
 
 const faqs = [
   {
@@ -113,7 +114,14 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-16">
+    <>
+      <SEO 
+        title="Contact Us - Get in Touch"
+        description="Contact DCintelix for professional web development and digital solutions. Reach out for a free consultation and let's discuss your project."
+        keywords="contact DCintelix, web development inquiry, get a quote, digital agency contact, free consultation"
+        url="https://dcintelix.netlify.app/contact"
+      />
+      <div className="pt-16">
       {/* Page Header */}
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -440,5 +448,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   )
 }
