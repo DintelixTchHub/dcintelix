@@ -80,8 +80,8 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="About Us - Learn About DCintelix"
-        description="Learn about DCintelix - our mission, values, and team. We're dedicated to providing professional web development and digital solutions for businesses worldwide."
+        title="About Us - Who We Are"
+        description="Learn about DCintelix - we're a team that builds digital things that work. No jargon, just solid solutions for real business needs."
         keywords="about DCintelix, web development company, digital agency, our team, company mission, values"
         url="https://dcintelix.netlify.app/about"
       />
@@ -94,11 +94,11 @@ export default function About() {
               About Us
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4">
-              Building Digital Excellence
+              Who We Are
             </h1>
             <p className="text-sm md:text-base text-[#475569] max-w-xl">
-              We are a digital solutions company dedicated to helping businesses thrive 
-              in the modern digital landscape.
+              We're a small team that builds digital things that actually work. 
+              No fancy jargon—just solid solutions for real business needs.
             </p>
           </FadeIn>
         </div>

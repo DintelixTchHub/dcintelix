@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 import heroImage from '../assets/hero.png'
@@ -11,46 +11,56 @@ import dannyImage from '../assets/danny.jpeg'
 const services = [
   {
     icon: FiGlobe,
-    title: 'Website Creation',
-    description: 'Professional websites that look great and work well on any device.',
+    title: 'Website Design',
+    description: 'We build custom websites that actually look good and work smoothly—on any screen size.',
   },
   {
     icon: FiCode,
-    title: 'Web Application',
-    description: 'Custom Web Application built for your business needs.',
+    title: 'Web Applications',
+    description: 'Custom web apps built specifically for what your business needs.',
   },
   {
     icon: FiShoppingCart,
-    title: 'Online Stores',
-    description: 'Powerful online stores that help you sell more.',
+    title: 'E-commerce Development',
+    description: 'Online stores that help you sell more without the headache.',
   },
   {
     icon: FiSmartphone,
-    title: 'Phone Apps',
-    description: 'Apps for iPhone and Android that connect with your customers.',
+    title: 'Mobile Apps',
+    description: 'Apps for iPhone and Android that your customers will actually want to use.',
+  },
+  {
+    icon: FiImage,
+    title: 'Logo Design',
+    description: 'Unique logos that represent your brand and make you stand out.',
+  },
+  {
+    icon: FiBox,
+    title: 'Flyer Design',
+    description: 'Eye-catching flyers and promotional materials for your business.',
   },
 ]
 
 const features = [
   {
     icon: FiLayers,
-    title: 'Complete Development',
-    description: 'We handle everything from data organization to the user interface.',
+    title: 'We Handle Everything',
+    description: 'From setting up your data to designing the interface—we take care of it all.',
   },
   {
     icon: FiShield,
-    title: 'Flexible Systems',
-    description: 'Built to grow with your business using professional methods.',
+    title: 'Systems That Scale',
+    description: 'Built to grow with you, using solid engineering practices.',
   },
   {
     icon: FiTrendingUp,
-    title: 'Business-Focused',
-    description: 'Solutions designed to solve real business problems.',
+    title: 'Real Business Solutions',
+    description: 'We build things that actually solve your problems.',
   },
   {
     icon: FiClock,
-    title: 'On-Time Delivery',
-    description: 'Reliable project completion with clear timelines.',
+    title: 'On-Time, Every Time',
+    description: 'We deliver when we say we will—no excuses.',
   },
 ]
 
@@ -94,13 +104,6 @@ const testimonials = [
     author: "Michael R.",
     role: "Entrepreneur",
   },
-]
-
-const stats = [
-  { number: 7, suffix: '+', label: 'Projects Delivered' },
-  { number: 5, suffix: '+', label: 'Years Experience' },
-  { number: 4, suffix: '+', label: 'Industries Served' },
-  { number: 24, suffix: '/7', label: 'Reliable Support' },
 ]
 
 function FadeIn({ children, delay = 0, className = '' }) {
@@ -186,77 +189,49 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - Hero Content */}
             <div className="max-w-2xl">
-              <FadeIn delay={100}>
-                <span className="inline-block px-3 py-1.5 bg-[#0F766E]/10 text-[#0F766E] text-xs font-medium rounded-full mb-4">
+              <span className="inline-block px-3 py-1.5 bg-[#0F766E]/10 text-[#0F766E] text-xs font-medium rounded-full mb-4">
                   Digital Solutions Company
                 </span>
-              </FadeIn>
               
-              <FadeIn delay={200}>
-                <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                  Build Powerful Digital Solutions That Grow Your Business
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+                  We Build Digital Solutions That Actually Help Your Business Grow
                 </h1>
-              </FadeIn>
               
-              <FadeIn delay={300}>
-                <p className="text-sm md:text-base text-[#475569] mb-3 leading-relaxed">
-                  DCintelix helps businesses grow with professional websites, online stores, 
-                  phone apps, and reliable methods.
+              <p className="text-sm md:text-base text-[#475569] mb-3 leading-relaxed">
+                  At DCintelix, we create websites, online stores, and phone apps that work.
+                  No jargon, no fluff—just solid digital products that get results.
                 </p>
-              </FadeIn>
               
-              <FadeIn delay={400}>
-                <p className="text-xs md:text-sm text-[#64748B] mb-6 leading-relaxed">
-                  We create flexible systems that help businesses operate better, 
-                  reach more customers, and grow faster.
+              <p className="text-xs md:text-sm text-[#64748B] mb-6 leading-relaxed">
+                  We believe in building things that are practical, reliable,
+                  and actually make your life easier.
                 </p>
-              </FadeIn>
               
-              <FadeIn delay={500}>
-                <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-300 hover:shadow-lg hover:shadow-[#0F766E]/25 hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
                   >
                     Get Started
                     <FiArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
                     to="/projects"
-                    className="inline-flex items-center gap-2 px-5 py-3 border-2 border-[#0F766E] text-[#0F766E] text-sm font-medium rounded-lg hover:bg-[#0F766E] hover:text-white transition-all duration-300"
+                    className="inline-flex items-center gap-2 px-5 py-3 border-2 border-[#0F766E] text-[#0F766E] text-sm font-medium rounded-lg hover:bg-[#0F766E] hover:text-white transition-colors"
                   >
                     View Projects
                   </Link>
                 </div>
-              </FadeIn>
             </div>
 
             {/* Right - Hero Image */}
-            <FadeIn delay={300}>
-              <div className="relative">
-                <img 
-                  src={heroImage} 
-                  alt="DCintelix Digital Solutions" 
-                  className="w-full h-auto object-contain animate-[float_6s_ease-in-out_infinite]"
-                />
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-
-        {/* Statistics Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <FadeIn key={index} delay={600 + (index * 100)}>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F766E] mb-1">
-                    <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-xs md:text-sm text-[#64748B]">{stat.label}</div>
-                </div>
-              </FadeIn>
-            ))}
+            <div className="relative">
+              <img
+                src={heroImage}
+                alt="DCintelix Digital Solutions"
+                className="w-full h-auto object-contain"
+              />
+            </div>
           </div>
         </div>
 
@@ -276,12 +251,12 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={100}>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-3">
-                Comprehensive Digital Solutions
+                What We Actually Do
               </h2>
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
-                We offer end-to-end digital services tailored to your business needs.
+                Here's what we're good at. Real solutions, no buzzwords.
               </p>
             </FadeIn>
           </div>
@@ -306,18 +281,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Coming Soon Services */}
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-12">
+            <FadeIn>
+              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                Coming Soon
+              </span>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-3">
+                More Services On The Way
+              </h2>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
+                We're working on adding more services to help your business grow even more.
+              </p>
+            </FadeIn>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { icon: FiDatabase, title: 'Domain Registration' },
+              { icon: FiServer, title: 'Web Hosting' },
+              { icon: FiSettings, title: 'System Maintenance' },
+              { icon: FiTarget, title: 'Digital Marketing' },
+            ].map((service, index) => (
+              <FadeIn key={index} delay={index * 100}>
+                <Card className="h-full">
+                  <div className="w-10 h-10 bg-[#0F766E]/10 rounded-lg flex items-center justify-center mb-3">
+                    <service.icon className="w-5 h-5 text-[#0F766E]" />
+                  </div>
+                  <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
+                    Coming soon
+                  </p>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn>
-              <SectionHeading subtitle="Why Choose DCintelix">
-                Building Digital Products That Drive Business Growth
+              <SectionHeading subtitle="Why Work With Us">
+                We Build Digital Products That Actually Drive Results
               </SectionHeading>
               <p className="text-xs md:text-sm text-[#475569] mt-4 mb-6 leading-relaxed">
-                We combine years of experience with business understanding to deliver 
-                solutions that create real value. Our approach focuses on flexibility, 
-                reliability, and making things easy for users.
+                We're not here to just make things look pretty. We combine years of hands-on 
+                experience with a real understanding of how businesses work. Our approach? 
+                Keep things simple, make them work, and don't overcomplicate things.
               </p>
               <div className="space-y-3">
                 {features.map((feature, index) => (
@@ -361,7 +382,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 md:mb-10">
             <FadeIn>
               <SectionHeading subtitle="Our Work">
-                Featured Projects
+                Stuff We've Built
               </SectionHeading>
             </FadeIn>
             <FadeIn delay={100}>
@@ -479,17 +500,17 @@ export default function Home() {
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
               <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
-                Our Team
+                Meet The Team
               </span>
             </FadeIn>
             <FadeIn delay={100}>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-3">
-                Meet Our Team Members
+                The People Behind DCintelix
               </h2>
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
-                The talented people behind DCintelix who make it all possible.
+                Real people working on real solutions. That's us.
               </p>
             </FadeIn>
           </div>
@@ -508,14 +529,14 @@ export default function Home() {
                     height="160"
                   />
                   <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
-                    UI/UX Designer
+                    Creative Designer
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">
                     Gad
                   </h3>
                   <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
-                    A creative designer focused on crafting beautiful and intuitive user interfaces 
-                    that deliver exceptional user experiences.
+                    Gad brings designs to life that people actually enjoy using. 
+                    He cares about making things look good AND work well.
                   </p>
                 </div>
               </Card>

@@ -110,8 +110,8 @@ export default function Blogs() {
   return (
     <>
       <SEO 
-        title="Blog - Latest Insights"
-        description="Read the latest articles on web development, digital marketing, and business growth. DCintelix blog provides insights and tips for your business."
+        title="Blog - What We've Been Thinking"
+        description="Read about web development, digital marketing, and business stuff. Just our thoughts and experiences from building things."
         keywords="blog, articles, web development tips, digital marketing, business growth, technology insights"
         url="https://dcintelix.netlify.app/blogs"
       />
@@ -124,11 +124,11 @@ export default function Blogs() {
               Insights & News
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6">
-              Blogs
+              Our Blog
             </h1>
             <p className="text-lg text-[#475569] max-w-2xl">
-              Stay updated with the latest insights on web development, digital solutions, 
-              and technology trends.
+              Stuff we've been thinking about. Just some thoughts on building things, 
+              solving problems, and what we've learned along the way.
             </p>
           </FadeIn>
         </div>

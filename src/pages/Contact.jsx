@@ -116,8 +116,8 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us - Get in Touch"
-        description="Contact DCintelix for professional web development and digital solutions. Reach out for a free consultation and let's discuss your project."
+        title="Let's Chat - Contact Us"
+        description="Want to work together? Drop us a line. We'd love to hear about your project and see if we can help."
         keywords="contact DCintelix, web development inquiry, get a quote, digital agency contact, free consultation"
         url="https://dcintelix.netlify.app/contact"
       />
@@ -127,13 +127,14 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-3">
-              Contact Us
+              Let's Chat
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4">
               Get in Touch
             </h1>
             <p className="text-sm md:text-base text-[#475569] max-w-xl">
-              Have a project in mind? We'd love to hear from you. Let's discuss how we can help bring your vision to life.
+              Got a project in mind? Or just want to say hi? We'd love to hear from you. 
+              Drop us a line and let's see what we can do together.
             </p>
           </FadeIn>
         </div>
@@ -230,10 +231,12 @@ export default function Contact() {
                           className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:border-transparent transition-colors"
                         >
                           <option value="">Select</option>
-                          <option value="website">Website Creation</option>
-                          <option value="webapp">Online Tool</option>
-                          <option value="ecommerce">Online Store</option>
-                          <option value="mobile">Phone App</option>
+                          <option value="website">Website Design</option>
+                          <option value="webapp">Web Applications</option>
+                          <option value="ecommerce">E-commerce Development</option>
+                          <option value="mobile">Mobile Apps</option>
+                          <option value="logo">Logo Design</option>
+                          <option value="flyer">Flyer Design</option>
                           <option value="support">Support</option>
                           <option value="other">Other</option>
                         </select>
