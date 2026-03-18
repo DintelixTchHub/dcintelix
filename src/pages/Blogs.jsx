@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiSearch, FiCalendar, FiUser, FiClock, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
+import { FiArrowRight, FiSearch, FiCalendar, FiUser, FiClock, FiChevronLeft, FiChevronRight, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
+import { subscribeNewsletter, resetSubscribeStatus } from '../store/newsletterSlice'
+
+// API URL - Update this to your backend URL in production
+const API_URL = 'http://localhost:5000/api'
 
 const blogs = [
   {
@@ -97,6 +102,9 @@ export default function Blogs() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedBlog, setSelectedBlog] = useState(null)
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const dispatch = useDispatch()
+  const { subscribeStatus, subscribeError } = useSelector((state) => state.newsletter)
 
   const filteredBlogs = blogs.filter(blog => {
     const matchesCategory = activeCategory === 'All' || blog.category === activeCategory
@@ -106,6 +114,12 @@ export default function Blogs() {
   })
 
   const featuredBlog = blogs[0]
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault()
+    if (!newsletterEmail) return
+    dispatch(subscribeNewsletter(newsletterEmail))
+  }
 
   return (
     <>
@@ -341,16 +355,48 @@ export default function Blogs() {
               Subscribe to our newsletter for the latest insights on web development, 
               digital solutions, and technology trends.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-5 py-3 bg-[#F1F5F9] border-0 rounded-lg text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
-              />
-              <button className="px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors">
-                Subscribe
-              </button>
-            </div>
+            {subscribeStatus === 'succeeded' ? (
+              <div className="bg-[#14B8A6]/10 border border-[#14B8A6]/30 rounded-lg p-6 max-w-md mx-auto">
+                <FiCheck className="w-12 h-12 text-[#14B8A6] mx-auto mb-3" />
+                <h3 className="text-lg font-semibold text-[#0F172A] mb-2">
+                  Thanks for subscribing!
+                </h3>
+                <p className="text-[#475569]">
+                  You'll receive our latest updates in your inbox.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  required
+                  className="flex-1 px-5 py-3 bg-[#F1F5F9] border-0 rounded-lg text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                />
+                <button 
+                  type="submit"
+                  disabled={subscribeStatus === 'loading'}
+                  className="px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {subscribeStatus === 'loading' ? (
+                    <>
+                      <FiLoader className="w-4 h-4 animate-spin" />
+                      Subscribing...
+                    </>
+                  ) : (
+                    <>
+                      <FiSend className="w-4 h-4" />
+                      Subscribe
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+            {subscribeError && (
+              <p className="text-red-500 mt-4">{subscribeError}</p>
+            )}
           </FadeIn>
         </div>
       </section>

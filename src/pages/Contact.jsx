@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
-import emailjs from '@emailjs/browser'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
+import { submitContact, resetSubmitStatus } from '../store/contactSlice'
 
 const faqs = [
   {
@@ -28,11 +29,8 @@ const faqs = [
   },
 ]
 
-// Email configuration - Replace with your actual credentials
-// Get free credentials at https://www.emailjs.com/
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
+// API URL - Update this to your backend URL in production
+const API_URL = 'http://localhost:5000/api'
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
@@ -65,6 +63,8 @@ function FadeIn({ children, delay = 0, className = '' }) {
 
 export default function Contact() {
   const formRef = useRef()
+  const dispatch = useDispatch()
+  const { submitStatus, submitError } = useSelector((state) => state.contact)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -73,30 +73,10 @@ export default function Contact() {
     message: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState('')
   const [openFaq, setOpenFaq] = useState(null)
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitError('')
-
-    try {
-      // Send email using EmailJS
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY
-      )
+  useEffect(() => {
+    if (submitStatus === 'succeeded') {
       setIsSubmitted(true)
       setFormData({
         name: '',
@@ -105,12 +85,24 @@ export default function Contact() {
         subject: '',
         message: '',
       })
-    } catch (error) {
-      console.error('EmailJS Error:', error)
-      setSubmitError('Failed to send message. Please try again or email us directly.')
-    } finally {
-      setIsSubmitting(false)
     }
+  }, [submitStatus])
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(submitContact(formData))
+  }
+
+  const resetForm = () => {
+    setIsSubmitted(false)
+    dispatch(resetSubmitStatus())
   }
 
   return (
@@ -265,10 +257,10 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={submitStatus === 'loading'}
                       className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? (
+                      {submitStatus === 'loading' ? (
                         <>
                           <FiLoader className="w-4 h-4 animate-spin" />
                           Sending...

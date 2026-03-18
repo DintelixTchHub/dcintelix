@@ -14,7 +14,7 @@ function SEO({
   title = 'DCintelix - Digital Solutions for Your Business',
   description = 'DCintelix provides professional web development, digital marketing, and custom software solutions. Transform your business with our expert digital services.',
   keywords = 'web development, digital marketing, software solutions, custom websites, SEO, mobile apps, business solutions',
-  image = '/logo1.png',
+  image = '/logo1.webp',
   url = 'https://dcintelix.netlify.app/',
   type = 'website'
 }) {

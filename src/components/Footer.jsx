@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom'
-import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub } from 'react-icons/fi'
+import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
 import { useState } from 'react'
-import logo from "../assets/logo.png";
+import { useDispatch, useSelector } from 'react-redux'
+import logo from "../assets/logo.webp";
 import LegalModal from './LegalModal'
+import { subscribeNewsletter, resetSubscribeStatus } from '../store/newsletterSlice'
+
+// API URL - Update this to your backend URL in production
+const API_URL = 'http://localhost:5000/api'
 
 const quickLinks = [
   { name: 'Home', path: '/' },
@@ -21,6 +26,9 @@ const services = [
 
 export default function Footer() {
   const [legalModal, setLegalModal] = useState({ isOpen: false, type: 'privacy' })
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const dispatch = useDispatch()
+  const { subscribeStatus, subscribeError } = useSelector((state) => state.newsletter)
 
   const openLegalModal = (type) => {
     setLegalModal({ isOpen: true, type })
@@ -28,6 +36,17 @@ export default function Footer() {
 
   const closeLegalModal = () => {
     setLegalModal({ ...legalModal, isOpen: false })
+  }
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault()
+    if (!newsletterEmail) return
+    dispatch(subscribeNewsletter(newsletterEmail))
+  }
+
+  const resetNewsletter = () => {
+    setNewsletterEmail('')
+    dispatch(resetSubscribeStatus())
   }
 
   return (
@@ -51,6 +70,15 @@ export default function Footer() {
               Building smart digital solutions for businesses. We create professional websites, 
               Web Application, online stores, and phone apps that help businesses grow.
             </p>
+            {/* Registration Info */}
+            <div className="mb-6 p-3 bg-[#1E293B] rounded-lg">
+              <p className="text-[#14B8A6] text-sm font-medium mb-1">
+                DCintelix is Registered business in Rwanda
+              </p>
+              <p className="text-[#94A3B8] text-sm">
+                Enterprise Code (TIN): 156016068
+              </p>
+            </div>
             <div className="flex space-x-4">
               <a
                 href="#"
@@ -110,9 +138,48 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info & Newsletter */}
           <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start">
-            <h4 className="text-white font-semibold text-lg mb-6">Contact</h4>
+            <h4 className="text-white font-semibold text-lg mb-6">Stay Updated</h4>
+            
+            {/* Newsletter Form */}
+            <div className="w-full mb-6">
+              {subscribeStatus === 'succeeded' ? (
+                <div className="bg-[#14B8A6]/10 border border-[#14B8A6]/30 rounded-lg p-3 text-center">
+                  <FiCheck className="w-5 h-5 text-[#14B8A6] mx-auto mb-1" />
+                  <p className="text-[#14B8A6] text-sm">Thanks for subscribing!</p>
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+                  <div className="flex">
+                    <input
+                      type="email"
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      className="flex-1 px-3 py-2 text-sm bg-[#1E293B] border border-[#334155] rounded-l-lg text-white placeholder-[#64748B] focus:outline-none focus:border-[#14B8A6]"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      disabled={subscribeStatus === 'loading'}
+                      className="px-3 py-2 bg-[#14B8A6] text-white rounded-r-lg hover:bg-[#0D9488] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {subscribeStatus === 'loading' ? (
+                        <FiLoader className="w-5 h-5 animate-spin" />
+                      ) : (
+                        <FiSend className="w-5 h-5" />
+                      )}
+                    </button>
+                  </div>
+                  {subscribeError && (
+                    <p className="text-red-500 text-xs">{subscribeError}</p>
+                  )}
+                </form>
+              )}
+            </div>
+
+            <h4 className="text-white font-semibold text-lg mb-4">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <FiMail className="w-5 h-5 text-[#14B8A6] mt-0.5 flex-shrink-0" />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCheck, FiTarget, FiEye, FiAward, FiUsers, FiClock, FiShield, FiGlobe } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
-import founderImage from '../assets/pasport.png'
+import founderImage from '../assets/pasport.webp'
 
 const values = [
   {
@@ -141,19 +141,19 @@ export default function About() {
                 </SectionHeading>
                 <div className="mt-4 space-y-3 text-xs md:text-sm text-[#475569] leading-relaxed">
                   <p>
-                    DCintelix is a technology company focused on helping 
-                    businesses build strong digital products. We specialize in websites, 
-                    business tools, phone apps, and custom Web Application.
+                    DCintelix is a technology company focused on building modern digital solutions for businesses and organizations. We specialize in developing professional websites, web applications, ecommerce platforms, and custom software systems that help companies operate more efficiently in the digital world.
                   </p>
                   <p>
-                    Our approach combines years of experience with a deep understanding of 
-                    business needs. We create solutions that solve real problems and help 
-                    our clients succeed.
+                    Our goal is simple: to help businesses grow by providing reliable technology solutions that improve how they work, connect with customers, and deliver their services.
                   </p>
                   <p>
-                    Founded on principles of quality, reliability, and innovation, we 
-                    position ourselves as a trusted partner for businesses looking to 
-                    grow their digital presence.
+                    At DCintelix, we combine clean design, scalable technology, and practical problem-solving to create digital products that are both powerful and easy to use.
+                  </p>
+                  <p>
+                    In addition to client projects, we are also building our own digital platforms, including <strong>E-Curuza</strong>, a multivendor ecommerce marketplace designed to support online commerce and connect businesses with customers. E-Curuza is currently under development and not yet launched.
+                  </p>
+                  <p>
+                    As a registered technology company based in Kigali, Rwanda, DCintelix is committed to helping businesses succeed in the modern digital economy.
                   </p>
                 </div>
               </div>

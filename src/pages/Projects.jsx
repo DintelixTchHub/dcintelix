@@ -1,11 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox } from 'react-icons/fi'
+import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
+import ecuruza from "../assets/ecuruza.webp"
 
 const projects = [
-
+  {
+    id: 1,
+    title: 'E-Curuza',
+    category: 'E-commerce Development',
+    shortDescription: 'A multivendor ecommerce marketplace connecting businesses with customers. Coming soon!',
+    detailedDescription: 'E-Curuza is our own multivendor ecommerce marketplace platform currently under development. Designed to support online commerce and connect businesses with customers, this platform will provide a seamless shopping experience with multiple vendor support.',
+    tags: ['E-commerce', 'Marketplace', 'Multivendor', 'Coming Soon'],
+    image: 'https://ecuruza-staging.netlify.app/assets/logo2--MJbJbWy.png',
+    comingSoon: true,
+  },
   {
     id: 2,
     title: 'OldFox Tourism Platform',
@@ -166,11 +176,18 @@ export default function Projects() {
               <FadeIn key={project.id} delay={index * 100}>
                 <Card className="h-full flex flex-col" padding="none">
                   {/* Project Image */}
-                  <div className="h-48 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-xl flex items-center justify-center overflow-hidden">
-                    {project.image ? (
+                  <div className="h-48 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-xl flex items-center justify-center overflow-hidden relative">
+                    {project.comingSoon ? (
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
+                        <span className="text-3xl font-bold text-white/90 mb-2">E-Curuza</span>
+                        <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
+                          Coming Soon
+                        </span>
+                      </div>
+                    ) : typeof project.image === 'string' ? (
                       project.image.startsWith('data:') || project.image.startsWith('http') ? (
                         <img 
-                          src={project.image} 
+                          src={project.image}
                           alt={project.title} 
                           className="w-full h-full object-cover"
                         />
@@ -184,7 +201,11 @@ export default function Projects() {
                         />
                       )
                     ) : (
-                      <FiLayers className="w-16 h-16 text-[#0F766E]/30" />
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover"
+                      />
                     )}
                   </div>
                   
@@ -205,7 +226,7 @@ export default function Projects() {
                       onClick={() => setSelectedProject(project)}
                       className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
                     >
-                      View Details
+                      {project.comingSoon ? 'Learn More' : 'View Details'}
                       <FiArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -233,8 +254,15 @@ export default function Projects() {
             </button>
             
             {/* Modal Content */}
-            <div className="h-64 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-2xl flex items-center justify-center overflow-hidden">
-              {selectedProject.image ? (
+            <div className="h-64 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-2xl flex items-center justify-center overflow-hidden relative">
+              {selectedProject.comingSoon ? (
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
+                  <span className="text-4xl font-bold text-white/90 mb-2">E-Curuza</span>
+                  <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
+                    Coming Soon
+                  </span>
+                </div>
+              ) : typeof selectedProject.image === 'string' ? (
                 selectedProject.image.startsWith('data:') || selectedProject.image.startsWith('http') ? (
                   <img 
                     src={selectedProject.image} 
@@ -251,7 +279,11 @@ export default function Projects() {
                   />
                 )
               ) : (
-                <FiLayers className="w-20 h-20 text-[#0F766E]/30" />
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title} 
+                  className="w-full h-full object-cover"
+                />
               )}
             </div>
             
@@ -282,7 +314,7 @@ export default function Projects() {
                 onClick={() => setSelectedProject(null)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
               >
-                Start Similar Project
+                {selectedProject.comingSoon ? 'Stay Tuned' : 'Start Similar Project'}
                 <FiArrowRight className="w-4 h-4" />
               </Link>
             </div>

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
-import heroImage from '../assets/hero.png'
-import founderImage from '../assets/pasport.png'
-import gadImage from '../assets/Gad.png'
-import dannyImage from '../assets/danny.jpeg'
+import heroImage from '../assets/hero.webp'
+import founderImage from '../assets/pasport.webp'
+import gadImage from '../assets/Gad.webp'
+import dannyImage from '../assets/danny.webp'
 
 const services = [
   {
@@ -43,24 +43,24 @@ const services = [
 
 const features = [
   {
-    icon: FiLayers,
-    title: 'We Handle Everything',
-    description: 'From setting up your data to designing the interface—we take care of it all.',
+    icon: FiCode,
+    title: 'Modern and Scalable Technologies',
+    description: 'We build with the latest technologies that grow with your business.',
   },
   {
-    icon: FiShield,
-    title: 'Systems That Scale',
-    description: 'Built to grow with you, using solid engineering practices.',
-  },
-  {
-    icon: FiTrendingUp,
-    title: 'Real Business Solutions',
-    description: 'We build things that actually solve your problems.',
+    icon: FiImage,
+    title: 'Clean and Professional UI/UX Design',
+    description: 'User-friendly interfaces that look great and work seamlessly.',
   },
   {
     icon: FiClock,
-    title: 'On-Time, Every Time',
-    description: 'We deliver when we say we will—no excuses.',
+    title: 'Reliable Support and Maintenance',
+    description: 'Ongoing support to keep your systems running smoothly.',
+  },
+  {
+    icon: FiTarget,
+    title: 'Solutions Tailored for Businesses',
+    description: 'Custom solutions designed specifically for your business needs.',
   },
 ]
 
@@ -194,17 +194,11 @@ export default function Home() {
                 </span>
               
               <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                  We Build Digital Solutions That Actually Help Your Business Grow
+                  We build modern digital solutions for growing businesses.
                 </h1>
               
-              <p className="text-sm md:text-base text-[#475569] mb-3 leading-relaxed">
-                  At DCintelix, we create websites, online stores, and phone apps that work.
-                  No jargon, no fluff—just solid digital products that get results.
-                </p>
-              
-              <p className="text-xs md:text-sm text-[#64748B] mb-6 leading-relaxed">
-                  We believe in building things that are practical, reliable,
-                  and actually make your life easier.
+              <p className="text-sm md:text-base text-[#475569] mb-6 leading-relaxed">
+                  DCintelix is a technology company focused on building modern digital solutions for businesses and organizations. We specialize in developing professional websites, web applications, ecommerce platforms, and custom software systems that help companies operate more efficiently in the digital world.
                 </p>
               
               <div className="flex flex-wrap gap-3">
@@ -332,7 +326,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn>
-              <SectionHeading subtitle="Why Work With Us">
+              <SectionHeading subtitle="Why Choose DCintelix">
                 We Build Digital Products That Actually Drive Results
               </SectionHeading>
               <p className="text-xs md:text-sm text-[#475569] mt-4 mb-6 leading-relaxed">
