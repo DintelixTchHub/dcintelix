@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import logo from "../assets/logo.webp";
+import logo from "../assets/logo.png";
 import LegalModal from './LegalModal'
 import { subscribeNewsletter, resetSubscribeStatus } from '../store/newsletterSlice'
 

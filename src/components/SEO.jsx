@@ -11,11 +11,11 @@ import { useEffect } from 'react'
  * @param {string} props.type - OG type (website, article, etc.)
  */
 function SEO({ 
-  title = 'DCintelix - Digital Solutions for Your Business',
-  description = 'DCintelix provides professional web development, digital marketing, and custom software solutions. Transform your business with our expert digital services.',
-  keywords = 'web development, digital marketing, software solutions, custom websites, SEO, mobile apps, business solutions',
+  title = 'DCintelix - Expert Web Development & Digital Solutions in Rwanda',
+  description = 'DCintelix offers professional web development, mobile apps, SEO services, and digital marketing in Rwanda. Transform your business with expert custom software solutions.',
+  keywords = 'web development Rwanda, website design Rwanda, mobile app development, SEO services Rwanda, digital marketing Rwanda, custom software development, e-commerce solutions, ui/ux design',
   image = '/logo1.webp',
-  url = 'https://dcintelix.netlify.app/',
+  url = 'https://www.dcintelix.rw/',
   type = 'website'
 }) {
   const siteName = 'DCintelix'

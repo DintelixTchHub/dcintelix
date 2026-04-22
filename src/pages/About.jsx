@@ -83,7 +83,7 @@ export default function About() {
         title="About Us - Who We Are"
         description="Learn about DCintelix - we're a team that builds digital things that work. No jargon, just solid solutions for real business needs."
         keywords="about DCintelix, web development company, digital agency, our team, company mission, values"
-        url="https://dcintelix.netlify.app/about"
+        url="https://www.dcintelix.rw/about"
       />
       <div className="pt-16">
       {/* Page Header */}

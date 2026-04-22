@@ -111,7 +111,7 @@ export default function Contact() {
         title="Let's Chat - Contact Us"
         description="Want to work together? Drop us a line. We'd love to hear about your project and see if we can help."
         keywords="contact DCintelix, web development inquiry, get a quote, digital agency contact, free consultation"
-        url="https://dcintelix.netlify.app/contact"
+        url="https://www.dcintelix.rw/contact"
       />
       <div className="pt-16">
       {/* Page Header */}

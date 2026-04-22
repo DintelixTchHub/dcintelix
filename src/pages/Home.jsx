@@ -177,7 +177,7 @@ export default function Home() {
         title="DCintelix - Digital Solutions for Your Business"
         description="DCintelix provides professional web development, digital marketing, and custom software solutions. Transform your business with our expert digital services."
         keywords="web development, digital marketing, software solutions, custom websites, SEO, mobile apps, business solutions"
-        url="https://dcintelix.netlify.app/"
+        url="https://www.dcintelix.rw/"
       />
       <div className="pt-16">
       {/* Hero Section */}
@@ -194,11 +194,11 @@ export default function Home() {
                 </span>
               
               <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                  We build modern digital solutions for growing businesses.
+                  Your Vision, Our Digital Expertise.
                 </h1>
               
               <p className="text-sm md:text-base text-[#475569] mb-6 leading-relaxed">
-                  DCintelix is a technology company focused on building modern digital solutions for businesses and organizations. We specialize in developing professional websites, web applications, ecommerce platforms, and custom software systems that help companies operate more efficiently in the digital world.
+                  DCintelix transforms businesses through cutting-edge web solutions. We deliver professional websites, powerful web applications, scalable e-commerce platforms, and custom software that drive real growth and operational efficiency.
                 </p>
               
               <div className="flex flex-wrap gap-3">
@@ -454,23 +454,19 @@ export default function Home() {
             <FadeIn delay={200}>
               <div>
                 <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
-                  Founder & Business Leader
+                  Founder & Chief Executive Officer
                 </span>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-2">
                   Christian Dushime
                 </h2>
                 <p className="text-sm text-[#14B8A6] font-medium mb-4">
-                  Building solutions that matter
+                  Driving Innovation Through Technology
                 </p>
                 <p className="text-xs md:text-sm text-[#475569] mb-4 leading-relaxed">
-                  A technology specialist with strong experience in building Web Application 
-                  and applications. His work includes creating connections, server systems, 
-                  flexible platforms, and modern digital products.
+                  A visionary technology leader with extensive experience in building enterprise web applications and scalable systems. His expertise spans backend architecture, API development, cloud infrastructure, and delivering innovative digital solutions that transform businesses.
                 </p>
                 <p className="text-xs md:text-sm text-[#64748B] mb-5 leading-relaxed">
-                  He has worked on platforms for transportation, tourism, healthcare, 
-                  and content services. His leadership helps DCintelix deliver real results 
-                  for businesses.
+                  With a proven track record spanning transportation, tourism, healthcare, and content platforms, his strategic leadership guides DCintelix in delivering impactful solutions that help businesses achieve their goals.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['Web Development', 'Web Application', 'Data Systems', 'Cloud Services', 'User Interfaces'].map((tech) => (
@@ -523,14 +519,13 @@ export default function Home() {
                     height="160"
                   />
                   <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
-                    Creative Designer
+                    Senior UI/UX Designer
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">
                     Gad
                   </h3>
                   <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
-                    Gad brings designs to life that people actually enjoy using. 
-                    He cares about making things look good AND work well.
+                    Expertise in creating intuitive user interfaces and visually compelling designs that enhance user experience and engagement.
                   </p>
                 </div>
               </Card>
@@ -549,14 +544,13 @@ export default function Home() {
                     height="160"
                   />
                   <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
-                    Frontend Developer
+                    Senior Frontend Developer
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">
                     Danny
                   </h3>
                   <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
-                    A skilled frontend developer specializing in building responsive and 
-                    interactive web applications with modern frameworks.
+                    Expertise in building responsive, high-performance web applications using modern frameworks and best practices.
                   </p>
                 </div>
               </Card>

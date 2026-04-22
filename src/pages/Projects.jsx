@@ -125,7 +125,7 @@ export default function Projects() {
         title="Stuff We've Built - Our Work"
         description="Check out the projects we've worked on at DCintelix. From tourism platforms to healthcare apps, we build things that work."
         keywords="portfolio, web development projects, case studies, CoRoute, OldFox, TraumaHelp, custom websites"
-        url="https://dcintelix.netlify.app/projects"
+        url="https://www.dcintelix.rw/projects"
       />
       <div className="pt-16">
       {/* Page Header */}

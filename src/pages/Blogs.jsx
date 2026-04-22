@@ -127,7 +127,7 @@ export default function Blogs() {
         title="Blog - What We've Been Thinking"
         description="Read about web development, digital marketing, and business stuff. Just our thoughts and experiences from building things."
         keywords="blog, articles, web development tips, digital marketing, business growth, technology insights"
-        url="https://dcintelix.netlify.app/blogs"
+        url="https://www.dcintelix.rw/blogs"
       />
       <div className="pt-16">
       {/* Page Header */}
