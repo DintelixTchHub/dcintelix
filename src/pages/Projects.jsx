@@ -136,7 +136,7 @@ export default function Projects() {
               Our Work
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6">
-              Stuff We've Built
+              Our Projects
             </h1>
             <p className="text-lg text-[#475569] max-w-2xl">
               Here's a look at some of the projects we've worked on. Each one was built 
