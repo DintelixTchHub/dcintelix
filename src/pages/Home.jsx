@@ -12,7 +12,7 @@ const services = [
   {
     icon: FiGlobe,
     title: 'Website Design',
-    description: 'We build custom websites that actually look good and work smoothly—on any screen size.',
+    description: 'We build custom websites that actually look good and work smoothly on any screen size.',
   },
   {
     icon: FiCode,
@@ -90,19 +90,19 @@ const featuredProjects = [
 
 const testimonials = [
   {
-    quote: "DCintelix delivered a professional website that has significantly improved our online presence. The team was responsive and understood our business needs perfectly.",
-    author: "Sarah M.",
-    role: "Business Owner",
+    quote: "DCintelix did amazing work on our e-commerce website. Our online sales increased a lot within first month. They understand Rwanda market well and deliver what you need.",
+    author: "Mugisha Joseph",
+    role: "Owner, Kigali Fashion Hub",
   },
   {
-    quote: "Their technical expertise in backend systems is impressive. They built a scalable platform that handles our growing user base seamlessly.",
-    author: "James K.",
-    role: "Tech Startup Founder",
+    quote: "Working with DCintelix was great. They built custom booking system for our tours company that handles all our customers well. Professional team with good local support.",
+    author: "Mukamana Florence",
+    role: "Director, Rwanda Eco Tours",
   },
   {
-    quote: "Working with DCintelix was a great experience. They delivered our mobile app on time and the quality exceeded our expectations.",
-    author: "Michael R.",
-    role: "Entrepreneur",
+    quote: "They built healthcare platform that connects patients with therapists. System works very well and support is always available. I recommend DCintelix to any business in Rwanda.",
+    author: "Dr. Niyonkuru Pasteur",
+    role: "Founder, TraumaHelp Rwanda",
   },
 ]
 
@@ -376,7 +376,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 md:mb-10">
             <FadeIn>
               <SectionHeading subtitle="Our Work">
-                Stuff We've Built
+                Our Projects
               </SectionHeading>
             </FadeIn>
             <FadeIn delay={100}>
@@ -490,7 +490,7 @@ export default function Home() {
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
               <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
-                Meet The Team
+                Meet our Team
               </span>
             </FadeIn>
             <FadeIn delay={100}>
