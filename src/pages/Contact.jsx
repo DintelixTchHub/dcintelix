@@ -1,36 +1,34 @@
 import { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
+import { FiArrowRight, FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiLoader, FiHome, FiUsers, FiClock } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
-import { submitContact, resetSubmitStatus } from '../store/contactSlice'
+import { submitContact, resetSubmitStatus, updateFormData, resetFormData } from '../store/contactSlice'
 
 const faqs = [
   {
     question: "What services does DCintelix provide?",
-    answer: "We provide complete digital solutions including website creation, custom Web Application, online stores, phone apps, and ongoing support.",
+    answer: "We provide comprehensive digital solutions including custom website development, web application development, e-commerce platforms, mobile app development, and ongoing technical support.",
   },
   {
     question: "Do you build custom business websites?",
-    answer: "Yes, we specialize in building custom business websites tailored to your specific needs. Every website we create is unique and designed to reflect your brand and meet your business goals.",
+    answer: "Yes, we specialize in building custom business websites tailored to your specific requirements. Each website we create is uniquely designed to reflect your brand identity and achieve your business objectives.",
   },
   {
-    question: "Can you develop phone apps?",
-    answer: "Absolutely! We develop phone apps for iPhone and Android. Our apps are designed to provide great user experiences and work well with your existing systems.",
+    question: "Can you develop mobile applications?",
+    answer: "Absolutely! We develop native and cross-platform mobile applications for both iOS and Android. Our apps are designed to deliver exceptional user experiences while seamlessly integrating with your existing systems.",
   },
   {
-    question: "Do you redesign existing websites?",
-    answer: "Yes, we offer website redesign services. We can modernize your existing website, improve its functionality, make it easier to use, and ensure it works well on all devices.",
+    question: "Do you offer website redesign services?",
+    answer: "Yes, we provide comprehensive website redesign services. We can modernize your existing website, enhance its functionality, improve user experience, and ensure optimal performance across all devices.",
   },
   {
     question: "How can I start a project with DCintelix?",
-    answer: "Starting a project is easy! Simply contact us through this form, email, or phone. We'll schedule a chat to discuss your project needs, timeline, and budget. Then we'll provide a detailed proposal.",
+    answer: "Starting a project is straightforward. Simply contact us through this form, email, or phone. We'll schedule a consultation to discuss your project requirements, timeline, and budget before providing a detailed proposal.",
   },
 ]
 
-// API URL - Update this to your backend URL in production
-const API_URL = 'http://localhost:5000/api'
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
@@ -64,35 +62,21 @@ function FadeIn({ children, delay = 0, className = '' }) {
 export default function Contact() {
   const formRef = useRef()
   const dispatch = useDispatch()
-  const { submitStatus, submitError } = useSelector((state) => state.contact)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
+  const { submitStatus, submitError, formData } = useSelector((state) => state.contact)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
 
   useEffect(() => {
     if (submitStatus === 'succeeded') {
       setIsSubmitted(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      })
+      dispatch(resetFormData())
     }
-  }, [submitStatus])
+  }, [submitStatus, dispatch])
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    dispatch(updateFormData({
+      [e.target.name]: e.target.value
+    }))
   }
 
   const handleSubmit = (e) => {
@@ -103,14 +87,15 @@ export default function Contact() {
   const resetForm = () => {
     setIsSubmitted(false)
     dispatch(resetSubmitStatus())
+    dispatch(resetFormData())
   }
 
   return (
     <>
       <SEO 
-        title="Let's Chat - Contact Us"
-        description="Want to work together? Drop us a line. We'd love to hear about your project and see if we can help."
-        keywords="contact DCintelix, web development inquiry, get a quote, digital agency contact, free consultation"
+        title="Contact DCintelix - Get in Touch"
+        description="Contact DCintelix for professional web development, mobile apps, and digital solutions in Rwanda. Get a free consultation and quote within 24 hours."
+        keywords="contact DCintelix, web development inquiry, get a quote, digital agency contact, free consultation, Rwanda web development"
         url="https://www.dcintelix.rw/contact"
       />
       <div className="pt-16">
@@ -119,14 +104,14 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-3">
-              Let's Chat
+              Contact Us
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4">
-              Get in Touch
+              Let's Discuss Your Project
             </h1>
             <p className="text-sm md:text-base text-[#475569] max-w-xl">
-              Got a project in mind? Or just want to say hi? We'd love to hear from you. 
-              Drop us a line and let's see what we can do together.
+              Whether you have a specific project in mind or simply want to explore possibilities, 
+              we'd love to hear from you. Reach out today for a free consultation.
             </p>
           </FadeIn>
         </div>
@@ -136,6 +121,57 @@ export default function Contact() {
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+            {/* Office Image / Visual */}
+            <FadeIn>
+              <div className="space-y-6">
+                {/* Office image placeholder */}
+                <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
+                  <div className="h-64 md:h-80 bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center">
+                    {/* Decorative elements */}
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="absolute top-10 left-10 w-32 h-32 bg-[#14B8A6] rounded-full blur-3xl"></div>
+                      <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#0F766E] rounded-full blur-3xl"></div>
+                    </div>
+                    
+                    {/* Office content illustration */}
+                    <div className="relative z-10 text-center text-white px-4">
+                      <FiHome className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 text-[#14B8A6]" />
+                      <h3 className="text-lg md:text-xl font-bold mb-2">DCintelix Kigali</h3>
+                      <p className="text-sm text-white/80 max-w-md mx-auto">
+                        Our headquarters in the heart of Kigali, Rwanda
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Location badge */}
+                  <div className="absolute bottom-4 right-4 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                    <div className="flex items-center gap-2 text-white text-xs">
+                      <FiMapPin className="w-3.5 h-3.5" />
+                      <span>Kigali, Rwanda</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick stats */}
+                <div className="grid grid-cols-2 gap-4">
+                  <Card className="p-4 text-center">
+                    <div className="w-10 h-10 bg-[#0F766E]/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <FiClock className="w-5 h-5 text-[#0F766E]" />
+                    </div>
+                    <h4 className="text-sm font-semibold text-[#0F172A] mb-1">24/7 Support</h4>
+                    <p className="text-xs text-[#64748B]">Always here to help</p>
+                  </Card>
+                  <Card className="p-4 text-center">
+                    <div className="w-10 h-10 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <FiUsers className="w-5 h-5 text-[#14B8A6]" />
+                    </div>
+                    <h4 className="text-sm font-semibold text-[#0F172A] mb-1">Expert Team</h4>
+                    <p className="text-xs text-[#64748B]">Skilled professionals</p>
+                  </Card>
+                </div>
+              </div>
+            </FadeIn>
+
             {/* Contact Form */}
             <FadeIn>
               <div>
@@ -341,18 +377,18 @@ export default function Contact() {
                   </Card>
 
                   <Card className="p-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#F59E0B]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <FiMapPin className="w-5 h-5 text-[#F59E0B]" />
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-medium text-[#0F172A] mb-0.5">Location</h4>
-                        <p className="text-xs text-[#475569]">
-                          Kigali, Rwanda
-                        </p>
-                      </div>
-                    </div>
-                  </Card>
+  <div className="flex items-start gap-3">
+    <div className="w-10 h-10 bg-[#F59E0B]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+      <FiMapPin className="w-5 h-5 text-[#F59E0B]" />
+    </div>
+    <div>
+      <h4 className="text-xs font-medium text-[#0F172A] mb-0.5">Location</h4>
+      <p className="text-xs text-[#475569]">
+        KG 1975 St, Kigali, Rwanda
+      </p>
+    </div>
+  </div>
+</Card>
                 </div>
 
                 {/* Map placeholder */}
@@ -427,18 +463,27 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Ready to Start Your Project?
+              Ready to Transform Your Business?
             </h2>
             <p className="text-sm text-white/80 mb-6 max-w-xl mx-auto">
-              Let's discuss your project and create something amazing together.
+              Let's discuss your project and create something amazing together. Get a free consultation and quote within 24 hours.
             </p>
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0F766E] text-sm font-semibold rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-lg"
-            >
-              View Our Work
-              <FiArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0F766E] text-sm font-semibold rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-lg"
+              >
+                Get Free Quote
+                <FiArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:+250789356233"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-white text-white text-sm font-semibold rounded-lg hover:bg-white/10 transition-all duration-200"
+              >
+                Call Now
+                <FiPhone className="w-4 h-4" />
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

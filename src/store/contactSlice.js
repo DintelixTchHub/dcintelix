@@ -78,6 +78,13 @@ const contactSlice = createSlice({
     submitError: null,
     replyStatus: 'idle',
     replyError: null,
+    formData: {
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    }
   },
   reducers: {
     resetSubmitStatus: (state) => {
@@ -91,6 +98,18 @@ const contactSlice = createSlice({
       state.replyStatus = 'idle';
       state.replyError = null;
     },
+    updateFormData: (state, action) => {
+      state.formData = { ...state.formData, ...action.payload };
+    },
+    resetFormData: (state) => {
+      state.formData = {
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      };
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -136,5 +155,5 @@ const contactSlice = createSlice({
   },
 });
 
-export const { resetSubmitStatus, clearSelectedContact, resetReplyStatus } = contactSlice.actions;
+export const { resetSubmitStatus, clearSelectedContact, resetReplyStatus, updateFormData, resetFormData } = contactSlice.actions;
 export default contactSlice.reducer;

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock } from 'react-icons/fi'
+import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock, FiExternalLink, FiGithub } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 import ecuruza from "../assets/ecuruza.webp"
@@ -69,6 +69,33 @@ const projects = [
     detailedDescription: 'A weather app that gives real-time forecasts with themes that automatically adjust between day and night modes.',
     tags: ['Phone App', 'Weather', 'Live Updates', 'Auto Theme'],
     image: 'data:image/jpeg;base64,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',
+  },
+  {
+    id: 8,
+    title: 'Moor Logo Design',
+    category: 'Logo Design',
+    shortDescription: 'A clean, modern logo design featuring bold typography and minimalist aesthetics.',
+    detailedDescription: 'Custom logo design created for Moor brand, focusing on simplicity and memorability. The design uses strong geometric shapes and a refined color palette to create a professional and timeless brand identity.',
+    tags: ['Logo Design', 'Brand Identity', 'Minimalist', 'Vector Art'],
+    image: 'moor logo.png',
+  },
+  {
+    id: 9,
+    title: 'Moor Harry Character Design',
+    category: 'Logo Design',
+    shortDescription: 'Unique character-based logo design bringing personality and charm to the brand.',
+    detailedDescription: 'A custom character logo design for Moor Harry, combining playful elements with professional execution. This design adds a friendly, approachable face to the brand while maintaining visual consistency across all touchpoints.',
+    tags: ['Character Design', 'Logo Design', 'Illustration', 'Brand Identity'],
+    image: 'moor harry.png',
+  },
+  {
+    id: 10,
+    title: 'Moor Hall Branding Package',
+    category: 'Logo Design',
+    shortDescription: 'Comprehensive branding solution including logo, color scheme, and visual guidelines.',
+    detailedDescription: 'Complete branding package for Moor Hall, delivering a cohesive visual identity system. Includes primary and secondary logo variations, color palette, typography guidelines, and brand application examples for consistent brand representation.',
+    tags: ['Branding', 'Logo Design', 'Visual Identity', 'Brand Guidelines'],
+    image: 'moor hall branding.png',
   },
 ]
 
@@ -171,69 +198,110 @@ export default function Projects() {
       {/* Projects Grid */}
       <section className="py-20 lg:py-28 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <FadeIn key={project.id} delay={index * 100}>
-                <Card className="h-full flex flex-col" padding="none">
-                  {/* Project Image */}
-                  <div className="h-48 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-xl flex items-center justify-center overflow-hidden relative">
-                    {project.comingSoon ? (
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
-                        <span className="text-3xl font-bold text-white/90 mb-2">E-Curuza</span>
-                        <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
-                          Coming Soon
+          {filteredProjects.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProjects.map((project, index) => (
+                <FadeIn key={project.id} delay={index * 100}>
+                  <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-all duration-300" padding="none">
+                    {/* Project Image */}
+                    <div className="h-52 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-xl flex items-center justify-center overflow-hidden relative">
+                      {project.comingSoon ? (
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
+                          <span className="text-3xl font-bold text-white/90 mb-2">E-Curuza</span>
+                          <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
+                            Coming Soon
+                          </span>
+                        </div>
+                      ) : typeof project.image === 'string' ? (
+                        project.image.startsWith('data:') || project.image.startsWith('http') ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                        ) : project.image === 'karykelly' ? (
+                          <FiLayers className="w-16 h-16 text-[#0F766E]/30" />
+                        ) : (
+                          <img
+                            src={`/src/assets/${project.image}`}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        )
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      )}
+                      
+                      {/* Category badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#0F766E] text-xs font-medium rounded-full">
+                          {project.category}
                         </span>
                       </div>
-                    ) : typeof project.image === 'string' ? (
-                      project.image.startsWith('data:') || project.image.startsWith('http') ? (
-                        <img 
-                          src={project.image}
-                          alt={project.title} 
-                          className="w-full h-full object-cover"
-                        />
-                      ) : project.image === 'karykelly' ? (
-                        <FiLayers className="w-16 h-16 text-[#0F766E]/30" />
-                      ) : (
-                        <img 
-                          src={`/src/assets/${project.image}`} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover"
-                        />
-                      )
-                    ) : (
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover"
-                      />
-                    )}
-                  </div>
-                  
-                  {/* Project Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="text-xs text-[#14B8A6] font-medium uppercase tracking-wider mb-2">
-                      {project.category}
                     </div>
-                    <h3 className="text-lg font-semibold text-[#0F172A] mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-[#64748B] mb-4 flex-1">
-                      {project.shortDescription}
-                    </p>
                     
-                    {/* View Button */}
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
-                    >
-                      {project.comingSoon ? 'Learn More' : 'View Details'}
-                      <FiArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
+                    {/* Project Content */}
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-lg font-semibold text-[#0F172A] mb-2 group-hover:text-[#0F766E] transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-[#64748B] mb-4 flex-1">
+                        {project.shortDescription}
+                      </p>
+                      
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="px-2 py-1 bg-[#F1F5F9] text-[#64748B] text-xs rounded-md"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* View Button */}
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="mt-auto inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
+                      >
+                        {project.comingSoon ? 'Learn More' : 'View Details'}
+                        <FiArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </Card>
+                </FadeIn>
+              ))}
+            </div>
+          ) : (
+            <FadeIn>
+              <div className="flex flex-col items-center justify-center py-20 text-center">
+                <div className="w-24 h-24 bg-[#F1F5F9] rounded-full flex items-center justify-center mb-6">
+                  <FiLayers className="w-10 h-10 text-[#94A3B8]" />
+                </div>
+                <h3 className="text-2xl font-semibold text-[#0F172A] mb-3">
+                  No Projects in This Category
+                </h3>
+                <p className="text-[#64748B] max-w-md mb-8">
+                  We haven't completed any projects in {activeCategory} yet, but we're always expanding our expertise.
+                  Let us know if you have a project in this area – we'd love to help!
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
+                >
+                  Discuss Your Project
+                  <FiArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </FadeIn>
+          )}
         </div>
       </section>
 
@@ -264,10 +332,11 @@ export default function Projects() {
                 </div>
               ) : typeof selectedProject.image === 'string' ? (
                 selectedProject.image.startsWith('data:') || selectedProject.image.startsWith('http') ? (
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title} 
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 ) : selectedProject.image === 'karykelly' ? (
                   <FiLayers className="w-20 h-20 text-[#0F766E]/30" />

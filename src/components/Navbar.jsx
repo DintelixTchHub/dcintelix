@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
+import { FiMenu, FiX, FiArrowRight, FiPhone } from "react-icons/fi";
 import logo from "../assets/logo.png";
 
 const navLinks = [
@@ -45,6 +45,9 @@ export default function Navbar() {
                 src={logo}
                 alt="DCintelix Digital Solutions"
                 className="w-full h-28 object-contain hover:animate-pulse transition-transform duration-300 hover:scale-105 animate-[float_6s_ease-in-out_infinite]"
+                loading="eager"
+                width="200"
+                height="28"
               />
             </div>
           </Link>
@@ -67,7 +70,14 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:+250789356233"
+              className="flex items-center gap-2 text-sm text-[#475569] hover:text-[#0F766E] transition-colors"
+            >
+              <FiPhone className="w-4 h-4" />
+              <span>+250 789 356 233</span>
+            </a>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-200 hover:shadow-lg hover:shadow-[#0F766E]/20"

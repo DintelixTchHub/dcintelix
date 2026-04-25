@@ -1,66 +1,77 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget, FiMonitor } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 import heroImage from '../assets/hero.webp'
 import founderImage from '../assets/pasport.webp'
 import gadImage from '../assets/Gad.webp'
 import dannyImage from '../assets/danny.webp'
+import ecuruzaImage from '../assets/ecuruza.webp'
+
+// Image optimization: Add loading strategies
+const LAZY_LOAD = 'lazy'
+const EAGER_LOAD = 'eager'
 
 const services = [
   {
     icon: FiGlobe,
     title: 'Website Design',
-    description: 'We build custom websites that actually look good and work smoothly on any screen size.',
+    description: 'Custom, responsive websites built with modern technologies to establish your online presence and engage your audience.',
+    color: 'from-[#0F766E] to-[#14B8A6]',
   },
   {
     icon: FiCode,
     title: 'Web Applications',
-    description: 'Custom web apps built specifically for what your business needs.',
+    description: 'Scalable, secure web applications tailored to streamline your business operations and enhance productivity.',
+    color: 'from-[#6366F1] to-[#8B5CF6]',
   },
   {
     icon: FiShoppingCart,
     title: 'E-commerce Development',
-    description: 'Online stores that help you sell more without the headache.',
+    description: 'Feature-rich online stores with seamless checkout, inventory management, and payment gateway integration.',
+    color: 'from-[#F59E0B] to-[#EF4444]',
   },
   {
     icon: FiSmartphone,
     title: 'Mobile Apps',
-    description: 'Apps for iPhone and Android that your customers will actually want to use.',
+    description: 'Native and cross-platform mobile applications for iOS and Android that deliver exceptional user experiences.',
+    color: 'from-[#14B8A6] to-[#0F766E]',
   },
   {
     icon: FiImage,
-    title: 'Logo Design',
-    description: 'Unique logos that represent your brand and make you stand out.',
+    title: 'Logo & Branding',
+    description: 'Professional brand identity design that captures your company values and resonates with your target market.',
+    color: 'from-[#EC4899] to-[#F43F5E]',
   },
   {
     icon: FiBox,
-    title: 'Flyer Design',
-    description: 'Eye-catching flyers and promotional materials for your business.',
+    title: 'Marketing Materials',
+    description: 'Eye-catching promotional materials designed to effectively communicate your brand message and attract customers.',
+    color: 'from-[#0F766E] to-[#6366F1]',
   },
 ]
 
 const features = [
   {
     icon: FiCode,
-    title: 'Modern and Scalable Technologies',
-    description: 'We build with the latest technologies that grow with your business.',
+    title: 'Modern & Scalable Technologies',
+    description: 'We build with the latest technologies that grow with your business and ensure long-term sustainability.',
   },
   {
     icon: FiImage,
-    title: 'Clean and Professional UI/UX Design',
-    description: 'User-friendly interfaces that look great and work seamlessly.',
+    title: 'Clean & Professional UI/UX Design',
+    description: 'User-friendly interfaces designed to enhance user experience and maximize engagement.',
   },
   {
     icon: FiClock,
-    title: 'Reliable Support and Maintenance',
-    description: 'Ongoing support to keep your systems running smoothly.',
+    title: 'Reliable Support & Maintenance',
+    description: 'Ongoing support and maintenance to ensure your systems operate flawlessly at all times.',
   },
   {
     icon: FiTarget,
-    title: 'Solutions Tailored for Businesses',
-    description: 'Custom solutions designed specifically for your business needs.',
+    title: 'Business-Tailored Solutions',
+    description: 'Custom solutions designed specifically to address your unique business challenges and goals.',
   },
 ]
 
@@ -77,30 +88,30 @@ const featuredProjects = [
     title: 'OldFox Tourism Platform',
     category: 'Online Platform',
     description: 'A travel and tourism service with booking features and easy-to-use tools.',
-    image: 'https://www.oldfoxtours.com/assets/logo-CcAoAWD-.jpg',
+    image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
   },
   {
     id: 3,
     title: 'TraumaHelp Rwanda Platform',
     category: 'Healthcare Tool',
     description: 'A secure service for therapists and patients to communicate, book appointments, and share documents.',
-    image: 'https://thr.org.rw/assets/logo-tD9r3Hdz.png',
+    image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
   },
 ]
 
 const testimonials = [
   {
-    quote: "DCintelix did amazing work on our e-commerce website. Our online sales increased a lot within first month. They understand Rwanda market well and deliver what you need.",
+    quote: "DCintelix delivered an exceptional e-commerce website that significantly boosted our online sales within the first month. Their deep understanding of the Rwanda market combined with technical expertise resulted in a platform that perfectly meets our business needs.",
     author: "Mugisha Joseph",
     role: "Owner, Kigali Fashion Hub",
   },
   {
-    quote: "Working with DCintelix was great. They built custom booking system for our tours company that handles all our customers well. Professional team with good local support.",
+    quote: "Working with DCintelix was a seamless experience. They developed a custom booking system for our tourism company that efficiently handles all customer operations. The team demonstrated professionalism throughout the project with excellent local support.",
     author: "Mukamana Florence",
     role: "Director, Rwanda Eco Tours",
   },
   {
-    quote: "They built healthcare platform that connects patients with therapists. System works very well and support is always available. I recommend DCintelix to any business in Rwanda.",
+    quote: "They built a comprehensive healthcare platform that connects therapists with patients seamlessly. The system functions flawlessly and the ongoing support has been outstanding. I highly recommend DCintelix to any business in Rwanda seeking quality digital solutions.",
     author: "Dr. Niyonkuru Pasteur",
     role: "Founder, TraumaHelp Rwanda",
   },
@@ -181,57 +192,113 @@ export default function Home() {
       />
       <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFC] to-white py-14 md:py-20 lg:py-24">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmMWY1YzkiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-white to-[#F0FDFA] py-14 md:py-20 lg:py-24">
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmMWY1YzkiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+          
+           {/* Floating Orbs */}
+           <div className="absolute top-20 left-10 w-72 h-72 bg-[#0F766E]/5 rounded-full blur-3xl animate-pulse"></div>
+           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#14B8A6]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F59E0B]/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - Hero Content */}
             <div className="max-w-2xl">
-              <span className="inline-block px-3 py-1.5 bg-[#0F766E]/10 text-[#0F766E] text-xs font-medium rounded-full mb-4">
+              <FadeIn>
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E]/10 text-[#0F766E] text-sm font-semibold rounded-full mb-6">
+                  <span className="w-2 h-2 bg-[#0F766E] rounded-full animate-pulse"></span>
                   Digital Solutions Company
                 </span>
+              </FadeIn>
               
-              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                  Your Vision, Our Digital Expertise.
+              <FadeIn delay={100}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F172A] leading-tight mb-6">
+                  Your Vision,{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F766E] to-[#14B8A6]">
+                    Our Digital Expertise.
+                  </span>
                 </h1>
+              </FadeIn>
               
-              <p className="text-sm md:text-base text-[#475569] mb-6 leading-relaxed">
+              <FadeIn delay={200}>
+                <p className="text-base md:text-lg text-[#475569] mb-8 leading-relaxed max-w-xl">
                   DCintelix transforms businesses through cutting-edge web solutions. We deliver professional websites, powerful web applications, scalable e-commerce platforms, and custom software that drive real growth and operational efficiency.
                 </p>
+              </FadeIn>
               
-              <div className="flex flex-wrap gap-3">
+              <FadeIn delay={300}>
+                <div className="flex flex-wrap gap-4">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0F766E] text-white text-base font-semibold rounded-xl hover:bg-[#0D6D63] transition-all duration-300 hover:shadow-lg hover:shadow-[#0F766E]/25 hover:-translate-y-0.5"
                   >
                     Get Started
-                    <FiArrowRight className="w-4 h-4" />
+                    <FiArrowRight className="w-5 h-5" />
                   </Link>
                   <Link
                     to="/projects"
-                    className="inline-flex items-center gap-2 px-5 py-3 border-2 border-[#0F766E] text-[#0F766E] text-sm font-medium rounded-lg hover:bg-[#0F766E] hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 border-2 border-[#E2E8F0] text-[#0F172A] text-base font-semibold rounded-xl hover:border-[#0F766E] hover:text-[#0F766E] transition-all duration-300"
                   >
                     View Projects
                   </Link>
                 </div>
+              </FadeIn>
+
+              {/* Trust Indicators */}
+              <FadeIn delay={400}>
+                <div className="flex items-center gap-6 mt-10 pt-8 border-t border-[#E2E8F0]">
+                  <div className="flex -space-x-3">
+                    {[founderImage, gadImage, dannyImage, ecuruzaImage].map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        alt="Team member"
+                        className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                      />
+                    ))}
+                  </div>
+                  <div>
+                    {/* <p className="text-sm font-semibold text-[#0F172A]">Trusted by 50+ Businesses</p>
+                    <p className="text-xs text-[#64748B]">Across Rwanda and beyond</p> */}
+                  </div>
+                </div>
+              </FadeIn>
             </div>
 
-            {/* Right - Hero Image */}
+            {/* Right - Hero Image with floating elements */}
             <div className="relative">
-              <img
-                src={heroImage}
-                alt="DCintelix Digital Solutions"
-                className="w-full h-auto object-contain"
-              />
+              <FadeIn delay={200}>
+                <div className="relative">
+                  {/* Main Image */}
+                  <img
+                    src={heroImage}
+                    alt="DCintelix Digital Solutions"
+                    className="w-full h-auto object-contain relative z-10"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                  
+                
+                </div>
+              </FadeIn>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-2xl opacity-20 rotate-12"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#F59E0B] to-[#EF4444] rounded-2xl opacity-20 -rotate-12"></div>
             </div>
           </div>
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-1/4 -right-16 md:-right-20 w-48 md:w-64 lg:w-80 h-48 md:h-64 lg:h-80 bg-[#14B8A6]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -left-16 md:-left-20 w-40 md:w-48 lg:w-60 h-40 md:h-48 lg:h-60 bg-[#F59E0B]/10 rounded-full blur-3xl"></div>
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 50C120 30 240 60 360 50C480 40 600 20 720 30C840 40 960 60 1080 50C1200 40 1320 20 1440 50V100H0V50Z" fill="white"/>
+          </svg>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -245,12 +312,12 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={100}>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-3">
-                What We Actually Do
+                Comprehensive Digital Solutions
               </h2>
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
-                Here's what we're good at. Real solutions, no buzzwords.
+                We deliver end-to-end digital services tailored to transform your business and drive measurable results.
               </p>
             </FadeIn>
           </div>
@@ -258,22 +325,93 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {services.map((service, index) => (
               <FadeIn key={index} delay={index * 100}>
-                <Card className="h-full">
-                  <div className="w-10 h-10 bg-[#0F766E]/10 rounded-lg flex items-center justify-center mb-3">
-                    <service.icon className="w-5 h-5 text-[#0F766E]" />
+                <Card className="h-full overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+                  {/* Service Image/Illustration Area */}
+                  <div className={`h-32 bg-gradient-to-br ${service.color} rounded-t-lg flex items-center justify-center relative overflow-hidden`}>
+                    {/* Decorative pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-4 right-4 w-16 h-16 bg-white rounded-full"></div>
+                      <div className="absolute bottom-0 left-0 w-12 h-12 bg-white rounded-full"></div>
+                    </div>
+                    <service.icon className="w-12 h-12 md:w-16 md:h-16 text-white relative z-10" />
                   </div>
-                  <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
-                    {service.description}
-                  </p>
+                  
+                  {/* Service Content */}
+                  <div className="p-4 md:p-5">
+                    <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
                 </Card>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
+
+       {/* Trusted By / Clients Section - Marquee */}
+       <section className="py-8 md:py-12 bg-white border-y border-[#E2E8F0]">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-8">
+             <FadeIn>
+               <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                 Trusted By
+               </span>
+             </FadeIn>
+             <FadeIn delay={100}>
+               <h2 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">
+                 Companies & Organizations We've Worked With
+               </h2>
+             </FadeIn>
+           </div>
+
+           <FadeIn delay={200}>
+             <div className="marquee-container">
+               <div className="marquee-content">
+                 {/* First set of clients */}
+                 {[
+                   'Kigali Fashion Hub',
+                   'Rwanda Eco Tours',
+                   'TraumaHelp Rwanda',
+                   'OldFox Tours',
+                   'E-Curuza',
+                   'Local Businesses',
+                 ].map((client, index) => (
+                   <div
+                     key={index}
+                     className="marquee-item h-16 md:h-20 bg-gradient-to-r from-[#F8FAFC] to-[#E2E8F0] rounded-lg flex items-center justify-center px-4 hover:from-[#0F766E]/5 hover:to-[#14B8A6]/5 transition-colors"
+                   >
+                     <span className="text-xs md:text-sm font-medium text-[#64748B] text-center">
+                       {client}
+                     </span>
+                   </div>
+                 ))}
+                 {/* Duplicate set for seamless loop */}
+                 {[
+                   'Kigali Fashion Hub',
+                   'Rwanda Eco Tours',
+                   'TraumaHelp Rwanda',
+                   'OldFox Tours',
+                   'E-Curuza',
+                   'Local Businesses',
+                 ].map((client, index) => (
+                   <div
+                     key={`dup-${index}`}
+                     className="marquee-item h-16 md:h-20 bg-gradient-to-r from-[#F8FAFC] to-[#E2E8F0] rounded-lg flex items-center justify-center px-4 hover:from-[#0F766E]/5 hover:to-[#14B8A6]/5 transition-colors"
+                   >
+                     <span className="text-xs md:text-sm font-medium text-[#64748B] text-center">
+                       {client}
+                     </span>
+                   </div>
+                 ))}
+               </div>
+             </div>
+           </FadeIn>
+         </div>
+       </section>
 
       {/* Coming Soon Services */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
@@ -330,19 +468,19 @@ export default function Home() {
                 We Build Digital Products That Actually Drive Results
               </SectionHeading>
               <p className="text-xs md:text-sm text-[#475569] mt-4 mb-6 leading-relaxed">
-                We're not here to just make things look pretty. We combine years of hands-on 
-                experience with a real understanding of how businesses work. Our approach? 
+                We're not here to just make things look pretty. We combine years of hands-on
+                experience with a real understanding of how businesses work. Our approach?
                 Keep things simple, make them work, and don't overcomplicate things.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-[#14B8A6]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <FiCheck className="w-3 h-3 text-[#14B8A6]" />
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F8FAFC] transition-colors">
+                    <div className="w-6 h-6 bg-[#14B8A6] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <FiCheck className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-xs md:text-sm font-medium text-[#0F172A]">{feature.title}</h4>
-                      <p className="text-xs text-[#64748B] hidden md:block">{feature.description}</p>
+                      <h4 className="text-xs md:text-sm font-semibold text-[#0F172A] mb-1">{feature.title}</h4>
+                      <p className="text-xs text-[#64748B]">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -351,19 +489,35 @@ export default function Home() {
 
             <FadeIn delay={200}>
               <div className="relative">
-                <div className="bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-xl md:rounded-2xl p-5 md:p-8 text-white">
-                  <div className="grid grid-cols-2 gap-3 md:gap-6">
-                    {features.map((feature, index) => (
-                      <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4">
-                        <feature.icon className="w-6 h-6 md:w-8 md:h-8 mb-2" />
-                        <h4 className="text-xs font-medium">{feature.title}</h4>
+                {/* Main visual - illustration of development process */}
+                <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
+                  <div className="h-80 bg-gradient-to-br from-[#0F766E] via-[#14B8A6] to-[#0F766E] p-6 md:p-8 flex items-center justify-center">
+                    {/* Decorative elements */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-2xl"></div>
+                      <div className="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-2xl"></div>
+                    </div>
+                    
+                    {/* Central graphic */}
+                    <div className="relative z-10 text-center text-white">
+                      <div className="w-24 h-24 md:w-32 md:h-32 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                        <FiCode className="w-12 h-12 md:w-16 md:h-16" />
                       </div>
-                    ))}
+                      <h3 className="text-lg md:text-xl font-bold mb-2">Quality Code</h3>
+                      <p className="text-sm text-white/80 max-w-xs mx-auto">
+                        Clean, maintainable, and scalable solutions
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Floating badges */}
+                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#F59E0B] rounded-xl flex items-center justify-center shadow-lg">
+                    <FiShield className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#6366F1] rounded-xl flex items-center justify-center shadow-lg">
+                    <FiTrendingUp className="w-8 h-8 text-white" />
                   </div>
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-3 -right-3 w-16 h-16 md:w-20 md:h-20 bg-[#F59E0B]/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-3 -left-3 w-20 h-20 md:w-24 md:h-24 bg-[#14B8A6]/20 rounded-full blur-xl"></div>
               </div>
             </FadeIn>
           </div>

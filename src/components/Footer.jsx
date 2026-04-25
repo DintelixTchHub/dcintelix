@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
+import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader, FiInstagram, FiFacebook } from 'react-icons/fi'
+import { FaTiktok } from 'react-icons/fa'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from "../assets/logo.png";
@@ -58,48 +59,60 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1 lg:col-span-1">
                {/* Logo */}
                      <Link to="/" className="flex items-center space-x-2 ">
-                       <div className="w-[150px] h-8  rounded-full flex items-center justify-center bg-white">
+                       <div className="w-[160px] h-12 flex items-center justify-center">
                          <img
                            src={logo}
                            alt="DCintelix Digital Solutions"
-                           className="w-full h-28 object-contain "
+                           className="w-full h-full object-contain "
                          />
                        </div>
                      </Link>
             <p className="text-[#94A3B8] text-sm leading-relaxed mb-6">
-              Building smart digital solutions for businesses. We create professional websites, 
-              Web Application, online stores, and phone apps that help businesses grow.
+              Leading digital solutions provider in Rwanda. We deliver professional websites, 
+              custom web applications, e-commerce platforms, and mobile apps that drive business growth.
             </p>
-            {/* Registration Info */}
-            <div className="mb-6 p-3 bg-[#1E293B] rounded-lg">
-              <p className="text-[#14B8A6] text-sm font-medium mb-1">
-                DCintelix is Registered business in Rwanda
-              </p>
-              <p className="text-[#94A3B8] text-sm">
-                Enterprise Code (TIN): 156016068
-              </p>
+            {/* Trust Badges */}
+            <div className="mb-6 p-4 bg-[#1E293B] rounded-lg border border-[#334155]">
+              <div className="flex items-center gap-2 mb-2">
+                <FiCheck className="w-4 h-4 text-[#14B8A6]" />
+                <p className="text-white text-sm font-medium">
+                  Registered Company in Rwanda
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <FiCheck className="w-4 h-4 text-[#14B8A6]" />
+                <p className="text-white text-sm font-medium">
+                  Professional Development Team
+                </p>
+              </div>
             </div>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/dcintelix"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
-                aria-label="LinkedIn"
+                aria-label="Facebook"
               >
-                <FiLinkedin className="w-5 h-5" />
+                <FiFacebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/dcintelix"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
-                aria-label="Twitter"
+                aria-label="Instagram"
               >
-                <FiTwitter className="w-5 h-5" />
+                <FiInstagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@dcintelix"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
-                aria-label="GitHub"
+                aria-label="TikTok"
               >
-                <FiGithub className="w-5 h-5" />
+                <FaTiktok className="w-5 h-5" />
               </a>
             </div>
           </div>

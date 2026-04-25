@@ -1,49 +1,51 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiCheck, FiTarget, FiEye, FiAward, FiUsers, FiClock, FiShield, FiGlobe } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiTarget, FiEye, FiAward, FiUsers, FiClock, FiShield, FiGlobe, FiLinkedin, FiTwitter, FiGithub, FiBox, FiUser, FiMessageSquare, FiLayers, FiCode } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 import founderImage from '../assets/pasport.webp'
+import gadImage from '../assets/Gad.webp'
+import dannyImage from '../assets/danny.webp'
 
 const values = [
   {
     icon: FiShield,
     title: 'Quality First',
-    description: 'We never compromise on the quality of our work.',
+    description: 'We maintain the highest standards of quality in every project we deliver, ensuring lasting results for our clients.',
   },
   {
     icon: FiClock,
     title: 'Reliable Delivery',
-    description: 'On-time delivery is our commitment.',
+    description: 'We commit to delivering projects on time, every time, with transparent communication throughout.',
   },
   {
     icon: FiUsers,
     title: 'Client Partnership',
-    description: 'Building lasting relationships through trust.',
+    description: 'We build lasting relationships through trust, transparency, and exceptional service.',
   },
   {
     icon: FiAward,
     title: 'Excellence',
-    description: 'Striving for excellence in everything we do.',
+    description: 'We strive for excellence in everything we do, continuously improving our skills and processes.',
   },
 ]
 
 const whyChooseUs = [
   {
     title: 'Experienced Team',
-    description: 'Years of combined experience in building flexible digital solutions.',
+    description: 'Years of combined experience delivering flexible, scalable digital solutions across various industries.',
   },
   {
-    title: 'Modern Tools',
-    description: 'Using the latest and best methods for your project.',
+    title: 'Modern Tools & Technologies',
+    description: 'We utilize the latest technologies and best practices to ensure optimal results for your project.',
   },
   {
-    title: 'Business Focus',
-    description: 'Solutions that drive real results for your business.',
+    title: 'Business-Focused Solutions',
+    description: 'Solutions designed to drive measurable results and ROI for your business.',
   },
   {
-    title: 'Complete Service',
-    description: 'From idea to launch, we handle everything.',
+    title: 'End-to-End Service',
+    description: 'From concept to launch, we handle every aspect of your digital transformation journey.',
   },
 ]
 
@@ -80,9 +82,9 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="About Us - Who We Are"
-        description="Learn about DCintelix - we're a team that builds digital things that work. No jargon, just solid solutions for real business needs."
-        keywords="about DCintelix, web development company, digital agency, our team, company mission, values"
+        title="About DCintelix - Our Team & Mission"
+        description="Learn about DCintelix - a leading digital solutions company in Rwanda. Our experienced team delivers professional web development, mobile apps, and custom software solutions."
+        keywords="about DCintelix, web development company Rwanda, digital agency, our team, company mission, values, Rwanda technology company"
         url="https://www.dcintelix.rw/about"
       />
       <div className="pt-16">
@@ -94,10 +96,10 @@ export default function About() {
               About Us
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4">
-              Who We Are
+              Driving Digital Transformation
             </h1>
             <p className="text-sm md:text-base text-[#475569] max-w-xl">
-              We're a small team that builds digital things that actually work. 
+              We are a leading digital solutions provider in Rwanda, delivering innovative technology solutions that empower businesses to succeed in the digital age. 
               No fancy jargon—just solid solutions for real business needs.
             </p>
           </FadeIn>
@@ -112,14 +114,14 @@ export default function About() {
               <div className="relative">
                 <div className="bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-xl md:rounded-2xl p-5 md:p-8 text-white">
                   <div className="grid grid-cols-2 gap-3 md:gap-6">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center">
+                    {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center">
                       <div className="text-xl md:text-2xl font-bold mb-1">7+</div>
                       <div className="text-xs text-white/80">Projects</div>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center">
+                    </div> */}
+                    {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center">
                       <div className="text-xl md:text-2xl font-bold mb-1">5+</div>
                       <div className="text-xs text-white/80">Years</div>
-                    </div>
+                    </div> */}
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center">
                       <div className="text-xl md:text-2xl font-bold mb-1">100%</div>
                       <div className="text-xs text-white/80">Satisfaction</div>
@@ -288,13 +290,11 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <FadeIn>
               <div className="relative max-w-xs mx-auto lg:mx-0">
-                <img 
-                  src={founderImage} 
-                  alt="Christian Dushime - Founder and Business Leader at DCintelix - Technology Specialist and Web Application Developer" 
+                <img
+                  src={founderImage}
+                  alt="Christian Dushime - Founder and Business Leader at DCintelix - Technology Specialist and Web Application Developer"
                   className="w-full aspect-square max-w-[280px] mx-auto object-cover rounded-xl md:rounded-2xl"
-                  loading="eager"
-                  width="280"
-                  height="280"
+                  loading="lazy"
                 />
                 <div className="absolute -bottom-3 -right-3 w-20 h-20 md:w-24 md:h-24 bg-[#F59E0B] rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-2xl md:text-3xl">CD</span>
@@ -343,6 +343,189 @@ export default function About() {
                 </div>
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Team Section */}
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-12">
+            <FadeIn>
+              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                Our Team
+              </span>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-3">
+                Meet the Experts Behind DCintelix
+              </h2>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
+                A passionate team of developers, designers, and strategists dedicated to delivering exceptional results.
+              </p>
+            </FadeIn>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {/* Team Member 1 - Founder */}
+            <FadeIn delay={0}>
+              <div className="group">
+                <div className="relative overflow-hidden rounded-xl md:rounded-2xl mb-4">
+                  <img
+                    src={founderImage}
+                    alt="Christian Dushime - Founder & CEO"
+                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="flex gap-2 justify-center">
+                      <a href="https://www.linkedin.com/in/christian-dushime/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                        <FiLinkedin className="w-4 h-4" />
+                      </a>
+                      <a href="https://github.com/dushimec" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                        <FiGithub className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-sm md:text-base font-semibold text-[#0F172A]">Christian Dushime</h3>
+                  <p className="text-xs md:text-sm text-[#64748B]">Founder & CEO</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Team Member 2 - Gad */}
+            <FadeIn delay={100}>
+              <div className="group">
+                <div className="relative overflow-hidden rounded-xl md:rounded-2xl mb-4">
+                  <img
+                    src={gadImage}
+                    alt="Gad Tuyishime - Senior Developer"
+                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="flex gap-2 justify-center">
+                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                        <FiLinkedin className="w-4 h-4" />
+                      </a>
+                      <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                        <FiGithub className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-sm md:text-base font-semibold text-[#0F172A]">Gad Tuyishime</h3>
+                  <p className="text-xs md:text-sm text-[#64748B]">Senior Developer</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Team Member 3 - Danny */}
+            <FadeIn delay={200}>
+              <div className="group">
+                <div className="relative overflow-hidden rounded-xl md:rounded-2xl mb-4">
+                  <img
+                    src={dannyImage}
+                    alt="Danny Uwimana - UI/UX Designer"
+                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="flex gap-2 justify-center">
+                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                        <FiLinkedin className="w-4 h-4" />
+                      </a>
+                      <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                        <FiBox className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-sm md:text-base font-semibold text-[#0F172A]">Danny Uwimana</h3>
+                  <p className="text-xs md:text-sm text-[#64748B]">UI/UX Designer</p>
+                </div>
+              </div>
+            </FadeIn>
+
+         
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-12 md:py-16 lg:py-20 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-12">
+            <FadeIn>
+              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                How We Work
+              </span>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-3">
+                Our Development Process
+              </h2>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
+                A streamlined approach to delivering high-quality digital solutions.
+              </p>
+            </FadeIn>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-4 md:gap-6 relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-[#0F766E]/20"></div>
+
+            {[
+              {
+                step: '01',
+                icon: FiMessageSquare,
+                title: 'Consultation',
+                description: 'We discuss your goals, requirements, and vision for the project.',
+              },
+              {
+                step: '02',
+                icon: FiLayers,
+                title: 'Planning',
+                description: 'Our team creates a detailed project plan with timelines and milestones.',
+              },
+              {
+                step: '03',
+                icon: FiCode,
+                title: 'Development',
+                description: 'We build your solution using modern technologies and best practices.',
+              },
+              {
+                step: '04',
+                icon: FiCheck,
+                title: 'Delivery',
+                description: 'Final testing, deployment, and ongoing support for your project.',
+              },
+            ].map((process, index) => (
+              <FadeIn key={index} delay={index * 100}>
+                <div className="relative text-center">
+                  <div className="relative z-10 w-16 h-16 bg-[#0F766E] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <process.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="absolute top-16 left-1/2 -translate-x-1/2 hidden md:block">
+                    <span className="text-[10px] font-bold text-[#0F766E] bg-white px-2 py-0.5 rounded">{process.step}</span>
+                  </div>
+                  <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2 mt-4">{process.title}</h3>
+                  <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">{process.description}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
