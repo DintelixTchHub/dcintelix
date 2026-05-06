@@ -164,6 +164,41 @@ export default function About() {
         </div>
       </section>
 
+      {/* Types of Websites & Starting Prices */}
+      <section className="py-10 md:py-14 lg:py-16 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <FadeIn>
+              <h2 className="text-xl md:text-2xl font-bold text-[#0F172A]">Types of Websites We Build</h2>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <p className="text-sm md:text-base text-[#475569] max-w-2xl mx-auto mt-3">From landing pages to full e-commerce platforms — we deliver business-ready websites with clear ROI. Starting prices shown in RWF.</p>
+            </FadeIn>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <FadeIn>
+              <div className="p-5 bg-white rounded-lg text-center border">
+                <div className="text-sm font-semibold text-[#0F172A] mb-2">Landing / Small Business</div>
+                <div className="text-lg font-bold text-[#0F172A]">From RWF 200,000</div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <div className="p-5 bg-white rounded-lg text-center border">
+                <div className="text-sm font-semibold text-[#0F172A] mb-2">Business Website</div>
+                <div className="text-lg font-bold text-[#0F172A]">From RWF 1,500,000</div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <div className="p-5 bg-white rounded-lg text-center border">
+                <div className="text-sm font-semibold text-[#0F172A] mb-2">E‑commerce / Custom</div>
+                <div className="text-lg font-bold text-[#0F172A]">From RWF 5,000,000+</div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Mission & Vision */}
       <section className="py-12 md:py-16 lg:py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

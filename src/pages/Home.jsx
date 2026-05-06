@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget, FiMonitor } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget, FiMonitor, FiPhone, FiSend, FiLoader } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
+import { submitContact, resetSubmitStatus, updateFormData, resetFormData } from '../store/contactSlice'
 import heroImage from '../assets/hero.webp'
 import founderImage from '../assets/pasport.webp'
 import gadImage from '../assets/Gad.webp'
@@ -16,38 +18,38 @@ const EAGER_LOAD = 'eager'
 const services = [
   {
     icon: FiGlobe,
-    title: 'Website Design',
-    description: 'Custom, responsive websites built with modern technologies to establish your online presence and engage your audience.',
+    title: 'Websites That Attract Clients',
+    description: 'High-converting websites focused on lead capture, clarity of message, and measurable business outcomes.',
     color: 'from-[#0F766E] to-[#14B8A6]',
   },
   {
     icon: FiCode,
-    title: 'Web Applications',
-    description: 'Scalable, secure web applications tailored to streamline your business operations and enhance productivity.',
+    title: 'Client-Generating Web Apps',
+    description: 'Custom web applications that automate processes and convert visitors into paying customers.',
     color: 'from-[#6366F1] to-[#8B5CF6]',
   },
   {
     icon: FiShoppingCart,
-    title: 'E-commerce Development',
-    description: 'Feature-rich online stores with seamless checkout, inventory management, and payment gateway integration.',
+    title: 'E‑commerce That Sells',
+    description: 'Optimized stores with checkout performance, trust signals, and conversion-focused UX.',
     color: 'from-[#F59E0B] to-[#EF4444]',
   },
   {
     icon: FiSmartphone,
-    title: 'Mobile Apps',
-    description: 'Native and cross-platform mobile applications for iOS and Android that deliver exceptional user experiences.',
+    title: 'Mobile Experiences That Retain',
+    description: 'Fast, intuitive mobile apps that keep users engaged and boost retention.',
     color: 'from-[#14B8A6] to-[#0F766E]',
   },
   {
     icon: FiImage,
-    title: 'Logo & Branding',
-    description: 'Professional brand identity design that captures your company values and resonates with your target market.',
+    title: 'Branding That Builds Trust',
+    description: 'Visual identity and messaging that increases perceived value and trust with customers.',
     color: 'from-[#EC4899] to-[#F43F5E]',
   },
   {
     icon: FiBox,
-    title: 'Marketing Materials',
-    description: 'Eye-catching promotional materials designed to effectively communicate your brand message and attract customers.',
+    title: 'Marketing Collateral That Converts',
+    description: 'Sales-focused materials and landing pages designed to drive inquiries and purchases.',
     color: 'from-[#0F766E] to-[#6366F1]',
   },
 ]
@@ -217,54 +219,41 @@ export default function Home() {
               
               <FadeIn delay={100}>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F172A] leading-tight mb-6">
-                  Your Vision,{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F766E] to-[#14B8A6]">
-                    Our Digital Expertise.
-                  </span>
+                  We Build Websites That Bring You Clients
                 </h1>
               </FadeIn>
-              
+
               <FadeIn delay={200}>
-                <p className="text-base md:text-lg text-[#475569] mb-8 leading-relaxed max-w-xl">
-                  DCintelix transforms businesses through cutting-edge web solutions. We deliver professional websites, powerful web applications, scalable e-commerce platforms, and custom software that drive real growth and operational efficiency.
+                <p className="text-base md:text-lg text-[#475569] mb-6 leading-relaxed max-w-xl">
+                  Modern, fast, and designed to grow your business — not just look good. We focus on clarity, speed, and measurable results so your website converts visitors into customers.
                 </p>
               </FadeIn>
-              
+
               <FadeIn delay={300}>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col items-center gap-3 min-[375px]:flex-row min-[375px]:items-center">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0F766E] text-white text-base font-semibold rounded-xl hover:bg-[#0D6D63] transition-all duration-300 hover:shadow-lg hover:shadow-[#0F766E]/25 hover:-translate-y-0.5"
+                    className="inline-flex w-full min-[375px]:w-auto justify-center items-center gap-2 px-4 py-2.5 bg-[#0F766E] text-white text-sm font-semibold rounded-lg hover:bg-[#0D6D63] transition-all duration-300 hover:shadow-lg hover:shadow-[#0F766E]/25"
                   >
-                    Get Started
-                    <FiArrowRight className="w-5 h-5" />
+                    Start Your Project
+                    <FiArrowRight className="w-4 h-4" />
                   </Link>
-                  <Link
-                    to="/projects"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 border-2 border-[#E2E8F0] text-[#0F172A] text-base font-semibold rounded-xl hover:border-[#0F766E] hover:text-[#0F766E] transition-all duration-300"
+
+                  <a
+                    href="https://wa.me/250789356233"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full min-[375px]:w-auto justify-center items-center gap-2 px-4 py-2.5 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:opacity-95 transition-all duration-200"
                   >
-                    View Projects
-                  </Link>
+                    <FiPhone className="w-4 h-4" />
+                    Chat on WhatsApp
+                  </a>
                 </div>
               </FadeIn>
 
-              {/* Trust Indicators */}
               <FadeIn delay={400}>
-                <div className="flex items-center gap-6 mt-10 pt-8 border-t border-[#E2E8F0]">
-                  <div className="flex -space-x-3">
-                    {[founderImage, gadImage, dannyImage, ecuruzaImage].map((img, i) => (
-                      <img
-                        key={i}
-                        src={img}
-                        alt="Team member"
-                        className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                      />
-                    ))}
-                  </div>
-                  <div>
-                    {/* <p className="text-sm font-semibold text-[#0F172A]">Trusted by 50+ Businesses</p>
-                    <p className="text-xs text-[#64748B]">Across Rwanda and beyond</p> */}
-                  </div>
+                <div className="mt-6 text-sm text-[#475569]">
+                  <span className="font-medium text-[#0F172A]">Trusted by growing businesses in Rwanda</span>
                 </div>
               </FadeIn>
             </div>
@@ -300,6 +289,45 @@ export default function Home() {
           </svg>
         </div>
       </section>
+     
+
+
+      {/* Problem / Psychology Section */}
+      <section className="py-10 md:py-14 lg:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <FadeIn>
+              <h2 className="text-xl md:text-2xl font-bold text-[#0F172A]">Why Most Business Websites Fail</h2>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <p className="text-sm md:text-base text-[#475569] max-w-2xl mx-auto mt-3">
+                Simple reasons: unclear message, slow load times, and no focus on converting visitors into clients. We fix these core issues so your site becomes a client-generating asset.
+              </p>
+            </FadeIn>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            <FadeIn>
+              <div className="p-5 border rounded-lg">
+                <h4 className="text-sm font-semibold text-[#0F172A] mb-2">No clear message</h4>
+                <p className="text-xs text-[#64748B]">Visitors should know within 3 seconds how you help them. We craft headlines and funnels that convert.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <div className="p-5 border rounded-lg">
+                <h4 className="text-sm font-semibold text-[#0F172A] mb-2">Slow performance</h4>
+                <p className="text-xs text-[#64748B]">Speed kills bounce rate. We optimize performance for real-world users and search engines.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <div className="p-5 border rounded-lg">
+                <h4 className="text-sm font-semibold text-[#0F172A] mb-2">Poor funnel</h4>
+                <p className="text-xs text-[#64748B]">Design without a funnel loses leads. We guide users from discovery to contact with deliberate CTAs and trust builders.</p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-[#F8FAFC]">
@@ -325,25 +353,30 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {services.map((service, index) => (
               <FadeIn key={index} delay={index * 100}>
-                <Card className="h-full overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-                  {/* Service Image/Illustration Area */}
-                  <div className={`h-32 bg-gradient-to-br ${service.color} rounded-t-lg flex items-center justify-center relative overflow-hidden`}>
-                    {/* Decorative pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-4 right-4 w-16 h-16 bg-white rounded-full"></div>
-                      <div className="absolute bottom-0 left-0 w-12 h-12 bg-white rounded-full"></div>
+                <Card className="h-full group hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden border border-transparent hover:border-[#0F766E]/10">
+                  <div className="relative">
+                    <div className={`h-28 bg-gradient-to-br ${service.color} flex items-center justify-center`}></div>
+
+                    <div className="absolute -top-8 left-6">
+                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md transform group-hover:scale-105 transition-transform">
+                        <service.icon className="w-7 h-7 text-[#0F172A]" />
+                      </div>
                     </div>
-                    <service.icon className="w-12 h-12 md:w-16 md:h-16 text-white relative z-10" />
-                  </div>
-                  
-                  {/* Service Content */}
-                  <div className="p-4 md:p-5">
-                    <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">
-                      {service.description}
-                    </p>
+
+                    <div className="p-5 pt-8">
+                      <h3 className="text-base font-semibold text-[#0F172A] mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-[#64748B] leading-relaxed">
+                        {service.description}
+                      </p>
+                      <div className="mt-4">
+                        <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-[#0F766E] hover:underline">
+                          Talk about this
+                          <FiArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </Card>
               </FadeIn>
@@ -752,22 +785,104 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Preview Section */}
+      <section className="py-12 md:py-16 lg:py-20 bg-white border-t border-b border-[#E6EEF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <FadeIn>
+              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">Pricing Preview</span>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <h2 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">Simple Packages Pick What Fits Your Business</h2>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <p className="text-sm text-[#475569] max-w-2xl mx-auto">Transparent starting points to filter serious projects custom quotes provided after brief discovery.</p>
+            </FadeIn>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            <FadeIn>
+              <div className="p-6 border rounded-lg text-center">
+                <div className="text-xs text-[#64748B] uppercase mb-3">Starter</div>
+                <div className="text-2xl font-bold text-[#0F172A] mb-3">RWF 200,000</div>
+                <ul className="text-xs text-[#475569] mb-4 space-y-2">
+                  <li>Landing / Small business website</li>
+                  <li>Mobile-friendly</li>
+                  <li>Basic SEO & lead capture</li>
+                </ul>
+                <Link to="/contact" className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E] text-white rounded-md">Get Started</Link>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={100}>
+              <div className="p-6 border-2 border-[#0F766E] rounded-lg text-center bg-[#F8FEFA]">
+                <div className="text-xs text-[#64748B] uppercase mb-3">Business</div>
+                <div className="text-2xl font-bold text-[#0F172A] mb-3">RWF 1,500,000</div>
+                <ul className="text-xs text-[#475569] mb-4 space-y-2">
+                  <li>Multi page business website</li>
+                  <li>Conversion focused design & analytics</li>
+                  <li>Performance, SEO & basic integrations</li>
+                </ul>
+                <Link to="/contact" className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E] text-white rounded-md">Choose Business</Link>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={200}>
+              <div className="p-6 border rounded-lg text-center">
+                <div className="text-xs text-[#64748B] uppercase mb-3">Premium</div>
+                <div className="text-2xl font-bold text-[#0F172A] mb-3">RWF 5,000,000+</div>
+                <ul className="text-xs text-[#475569] mb-4 space-y-2">
+                  <li>E‑commerce or custom platform</li>
+                  <li>Advanced integrations & automations</li>
+                  <li>Premium support & SLAs</li>
+                </ul>
+                <Link to="/contact" className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E] text-white rounded-md">Contact Sales</Link>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+       {/* Quick Contact Form (inline) - bottom of Home page */}
+      <section className="py-12 md:py-16 lg:py-20 bg-white border-t border-b border-[#E6EEF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <FadeIn>
+              <div>
+                <SectionHeading subtitle="Quick Contact">
+                  Send a message we'll reply <br/> within 24 hours
+                </SectionHeading>
+                <p className="text-sm text-[#475569] mt-2">Prefer a short note? Use this quick form or visit the full contact page for more details.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={100}>
+              <div>
+                {/* Inline contact form using existing contact slice */}
+                <InlineContactForm />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+
       {/* CTA Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-[#0F766E] to-[#14B8A6]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Ready to Build Your Digital Solution?
+              Let’s build your business online today
             </h2>
-            <p className="text-sm md:text-base text-white/80 mb-6 max-w-xl mx-auto">
-              Let's discuss your project and how we can help you achieve your business goals.
+            <p className="text-sm md:text-base text-white/90 mb-3 max-w-xl mx-auto">
+              Limited slots available this week — book a quick discovery to secure your spot.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0F766E] font-semibold text-sm rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
               >
-                Get Started
+                Start Now
                 <FiArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -780,9 +895,71 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
+
+      
     </div>
     </>
   )
 }
 
+function InlineContactForm() {
+  const dispatch = useDispatch()
+  const { formData, submitStatus, submitError } = useSelector((state) => state.contact)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
+  useEffect(() => {
+    if (submitStatus === 'succeeded') {
+      setIsSubmitted(true)
+      dispatch(resetFormData())
+      setTimeout(() => {
+        setIsSubmitted(false)
+        dispatch(resetSubmitStatus())
+      }, 4000)
+    }
+  }, [submitStatus, dispatch])
+
+  const handleChange = (e) => {
+    dispatch(updateFormData({ [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(submitContact(formData))
+  }
+
+  return (
+    <div>
+      {isSubmitted ? (
+        <Card className="bg-[#14B8A6]/10 border-[#14B8A6]/30">
+          <div className="text-center py-6">
+            <div className="w-12 h-12 bg-[#14B8A6] rounded-full flex items-center justify-center mx-auto mb-3">
+              <FiCheck className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-base font-semibold text-[#0F172A] mb-2">Message Sent!</h3>
+            <p className="text-xs md:text-sm text-[#475569]">Thanks — we'll be in touch shortly.</p>
+          </div>
+        </Card>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div className="grid md:grid-cols-2 gap-3">
+            <input name="name" required placeholder="Your name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg" />
+            <input name="email" type="email" required placeholder="Email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg" />
+          </div>
+          <select name="subject" required value={formData.subject} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg">
+            <option value="">Service</option>
+            <option value="website">Website Design</option>
+            <option value="ecommerce">E-commerce</option>
+            <option value="webapp">Web Application</option>
+            <option value="mobile">Mobile App</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea name="message" required rows={4} placeholder="Short message" value={formData.message} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg resize-none" />
+          {submitError && <p className="text-red-500 text-xs">{submitError}</p>}
+          <button type="submit" disabled={submitStatus === 'loading'} className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E] text-white rounded-md">
+            {submitStatus === 'loading' ? <><FiLoader className="w-4 h-4 animate-spin" /> Sending...</> : <>Send Message <FiSend className="w-4 h-4" /></>}
+          </button>
+        </form>
+      )}
+    </div>
+  )
+}

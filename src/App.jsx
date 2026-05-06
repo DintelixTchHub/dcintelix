@@ -3,6 +3,7 @@ import { useEffect, useState, createContext, useContext } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
+import StickyWhatsApp from './components/StickyWhatsApp'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
@@ -77,6 +78,7 @@ function App() {
           </main>
           <Footer />
           <CookieConsent />
+          <StickyWhatsApp />
         </div>
       </Router>
     </ThemeContext.Provider>

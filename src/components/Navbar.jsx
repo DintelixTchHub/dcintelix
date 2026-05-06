@@ -82,7 +82,7 @@ export default function Navbar() {
               to="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-200 hover:shadow-lg hover:shadow-[#0F766E]/20"
             >
-              Get Started
+              Get a Free Consultation
               <FiArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -102,9 +102,17 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 z-50 ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0 visible"
             : "opacity-0 -translate-y-4 invisible"

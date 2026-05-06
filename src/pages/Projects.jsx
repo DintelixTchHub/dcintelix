@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock, FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock, FiExternalLink, FiGithub, FiMenu } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 import ecuruza from "../assets/ecuruza.webp"
@@ -141,6 +141,7 @@ function FadeIn({ children, delay = 0, className = '' }) {
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const filteredProjects = activeCategory === 'All'
     ? projects
@@ -169,6 +170,9 @@ export default function Projects() {
               Here's a look at some of the projects we've worked on. Each one was built 
               with care to solve real problems.
             </p>
+            <div className="mt-4 text-sm text-[#64748B]">
+              <em>Need a similar site? Website projects start from RWF 200,000 for landing pages — contact us for a tailored quote.</em>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -176,22 +180,80 @@ export default function Projects() {
       {/* Filter Section */}
       <section className="py-8 bg-white border-b border-[#E2E8F0] sticky top-16 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {/* Mobile hamburger - visible only on small screens */}
               <button
-                key={category.name}
-                onClick={() => setActiveCategory(category.name)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-200 ${
-                  activeCategory === category.name
-                    ? 'bg-[#0F766E] text-white shadow-lg shadow-[#0F766E]/20'
-                    : 'bg-[#F1F5F9] text-[#475569] hover:bg-[#E2E8F0] hover:text-[#0F172A]'
-                }`}
+                onClick={() => setMenuOpen(true)}
+                className="sm:hidden p-2 rounded-md text-[#0F172A] hover:bg-[#F1F5F9]"
+                aria-label="Open categories"
               >
-                <category.icon className="w-4 h-4" />
-                {category.name}
+                <FiMenu className="w-6 h-6" />
               </button>
-            ))}
+
+              {/* Desktop category buttons (hidden on small screens) */}
+              <div className="hidden sm:flex flex-wrap gap-3">
+                {categories.map((category) => (
+                  <button
+                    key={category.name}
+                    onClick={() => setActiveCategory(category.name)}
+                    className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-200 ${
+                      activeCategory === category.name
+                        ? 'bg-[#0F766E] text-white shadow-lg shadow-[#0F766E]/20'
+                        : 'bg-[#F1F5F9] text-[#475569] hover:bg-[#E2E8F0] hover:text-[#0F172A]'
+                    }`}
+                  >
+                    <category.icon className="w-4 h-4" />
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
+
+          {/* Mobile slide-in menu */}
+          <div
+            className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : '-translate-x-full'} w-[80%] max-w-[320px] bg-white shadow-lg p-4 rounded-r-xl sm:hidden`}
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-sm font-semibold text-[#0F172A]">Categories</div>
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="p-2 rounded-md text-[#475569] hover:bg-[#F1F5F9]"
+                aria-label="Close categories"
+              >
+                <FiX className="w-5 h-5" />
+              </button>
+            </div>
+
+            <nav className="flex flex-col gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category.name}
+                  onClick={() => { setActiveCategory(category.name); setMenuOpen(false); }}
+                  className={`w-full text-left inline-flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-150 ${
+                    activeCategory === category.name
+                      ? 'bg-[#0F766E] text-white'
+                      : 'bg-[#F8FAFC] text-[#0F172A] hover:bg-[#E2E8F0]'
+                  }`}
+                >
+                  <category.icon className="w-5 h-5" />
+                  <span className="text-sm font-medium">{category.name}</span>
+                </button>
+              ))}
+            </nav>
+          </div>
+
+          {/* Overlay for mobile menu */}
+          {menuOpen && (
+            <div
+              className="fixed inset-0 bg-black/30 z-40 sm:hidden"
+              onClick={() => setMenuOpen(false)}
+              aria-hidden="true"
+            ></div>
+          )}
         </div>
       </section>
 
