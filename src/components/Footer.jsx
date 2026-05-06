@@ -106,7 +106,7 @@ export default function Footer() {
                 <FiInstagram className="w-5 h-5" />
               </a>
               <a
-                href="https://www.tiktok.com/@dcintelix"
+                href="https://www.tiktok.com/@dcintelix1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
