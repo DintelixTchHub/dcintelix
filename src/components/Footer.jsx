@@ -115,6 +115,14 @@ export default function Footer() {
                 <FaTiktok className="w-5 h-5" />
               </a>
             </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/contact" className="btn-primary inline-flex items-center gap-2 px-4 py-2">
+                Start Your Digital Transformation
+              </Link>
+              <Link to="/contact" className="btn-outline inline-flex items-center gap-2 px-4 py-2">
+                Partner With Us
+              </Link>
+            </div>
           </div>
 
           {/* Quick Links */}

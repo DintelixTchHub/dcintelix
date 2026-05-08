@@ -294,7 +294,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={submitStatus === 'loading'}
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="btn-primary w-full justify-center inline-flex items-center gap-2"
                     >
                       {submitStatus === 'loading' ? (
                         <>
@@ -384,19 +384,24 @@ export default function Contact() {
     <div>
       <h4 className="text-xs font-medium text-[#0F172A] mb-0.5">Location</h4>
       <p className="text-xs text-[#475569]">
-        KG 1975 St, Kigali, Rwanda
+        KK 3 Rd, Kigali, Rwanda
       </p>
     </div>
   </div>
 </Card>
                 </div>
 
-                {/* Map placeholder */}
-                <div className="mt-6 h-36 bg-gradient-to-br from-[#0F766E]/10 to-[#14B8A6]/10 rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <FiMapPin className="w-6 h-6 text-[#0F766E]/40 mx-auto mb-1" />
-                    <p className="text-[#64748B] text-xs">Serving clients worldwide</p>
-                  </div>
+                {/* Google Maps Embed */}
+                <div className="mt-6 rounded-xl overflow-hidden border border-[#E6EEF2]">
+                  <iframe
+                    title="DCintelix location"
+                    src="https://maps.google.com/maps?q=KK%203%20Rd%2C%20Kigali%2C%20Rwanda&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="260"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
               </div>
             </FadeIn>

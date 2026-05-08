@@ -89,6 +89,9 @@ export function Card({
   className = '',
   hover = true,
   padding = 'md',
+  image, // string URL or React node
+  imageAlt = '',
+  badge, // optional badge text
 }) {
   const paddingSizes = {
     none: '',
@@ -98,15 +101,28 @@ export function Card({
   }
 
   return (
-    <div 
-      className={`
-        bg-white rounded-xl border border-[#E2E8F0]
-        ${hover ? 'transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#14B8A6]/30' : ''}
-        ${paddingSizes[padding]}
-        ${className}
-      `}
-    >
-      {children}
+    <div className={`bg-white rounded-xl border border-[#E6EEF0] overflow-hidden ${hover ? 'transition-transform duration-300 hover:shadow-2xl hover:-translate-y-1' : ''} ${className}`}>
+      {image && (
+        <div className="relative h-52 bg-gray-50">
+          {typeof image === 'string' ? (
+            <img src={image} alt={imageAlt} className="w-full h-full object-cover" />
+          ) : (
+            image
+          )}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity card-overlay"></div>
+
+          {badge && (
+            <div className="absolute top-4 left-4">
+              <span className="px-3 py-1 bg-white/90 text-[#0F766E] text-xs font-medium rounded-full card-badge">{badge}</span>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div className={paddingSizes[padding]}>
+        {children}
+      </div>
     </div>
   )
 }

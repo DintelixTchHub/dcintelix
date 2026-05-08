@@ -4,6 +4,9 @@ import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, F
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 import ecuruza from "../assets/ecuruza.webp"
+import mooorHallBranding from '../assets/moor hall branding.png'
+import mooorHallLogo from '../assets/moor logo.png'
+import MooorCharactor from '../assets/moor harry.png'
 
 const projects = [
   {
@@ -14,6 +17,7 @@ const projects = [
     detailedDescription: 'E-Curuza is our own multivendor ecommerce marketplace platform currently under development. Designed to support online commerce and connect businesses with customers, this platform will provide a seamless shopping experience with multiple vendor support.',
     tags: ['E-commerce', 'Marketplace', 'Multivendor', 'Coming Soon'],
     image: 'https://ecuruza-staging.netlify.app/assets/logo2--MJbJbWy.png',
+    siteURL: 'https://ecuruza-staging.netlify.app',
     comingSoon: true,
   },
   {
@@ -24,6 +28,7 @@ const projects = [
     detailedDescription: 'A travel-focused service with booking features, easy-to-use dashboards, and smooth performance.',
     tags: ['Website Design', 'Travel', 'Bookings', 'User Dashboard'],
     image: 'https://www.oldfoxtours.com/assets/logo-CcAoAWD-.jpg',
+    siteURL: 'https://www.oldfoxtours.com',
   },
   {
     id: 3,
@@ -33,6 +38,7 @@ const projects = [
     detailedDescription: 'A professional healthcare solution with secure access and reliable systems for managing therapy appointments.',
     tags: ['Healthcare', 'Secure Access', 'Appointments', 'Documents'],
     image: 'https://thr.org.rw/assets/logo-tD9r3Hdz.png',
+    siteURL: 'https://thr.org.rw',
   },
   {
     id: 4,
@@ -77,7 +83,7 @@ const projects = [
     shortDescription: 'A clean, modern logo design featuring bold typography and minimalist aesthetics.',
     detailedDescription: 'Custom logo design created for Moor brand, focusing on simplicity and memorability. The design uses strong geometric shapes and a refined color palette to create a professional and timeless brand identity.',
     tags: ['Logo Design', 'Brand Identity', 'Minimalist', 'Vector Art'],
-    image: 'moor logo.png',
+    image: mooorHallLogo,
   },
   {
     id: 9,
@@ -86,7 +92,7 @@ const projects = [
     shortDescription: 'Unique character-based logo design bringing personality and charm to the brand.',
     detailedDescription: 'A custom character logo design for Moor Harry, combining playful elements with professional execution. This design adds a friendly, approachable face to the brand while maintaining visual consistency across all touchpoints.',
     tags: ['Character Design', 'Logo Design', 'Illustration', 'Brand Identity'],
-    image: 'moor harry.png',
+    image: MooorCharactor,
   },
   {
     id: 10,
@@ -95,7 +101,7 @@ const projects = [
     shortDescription: 'Comprehensive branding solution including logo, color scheme, and visual guidelines.',
     detailedDescription: 'Complete branding package for Moor Hall, delivering a cohesive visual identity system. Includes primary and secondary logo variations, color palette, typography guidelines, and brand application examples for consistent brand representation.',
     tags: ['Branding', 'Logo Design', 'Visual Identity', 'Brand Guidelines'],
-    image: 'moor hall branding.png',
+    image: mooorHallBranding,
   },
 ]
 
@@ -262,84 +268,78 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredProjects.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project, index) => (
-                <FadeIn key={project.id} delay={index * 100}>
-                  <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-all duration-300" padding="none">
-                    {/* Project Image */}
-                    <div className="h-52 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-xl flex items-center justify-center overflow-hidden relative">
-                      {project.comingSoon ? (
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
-                          <span className="text-3xl font-bold text-white/90 mb-2">E-Curuza</span>
-                          <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
-                            Coming Soon
-                          </span>
+              {filteredProjects.map((project, index) => {
+                // build image prop: for comingSoon show overlay on top of image
+                const imageProp = project.comingSoon && typeof project.image === 'string' ? (
+                  <>
+                    {project.image.startsWith('http') ? (
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
+                      <span className="text-3xl font-bold text-white/90 mb-2">{project.title}</span>
+                      <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">Coming Soon</span>
+                    </div>
+                  </>
+                ) : project.image === 'karykelly' ? (
+                  <FiLayers className="w-16 h-16 text-[#0F766E]/30" />
+                ) : (
+                  project.image
+                )
+
+                return (
+                  <FadeIn key={project.id} delay={index * 100}>
+                    <Card image={imageProp} imageAlt={project.title} badge={project.category} className="h-full flex flex-col overflow-hidden group" padding="md">
+                      {/* Project Content */}
+                      <div className="flex-1 flex flex-col">
+                        <h3 className="text-lg font-semibold text-[#0F172A] mb-2 group-hover:text-[#0F766E] transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-[#64748B] mb-4 flex-1">
+                          {project.shortDescription}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="px-2 py-1 bg-[#F1F5F9] text-[#64748B] text-xs rounded-md"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                         </div>
-                      ) : typeof project.image === 'string' ? (
-                        project.image.startsWith('data:') || project.image.startsWith('http') ? (
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            loading="lazy"
-                          />
-                        ) : project.image === 'karykelly' ? (
-                          <FiLayers className="w-16 h-16 text-[#0F766E]/30" />
-                        ) : (
-                          <img
-                            src={`/src/assets/${project.image}`}
-                            alt={project.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                        )
-                      ) : (
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                      )}
-                      
-                      {/* Category badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#0F766E] text-xs font-medium rounded-full">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    {/* Project Content */}
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="text-lg font-semibold text-[#0F172A] mb-2 group-hover:text-[#0F766E] transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-[#64748B] mb-4 flex-1">
-                        {project.shortDescription}
-                      </p>
-                      
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-2 py-1 bg-[#F1F5F9] text-[#64748B] text-xs rounded-md"
+
+                        {/* Actions: View + External Link */}
+                        <div className="mt-auto flex items-center gap-4">
+                          <button
+                            onClick={() => setSelectedProject(project)}
+                            className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
                           >
-                            {tag}
-                          </span>
-                        ))}
+                            {project.comingSoon ? 'Learn More' : 'View Details'}
+                            <FiArrowRight className="w-4 h-4" />
+                          </button>
+
+                          {typeof project.siteURL === 'string' && (
+                            <a
+                              href={project.siteURL}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:underline"
+                            >
+                              <FiExternalLink className="w-4 h-4" />
+                              Live Site
+                            </a>
+                          )}
+                        </div>
                       </div>
-                      
-                      {/* View Button */}
-                      <button
-                        onClick={() => setSelectedProject(project)}
-                        className="mt-auto inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
-                      >
-                        {project.comingSoon ? 'Learn More' : 'View Details'}
-                        <FiArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </Card>
-                </FadeIn>
-              ))}
+                    </Card>
+                  </FadeIn>
+                )
+              })}
             </div>
           ) : (
             <FadeIn>
@@ -393,19 +393,12 @@ export default function Projects() {
                   </span>
                 </div>
               ) : typeof selectedProject.image === 'string' ? (
-                selectedProject.image.startsWith('data:') || selectedProject.image.startsWith('http') ? (
+                selectedProject.image === 'karykelly' ? (
+                  <FiLayers className="w-20 h-20 text-[#0F766E]/30" />
+                ) : (
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                ) : selectedProject.image === 'karykelly' ? (
-                  <FiLayers className="w-20 h-20 text-[#0F766E]/30" />
-                ) : (
-                  <img 
-                    src={`/src/assets/${selectedProject.image}`} 
-                    alt={selectedProject.title} 
                     className="w-full h-full object-cover"
                   />
                 )

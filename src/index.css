@@ -398,6 +398,112 @@
   transform: scale(1.05);
 }
 
+/* Card specific helpers */
+.card-overlay { pointer-events: none; }
+.card-badge { backdrop-filter: blur(4px); }
+
+/* Global base styles */
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Additional brand mapping (Deep Teal primary) */
+:root {
+  --deep-teal: #0D6D63;
+  --white: #FFFFFF;
+  --black: #000000;
+  --light-bg: #F9FAFC;
+}
+
+/* Premium button styles */
+.btn-primary {
+  background: linear-gradient(90deg, var(--deep-teal) 0%, var(--color-primary-light) 100%);
+  color: var(--white);
+  padding: 0.625rem 1.125rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(13,109,99,0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(13,109,99,0.14);
+  filter: saturate(1.05);
+  animation: glow 1.6s ease-in-out infinite alternate;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  color: var(--deep-teal);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.btn-outline:hover {
+  background: rgba(15,118,110,0.06);
+  transform: translateY(-3px);
+}
+
+/* Glassmorphism card */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(8,15,20,0.06);
+  border-radius: 0.8rem;
+}
+
+/* Modern cards */
+.card-modern {
+  background: var(--white);
+  border-radius: 0.7rem;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.06);
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease;
+}
+.card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(2,6,23,0.08);
+}
+
+/* Floating gradient accent used for hero */
+.floating-gradient {
+  position: absolute;
+  filter: blur(32px);
+  opacity: 0.9;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Section heading helper */
+.section-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+  color: var(--color-text-dark);
+}
+
+/* Animated counters */
+.counter { font-weight: 700; color: var(--deep-teal); }
+.counter-sub { color: var(--color-text-gray); font-weight: 600; }
+
+/* Accessibility: stronger focus outlines */
+:focus {
+  outline: 3px solid rgba(13,109,99,0.14);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-up, .animate-pulse, .animate-float, .whatsapp-button {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .hover-glow {
   transition: box-shadow 0.3s ease;
 }
