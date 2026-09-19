@@ -10,9 +10,9 @@ export default function Privacy() {
   const lastUpdated = "March 13, 2026"
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-[#F9FAFC]">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 bg-gradient-to-r from-teal-700 via-teal-600 to-teal-700 overflow-hidden">
+      <section className="relative py-20 lg:py-28 bg-[#0D6D63] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-400 rounded-full blur-3xl"></div>
@@ -25,10 +25,10 @@ export default function Privacy() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-fade-in">
               Privacy Policy
             </h1>
-            <p className="text-xl text-teal-100 max-w-2xl mx-auto animate-slide-up">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-slide-up">
               Your privacy is important to us. This policy outlines how we collect, use, and protect your information.
             </p>
-            <p className="mt-4 text-teal-200 text-sm">
+            <p className="mt-4 text-white/75 text-sm">
               Last Updated: {lastUpdated}
             </p>
           </div>
@@ -41,7 +41,7 @@ export default function Privacy() {
           {/* Back Link */}
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium mb-8 transition-colors group"
+            className="inline-flex items-center gap-2 text-[#0D6D63] hover:text-[#09534C] font-medium mb-8 transition-colors group"
           >
             <FaArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -49,15 +49,15 @@ export default function Privacy() {
 
           <div className="space-y-8">
             {/* Introduction */}
-            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
-                <FaUserLock className="text-teal-600" />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                <FaUserLock className="text-[#0D6D63]" />
                 Introduction
               </h2>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 DC Intelix Digital Solutions ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, disclosed, and safeguarded by us when you visit our website, use our services, or interact with us in any way.
               </p>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mt-4">
+              <p className="text-slate-600 leading-relaxed mt-4">
                 By accessing or using our website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described herein, please do not use our website.
               </p>
             </div>

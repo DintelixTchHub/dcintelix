@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState, lazy, Suspense } from 'react'
+﻿import { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget, FiMonitor, FiPhone, FiSend, FiLoader } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiCode, FiGlobe, FiSmartphone, FiShoppingCart, FiLayers, FiShield, FiTrendingUp, FiClock, FiUser, FiBox, FiImage, FiDatabase, FiServer, FiSettings, FiTarget, FiMonitor, FiPhone, FiSend, FiLoader, FiMessageSquare } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 const Partnerships = lazy(() => import('../components/Partnerships'))
@@ -27,19 +27,19 @@ const services = [
     icon: FiGlobe,
     title: 'Websites That Attract Clients',
     description: 'High-converting websites focused on lead capture, clarity of message, and measurable business outcomes.',
-    color: 'from-[#0F766E] to-[#14B8A6]',
+    color: 'from-[#0D6D63] to-[#0D6D63]',
   },
   {
     icon: FiShoppingCart,
-    title: 'E‑commerce That Sells',
+    title: 'Eâ€‘commerce That Sells',
     description: 'Optimized stores with checkout performance, trust signals, and conversion-focused UX.',
-    color: 'from-[#0F766E] to-[#6366F1]',
+    color: 'from-[#0D6D63] to-[#6366F1]',
   },
   {
     icon: FiSmartphone,
     title: 'Mobile Experiences That Retain',
     description: 'Fast, intuitive mobile apps that keep users engaged and boost retention.',
-    color: 'from-[#14B8A6] to-[#0F766E]',
+    color: 'from-[#0D6D63] to-[#0D6D63]',
   },
   {
     icon: FiImage,
@@ -51,13 +51,13 @@ const services = [
     icon: FiBox,
     title: 'Marketing Collateral That Converts',
     description: 'Sales-focused materials and landing pages designed to drive inquiries and purchases.',
-    color: 'from-[#0F766E] to-[#6366F1]',
+    color: 'from-[#0D6D63] to-[#6366F1]',
   },
   {
     icon: FiMonitor,
     title: 'Web Apps & Platforms',
     description: 'Scalable web applications and platforms tailored to enterprise needs.',
-    color: 'from-[#6366F1] to-[#0F766E]',
+    color: 'from-[#6366F1] to-[#0D6D63]',
   },
 ]
 
@@ -211,8 +211,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmMWY1YzkiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
           
            {/* Floating Orbs */}
-           <div className="absolute top-20 left-10 w-72 h-72 bg-[#0F766E]/5 rounded-full blur-3xl animate-pulse"></div>
-           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#14B8A6]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+           <div className="absolute top-20 left-10 w-72 h-72 bg-[#0D6D63]/5 rounded-full blur-3xl animate-pulse"></div>
+           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#0D6D63]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F59E0B]/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
         
@@ -220,12 +220,12 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - Hero Content */}
             <div className="max-w-2xl">
-              <FadeIn>
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E]/10 text-[#0F766E] text-sm font-semibold rounded-full mb-6">
-                  <span className="w-2 h-2 bg-[#0F766E] rounded-full animate-pulse"></span>
+              {/* <FadeIn>
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0D6D63]/10 text-[#0D6D63] text-sm font-semibold rounded-full mb-6">
+                  <span className="w-2 h-2 bg-[#0D6D63] rounded-full animate-pulse"></span>
                   Digital Solutions Company
                 </span>
-              </FadeIn>
+              </FadeIn> */}
               
               <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F172A] leading-tight mb-6 section-heading">
@@ -282,7 +282,7 @@ export default function Home() {
               </motion.div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-2xl opacity-20 rotate-12"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#0D6D63] to-[#0D6D63] rounded-2xl opacity-20 rotate-12"></div>
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#F59E0B] to-[#EF4444] rounded-2xl opacity-20 -rotate-12"></div>
             </div>
           </div>
@@ -340,7 +340,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 Our Services
               </span>
             </FadeIn>
@@ -377,7 +377,7 @@ export default function Home() {
                         {service.description}
                       </p>
                       <div className="mt-4">
-                        <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-[#0F766E] hover:underline">
+                        <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-[#0D6D63] hover:underline">
                           Talk about this
                           <FiArrowRight className="w-4 h-4" />
                         </Link>
@@ -397,7 +397,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <FadeIn>
-                <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                   Trusted & Proven
                 </span>
               </FadeIn>
@@ -433,10 +433,10 @@ export default function Home() {
               <FadeIn delay={200}>
                 <div className="card-modern p-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#0F766E] flex items-center justify-center text-white font-semibold">M</div>
+                    <div className="w-12 h-12 rounded-full bg-[#0D6D63] flex items-center justify-center text-white font-semibold">M</div>
                     <div>
                       <div className="text-sm font-semibold text-[#0F172A]">"{testimonials[0].quote.split('.').slice(0,1).join('.')}."</div>
-                      <div className="text-xs text-[#64748B] mt-1">{testimonials[0].author} — {testimonials[0].role}</div>
+                      <div className="text-xs text-[#64748B] mt-1">{testimonials[0].author} â€” {testimonials[0].role}</div>
                     </div>
                   </div>
                 </div>
@@ -449,9 +449,9 @@ export default function Home() {
                   <h3 className="text-lg font-semibold mb-3">AI-Powered Solutions & Rwanda-Based Innovation</h3>
                   <p className="text-sm text-[#475569] mb-4">We combine local market knowledge with modern AI-driven workflows to deliver systems that scale and perform.</p>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3"><FiCheck className="text-[#14B8A6] mt-1" /> <span className="text-sm text-[#475569]">AI automation that reduces manual work</span></li>
-                    <li className="flex items-start gap-3"><FiCheck className="text-[#14B8A6] mt-1" /> <span className="text-sm text-[#475569]">Fast local support & SLA options</span></li>
-                    <li className="flex items-start gap-3"><FiCheck className="text-[#14B8A6] mt-1" /> <span className="text-sm text-[#475569]">Enterprise-grade integrations</span></li>
+                    <li className="flex items-start gap-3"><FiCheck className="text-[#0D6D63] mt-1" /> <span className="text-sm text-[#475569]">AI automation that reduces manual work</span></li>
+                    <li className="flex items-start gap-3"><FiCheck className="text-[#0D6D63] mt-1" /> <span className="text-sm text-[#475569]">Fast local support & SLA options</span></li>
+                    <li className="flex items-start gap-3"><FiCheck className="text-[#0D6D63] mt-1" /> <span className="text-sm text-[#475569]">Enterprise-grade integrations</span></li>
                   </ul>
                 </div>
               </FadeIn>
@@ -465,7 +465,7 @@ export default function Home() {
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-8">
              <FadeIn>
-               <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+               <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                  Trusted By
                </span>
              </FadeIn>
@@ -490,7 +490,7 @@ export default function Home() {
                  ].map((client, index) => (
                    <div
                      key={index}
-                     className="marquee-item h-16 md:h-20 bg-gradient-to-r from-[#F8FAFC] to-[#E2E8F0] rounded-lg flex items-center justify-center px-4 hover:from-[#0F766E]/5 hover:to-[#14B8A6]/5 transition-colors"
+                     className="marquee-item h-16 md:h-20 bg-gradient-to-r from-[#F8FAFC] to-[#E2E8F0] rounded-lg flex items-center justify-center px-4 hover:from-[#0D6D63]/5 hover:to-[#0D6D63]/5 transition-colors"
                    >
                      <span className="text-xs md:text-sm font-medium text-[#64748B] text-center">
                        {client}
@@ -508,7 +508,7 @@ export default function Home() {
                  ].map((client, index) => (
                    <div
                      key={`dup-${index}`}
-                     className="marquee-item h-16 md:h-20 bg-gradient-to-r from-[#F8FAFC] to-[#E2E8F0] rounded-lg flex items-center justify-center px-4 hover:from-[#0F766E]/5 hover:to-[#14B8A6]/5 transition-colors"
+                     className="marquee-item h-16 md:h-20 bg-gradient-to-r from-[#F8FAFC] to-[#E2E8F0] rounded-lg flex items-center justify-center px-4 hover:from-[#0D6D63]/5 hover:to-[#0D6D63]/5 transition-colors"
                    >
                      <span className="text-xs md:text-sm font-medium text-[#64748B] text-center">
                        {client}
@@ -530,7 +530,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 Coming Soon
               </span>
             </FadeIn>
@@ -555,8 +555,8 @@ export default function Home() {
             ].map((service, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <Card className="h-full">
-                  <div className="w-10 h-10 bg-[#0F766E]/10 rounded-lg flex items-center justify-center mb-3">
-                    <service.icon className="w-5 h-5 text-[#0F766E]" />
+                  <div className="w-10 h-10 bg-[#0D6D63]/10 rounded-lg flex items-center justify-center mb-3">
+                    <service.icon className="w-5 h-5 text-[#0D6D63]" />
                   </div>
                   <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2">
                     {service.title}
@@ -587,7 +587,7 @@ export default function Home() {
               <div className="space-y-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F8FAFC] transition-colors">
-                    <div className="w-6 h-6 bg-[#14B8A6] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 bg-[#0D6D63] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <FiCheck className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
@@ -603,7 +603,7 @@ export default function Home() {
               <div className="relative">
                 {/* Main visual - illustration of development process */}
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
-                  <div className="h-80 bg-gradient-to-br from-[#0F766E] via-[#14B8A6] to-[#0F766E] p-6 md:p-8 flex items-center justify-center">
+                  <div className="h-80 bg-gradient-to-br from-[#0D6D63] via-[#0D6D63] to-[#0D6D63] p-6 md:p-8 flex items-center justify-center">
                     {/* Decorative elements */}
                     <div className="absolute inset-0 opacity-10">
                       <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-2xl"></div>
@@ -648,7 +648,7 @@ export default function Home() {
             <FadeIn delay={100}>
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 text-xs md:text-sm text-[#0F766E] font-medium hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-xs md:text-sm text-[#0D6D63] font-medium hover:gap-3 transition-all"
               >
                 View All Projects
                 <FiArrowRight className="w-3.5 h-4" />
@@ -661,7 +661,7 @@ export default function Home() {
               <FadeIn key={project.id} delay={index * 100}>
                 <Card className="h-full overflow-hidden">
                   {/* Project Image */}
-                  <div className="h-36 md:h-44 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                  <div className="h-36 md:h-44 bg-gradient-to-br from-[#0D6D63]/20 to-[#0D6D63]/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                     {project.image ? (
                       <img 
                         src={project.image} 
@@ -669,13 +669,13 @@ export default function Home() {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <FiLayers className="w-10 h-10 md:w-12 md:h-12 text-[#0F766E]/40" />
+                      <FiLayers className="w-10 h-10 md:w-12 md:h-12 text-[#0D6D63]/40" />
                     )}
                   </div>
                   
                   {/* Project Content */}
                   <div className="p-3 md:p-4 pt-0">
-                    <div className="text-xs text-[#14B8A6] font-medium uppercase tracking-wider mb-1.5">
+                    <div className="text-xs text-[#0D6D63] font-medium uppercase tracking-wider mb-1.5">
                       {project.category}
                     </div>
                     <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-1.5">
@@ -687,7 +687,7 @@ export default function Home() {
                     
                     <Link
                       to="/projects"
-                      className="inline-flex items-center gap-1.5 text-xs text-[#0F766E] font-medium hover:gap-2.5 transition-all"
+                      className="inline-flex items-center gap-1.5 text-xs text-[#0D6D63] font-medium hover:gap-2.5 transition-all"
                     >
                       View Details
                       <FiArrowRight className="w-3.5 h-3.5" />
@@ -723,13 +723,13 @@ export default function Home() {
 
             <FadeIn delay={200}>
               <div>
-                <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                   Founder & Chief Executive Officer
                 </span>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-2">
                   Christian Dushime
                 </h2>
-                <p className="text-sm text-[#14B8A6] font-medium mb-4">
+                <p className="text-sm text-[#0D6D63] font-medium mb-4">
                   Driving Innovation Through Technology
                 </p>
                 <p className="text-xs md:text-sm text-[#475569] mb-4 leading-relaxed">
@@ -759,7 +759,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 Meet our Team
               </span>
             </FadeIn>
@@ -783,12 +783,12 @@ export default function Home() {
                   <img 
                     src={gadImage} 
                     alt="Gad Irahari - UI/UX Designer at DCintelix - Creative Designer Specializing in Beautiful and Intuitive User Interfaces" 
-                    className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0F766E]/20"
+                    className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0D6D63]/20"
                     loading="lazy"
                     width="160"
                     height="160"
                   />
-                  <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
+                  <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-1">
                     Senior UI/UX Designer
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">
@@ -808,12 +808,12 @@ export default function Home() {
                   <img 
                     src={dannyImage} 
                     alt="Danny - Frontend Developer at DCintelix - Specialist in Responsive and Interactive Web Applications with Modern Frameworks" 
-                    className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0F766E]/20"
+                    className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0D6D63]/20"
                     loading="lazy"
                     width="160"
                     height="160"
                   />
-                  <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-1">
+                  <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-1">
                     Senior Frontend Developer
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">
@@ -834,7 +834,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 Testimonials
               </span>
             </FadeIn>
@@ -851,7 +851,7 @@ export default function Home() {
                 <Card className="h-full">
                   <div className="mb-3">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-[#F59E0B] text-xs">★</span>
+                      <span key={i} className="text-[#F59E0B] text-xs">â˜…</span>
                     ))}
                   </div>
                   <p className="text-xs md:text-sm text-[#475569] mb-4 leading-relaxed">
@@ -865,6 +865,13 @@ export default function Home() {
               </FadeIn>
             ))}
           </div>
+          <div className="text-center mt-8">
+            <Link to="/testimonials" className="inline-flex items-center gap-2 text-[#0D6D63] font-medium text-sm hover:text-[#09534C]">
+              <FiMessageSquare className="w-4 h-4" />
+              Share your experience
+              <FiArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -877,7 +884,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">Pricing Preview</span>
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">Pricing Preview</span>
             </FadeIn>
             <FadeIn delay={100}>
               <h2 className="text-lg md:text-xl font-bold text-[#0F172A] mb-2">Simple Packages Pick What Fits Your Business</h2>
@@ -902,7 +909,7 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={100}>
-              <div className="p-6 border-2 border-[#0F766E] rounded-lg text-center bg-[#F8FEFA]">
+              <div className="p-6 border-2 border-[#0D6D63] rounded-lg text-center bg-[#F8FEFA]">
                 <div className="text-xs text-[#64748B] uppercase mb-3">Business</div>
                 <div className="text-2xl font-bold text-[#0F172A] mb-3">RWF 1,500,000</div>
                 <ul className="text-xs text-[#475569] mb-4 space-y-2">
@@ -919,7 +926,7 @@ export default function Home() {
                 <div className="text-xs text-[#64748B] uppercase mb-3">Premium</div>
                 <div className="text-2xl font-bold text-[#0F172A] mb-3">RWF 5,000,000+</div>
                 <ul className="text-xs text-[#475569] mb-4 space-y-2">
-                  <li>E‑commerce or custom platform</li>
+                  <li>Eâ€‘commerce or custom platform</li>
                   <li>Advanced integrations & automations</li>
                   <li>Premium support & SLAs</li>
                 </ul>
@@ -955,19 +962,19 @@ export default function Home() {
 
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-[#0F766E] to-[#14B8A6]">
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-[#0D6D63] to-[#0D6D63]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Let’s build your business online today
+              Letâ€™s build your business online today
             </h2>
             <p className="text-sm md:text-base text-white/90 mb-3 max-w-xl mx-auto">
-              Limited slots available this week — book a quick discovery to secure your spot.
+              Limited slots available this week â€” book a quick discovery to secure your spot.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0F766E] font-semibold text-sm rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0D6D63] font-semibold text-sm rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
               >
                 Start Now
                 <FiArrowRight className="w-4 h-4" />
@@ -1017,13 +1024,13 @@ function InlineContactForm() {
   return (
     <div>
       {isSubmitted ? (
-        <Card className="bg-[#14B8A6]/10 border-[#14B8A6]/30">
+        <Card className="bg-[#0D6D63]/10 border-[#0D6D63]/30">
           <div className="text-center py-6">
-            <div className="w-12 h-12 bg-[#14B8A6] rounded-full flex items-center justify-center mx-auto mb-3">
+            <div className="w-12 h-12 bg-[#0D6D63] rounded-full flex items-center justify-center mx-auto mb-3">
               <FiCheck className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-base font-semibold text-[#0F172A] mb-2">Message Sent!</h3>
-            <p className="text-xs md:text-sm text-[#475569]">Thanks — we'll be in touch shortly.</p>
+            <p className="text-xs md:text-sm text-[#475569]">Thanks â€” we'll be in touch shortly.</p>
           </div>
         </Card>
       ) : (

@@ -1,15 +1,15 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
   /* Brand Colors */
-  --color-primary: #0F766E;
-  --color-primary-light: #14B8A6;
-  --color-secondary: #14B8A6;
+  --color-primary: #0D6D63;
+  --color-primary-light: #0D6D63;
+  --color-secondary: #0D6D63;
   --color-accent: #F59E0B;
   --color-accent-light: #FCD34D;
   
   /* Background Colors */
-  --color-bg-light: #F8FAFC;
+  --color-bg-light: #F9FAFC;
   --color-bg-white: #FFFFFF;
   --color-bg-gray: #F1F5F9;
   
@@ -331,10 +331,10 @@
 /* Glow animation for buttons/links */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(15, 118, 110, 0.3);
+    box-shadow: 0 0 5px rgba(13, 109, 99, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(15, 118, 110, 0.6), 0 0 30px rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 20px rgba(13, 109, 99, 0.6), 0 0 30px rgba(20, 184, 166, 0.4);
   }
 }
 
@@ -347,7 +347,7 @@
 
 .whatsapp-button:hover {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(20, 184, 166, 0.18), 0 6px 18px rgba(15, 118, 110, 0.08);
+  box-shadow: 0 12px 30px rgba(20, 184, 166, 0.18), 0 6px 18px rgba(13, 109, 99, 0.08);
   animation-name: float, glow;
   animation-duration: 6s, 1.6s;
   animation-iteration-count: infinite, infinite;
@@ -439,14 +439,14 @@ body {
 
 .btn-outline {
   background: transparent;
-  border: 1px solid rgba(15, 118, 110, 0.12);
+  border: 1px solid rgba(13, 109, 99, 0.12);
   color: var(--deep-teal);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 .btn-outline:hover {
-  background: rgba(15,118,110,0.06);
+  background: rgba(13,109,99,0.06);
   transform: translateY(-3px);
 }
 
@@ -715,5 +715,6 @@ p {
 
 .marquee-item:hover {
   transform: scale(1.05);
-  background: linear-gradient(to right, rgba(15, 118, 110, 0.05), rgba(20, 184, 166, 0.05));
+  background: linear-gradient(to right, rgba(13, 109, 99, 0.05), rgba(20, 184, 166, 0.05));
 } 
+

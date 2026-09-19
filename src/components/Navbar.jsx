@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiArrowRight, FiPhone } from "react-icons/fi";
 import logo from "../assets/logo.png";
@@ -8,6 +8,7 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Projects", path: "/projects" },
   { name: "Blogs", path: "/blogs" },
+  { name: "Careers", path: "/careers" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -60,8 +61,8 @@ export default function Navbar() {
                 to={link.path}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   location.pathname === link.path
-                    ? "text-[#0F766E]"
-                    : "text-[#475569] hover:text-[#0F766E]"
+                    ? "text-[#0D6D63]"
+                    : "text-[#475569] hover:text-[#0D6D63]"
                 }`}
               >
                 {link.name}
@@ -73,14 +74,14 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:+250789356233"
-              className="flex items-center gap-2 text-sm text-[#475569] hover:text-[#0F766E] transition-colors"
+              className="flex items-center gap-2 text-sm text-[#475569] hover:text-[#0D6D63] transition-colors"
             >
               <FiPhone className="w-4 h-4" />
               <span>+250 789 356 233</span>
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0F766E] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-200 hover:shadow-lg hover:shadow-[#0F766E]/20"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0D6D63] text-white text-sm font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-200 hover:shadow-lg hover:shadow-[#0D6D63]/20"
             >
               Get a Free Consultation
               <FiArrowRight className="w-4 h-4" />
@@ -89,7 +90,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-[#475569] hover:text-[#0F766E] transition-colors"
+            className="md:hidden p-2 text-[#475569] hover:text-[#0D6D63] transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -125,8 +126,8 @@ export default function Navbar() {
               to={link.path}
               className={`block py-2 text-base font-medium transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? "text-[#0F766E]"
-                  : "text-[#475569] hover:text-[#0F766E]"
+                  ? "text-[#0D6D63]"
+                  : "text-[#475569] hover:text-[#0D6D63]"
               }`}
             >
               {link.name}
@@ -134,7 +135,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0F766E] text-white text-base font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-200"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0D6D63] text-white text-base font-medium rounded-lg hover:bg-[#0D6D63] transition-all duration-200"
           >
             Get Started
             <FiArrowRight className="w-4 h-4" />
@@ -144,3 +145,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

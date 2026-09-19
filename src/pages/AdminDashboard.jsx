@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { 
   FiMessageSquare, 
-  FiMail, 
   FiUsers, 
-  FiLogOut, 
   FiTrash2, 
   FiChevronLeft, 
   FiChevronRight,
@@ -15,11 +13,24 @@ import {
   FiSend,
   FiEye,
   FiCheckCircle,
-  FiAlertCircle
+  FiAlertCircle,
+  FiBriefcase,
+  FiPlus,
+  FiEdit
 } from 'react-icons/fi';
 import { fetchContacts, deleteContact, replyToContact } from '../store/contactSlice';
 import { fetchSubscribers, fetchSubscriberStats, deleteSubscriber, sendBulkNewsletter, resetSendStatus } from '../store/newsletterSlice';
+import { fetchAdminTestimonials, updateTestimonial, deleteTestimonial } from '../store/testimonialsSlice';
+import {
+  fetchAdminJobs,
+  fetchAdminApplications,
+  updateJob,
+  deleteJob,
+  updateApplication,
+  deleteApplication,
+} from '../store/careersSlice';
 import { logout, checkAuth } from '../store/authSlice';
+import AdminSidebar from '../components/AdminSidebar';
 
 export default function AdminDashboard() {
   const dispatch = useDispatch();
@@ -37,6 +48,14 @@ export default function AdminDashboard() {
   const { user, isAuthenticated, status: authStatus } = useSelector((state) => state.auth);
   const { contacts, pagination: contactPagination, status: contactStatus, replyStatus } = useSelector((state) => state.contact);
   const { subscribers, stats, pagination: subscriberPagination, status: subscriberStatus, sendStatus } = useSelector((state) => state.newsletter);
+  const { adminItems: testimonials, adminStatus: testimonialsStatus } = useSelector((state) => state.testimonials);
+  const {
+    adminJobs,
+    adminApplications,
+    adminStatus: careersStatus,
+    pagination: jobPagination,
+    appPagination,
+  } = useSelector((state) => state.careers);
 
   useEffect(() => {
     dispatch(checkAuth());
@@ -53,6 +72,9 @@ export default function AdminDashboard() {
       dispatch(fetchContacts());
       dispatch(fetchSubscribers());
       dispatch(fetchSubscriberStats());
+      dispatch(fetchAdminTestimonials());
+      dispatch(fetchAdminJobs());
+      dispatch(fetchAdminApplications());
     }
   }, [dispatch, isAuthenticated]);
 
@@ -124,6 +146,43 @@ export default function AdminDashboard() {
     }));
   };
 
+  const handleApprovalToggle = (id, currentStatus) => {
+    dispatch(updateTestimonial({
+      id,
+      status: currentStatus === 'APPROVED' ? 'PENDING' : 'APPROVED',
+    }));
+    setToast({ type: 'success', message: 'Testimonial status updated' });
+  };
+
+  const handleDeleteTestimonial = (id) => {
+    dispatch(deleteTestimonial(id));
+    setToast({ type: 'success', message: 'Testimonial deleted' });
+  };
+
+  const handleToggleJobStatus = (id, currentStatus) => {
+    dispatch(updateJob({
+      id,
+      status: currentStatus === 'PUBLISHED' ? 'DRAFT' : 'PUBLISHED',
+    }));
+    setToast({ type: 'success', message: 'Job status updated' });
+  };
+
+  const handleDeleteJob = (id) => {
+    dispatch(deleteJob(id));
+    setToast({ type: 'success', message: 'Job deleted' });
+  };
+
+  const handleApplicationStatusUpdate = (id, currentStatus) => {
+    const nextStatus = currentStatus === 'REVIEWING' ? 'SHORTLISTED' : 'REVIEWING';
+    dispatch(updateApplication({ id, status: nextStatus }));
+    setToast({ type: 'success', message: 'Application status updated' });
+  };
+
+  const handleDeleteApplication = (id) => {
+    dispatch(deleteApplication(id));
+    setToast({ type: 'success', message: 'Application deleted' });
+  };
+
   const handleSendNewsletter = () => {
     if (!newsletterForm.subject || !newsletterForm.content) {
       setToast({ type: 'error', message: 'Please fill in all fields' });
@@ -138,10 +197,18 @@ export default function AdminDashboard() {
   const handlePageChange = (page) => {
     if (activeTab === 'contacts') {
       dispatch(fetchContacts(page));
-    } else {
+    } else if (activeTab === 'newsletter') {
       dispatch(fetchSubscribers(page));
     }
   };
+
+  const pageTitle = {
+    contacts: 'Messages',
+    newsletter: 'Subscribers',
+    testimonials: 'Testimonials',
+    jobs: 'Jobs',
+    applications: 'Applications',
+  }[activeTab] || 'Dashboard';
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -378,45 +445,19 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-56 bg-slate-900 text-white transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:transform-none`}>
-        <div className="p-4">
-          <h1 className="text-lg font-bold">DCintelix</h1>
-          <p className="text-slate-400 text-xs">Dashboard</p>
-        </div>
-        <div className="px-4 py-3 border-t border-slate-800">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
-              <FiUser className="w-4 h-4" />
-            </div>
-            <div>
-              <p className="text-sm font-medium">{user?.email}</p>
-              <p className="text-xs text-slate-400">Admin</p>
-            </div>
-          </div>
-        </div>
-        <nav className="px-3 py-3">
-          <button onClick={() => setActiveTab('contacts')} className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${activeTab === 'contacts' ? 'bg-teal-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}>
-            <FiMessageSquare className="w-4 h-4" />
-            Messages
-          </button>
-          <button onClick={() => setActiveTab('newsletter')} className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors mt-1 ${activeTab === 'newsletter' ? 'bg-teal-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}>
-            <FiMail className="w-4 h-4" />
-            Newsletter
-          </button>
-        </nav>
-        <div className="absolute bottom-0 left-0 right-0 p-3">
-          <button onClick={handleLogout} className="w-full flex items-center gap-2 px-3 py-2 text-red-400 hover:bg-slate-800 rounded-lg text-sm transition-colors">
-            <FiLogOut className="w-4 h-4" />
-            Logout
-          </button>
-        </div>
-      </aside>
+      <AdminSidebar
+        user={user}
+        activeTab={activeTab}
+        isOpen={sidebarOpen}
+        onTabChange={setActiveTab}
+        onLogout={handleLogout}
+      />
       <main className="flex-1 min-h-screen">
         <header className="bg-white shadow-sm px-4 py-3 flex items-center justify-between">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="lg:hidden p-2 rounded-lg hover:bg-slate-100">
             {sidebarOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
           </button>
-          <h2 className="text-lg font-semibold text-slate-800">{activeTab === 'contacts' ? 'Messages' : 'Subscribers'}</h2>
+          <h2 className="text-lg font-semibold text-slate-800">{pageTitle}</h2>
           <a href="/" className="text-teal-600 hover:text-teal-700 text-xs font-medium">View Site →</a>
         </header>
         <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -433,8 +474,8 @@ export default function AdminDashboard() {
           </div>
           <div className="bg-white rounded-lg shadow-sm p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <FiUsers className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-[#0D6D63]/10 rounded-lg flex items-center justify-center">
+                <FiUsers className="w-5 h-5 text-[#0D6D63]" />
               </div>
               <div>
                 <p className="text-xs text-slate-500">Active Subs</p>
@@ -450,6 +491,39 @@ export default function AdminDashboard() {
               <div>
                 <p className="text-xs text-slate-500">Total Subs</p>
                 <p className="text-xl font-bold text-slate-800">{stats.total}</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                <FiUser className="w-5 h-5 text-amber-600" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500">Testimonials</p>
+                <p className="text-xl font-bold text-slate-800">{testimonials.length}</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                <FiBriefcase className="w-5 h-5 text-indigo-600" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500">Jobs</p>
+                <p className="text-xl font-bold text-slate-800">{adminJobs.length}</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                <FiCheckCircle className="w-5 h-5 text-emerald-600" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500">Applications</p>
+                <p className="text-xl font-bold text-slate-800">{adminApplications.length}</p>
               </div>
             </div>
           </div>
@@ -499,18 +573,10 @@ export default function AdminDashboard() {
                           <td className="px-4 py-3 text-slate-500 text-xs">{formatDate(contact.createdAt)}</td>
                           <td className="px-4 py-3 text-right">
                             <div className="flex items-center justify-end gap-1">
-                              <button 
-                                onClick={() => handleViewContact(contact)} 
-                                className="p-1.5 text-teal-600 hover:bg-teal-50 rounded transition-colors" 
-                                title="View"
-                              >
+                              <button onClick={() => handleViewContact(contact)} className="p-1.5 text-teal-600 hover:bg-teal-50 rounded transition-colors" title="View">
                                 <FiEye className="w-4 h-4" />
                               </button>
-                              <button 
-                                onClick={() => handleDeleteContact(contact.id)} 
-                                className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors" 
-                                title="Delete"
-                              >
+                              <button onClick={() => handleDeleteContact(contact.id)} className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors" title="Delete">
                                 <FiTrash2 className="w-4 h-4" />
                               </button>
                             </div>
@@ -534,14 +600,10 @@ export default function AdminDashboard() {
                   </div>
                 )}
               </div>
-            ) : (
+            ) : activeTab === 'newsletter' ? (
               <div>
                 <div className="p-4 border-b border-slate-200 flex justify-end">
-                  <button 
-                    onClick={() => setShowNewsletterModal(true)}
-                    disabled={stats.active === 0}
-                    className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
+                  <button onClick={() => setShowNewsletterModal(true)} disabled={stats.active === 0} className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     <FiSend className="w-4 h-4" />
                     Send Newsletter
                   </button>
@@ -580,11 +642,7 @@ export default function AdminDashboard() {
                             </td>
                             <td className="px-4 py-3 text-slate-500 text-xs">{formatDate(subscriber.subscribedAt)}</td>
                             <td className="px-4 py-3 text-right">
-                              <button 
-                                onClick={() => handleDeleteSubscriber(subscriber.email)} 
-                                className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors" 
-                                title="Delete"
-                              >
+                              <button onClick={() => handleDeleteSubscriber(subscriber.email)} className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors" title="Delete">
                                 <FiTrash2 className="w-4 h-4" />
                               </button>
                             </td>
@@ -608,6 +666,130 @@ export default function AdminDashboard() {
                   )}
                 </div>
               </div>
+            ) : activeTab === 'testimonials' ? (
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Name</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Role</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Status</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Message</th>
+                      <th className="px-4 py-3 text-right text-xs font-semibold text-slate-600 uppercase">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {testimonialsStatus === 'loading' ? (
+                      <tr><td colSpan="5" className="px-4 py-8 text-center">Loading...</td></tr>
+                    ) : testimonials.length === 0 ? (
+                      <tr><td colSpan="5" className="px-4 py-8 text-center text-slate-500">No testimonials found.</td></tr>
+                    ) : testimonials.map((item) => (
+                      <tr key={item.id} className="hover:bg-slate-50">
+                        <td className="px-4 py-3 text-slate-800">{item.name}</td>
+                        <td className="px-4 py-3 text-slate-600">{item.role || '—'}</td>
+                        <td className="px-4 py-3">
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${item.status === 'APPROVED' ? 'bg-green-100 text-green-700' : item.status === 'REJECTED' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                            {item.status}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-slate-600 max-w-md break-words">{item.testimonial || item.message}</td>
+                        <td className="px-4 py-3 text-right">
+                          <div className="flex items-center justify-end gap-2">
+                            <button onClick={() => handleApprovalToggle(item.id, item.status)} className="text-xs px-2 py-1 rounded bg-teal-600 text-white hover:bg-teal-700">{item.status === 'APPROVED' ? 'Set Pending' : 'Approve'}</button>
+                            <button onClick={() => handleDeleteTestimonial(item.id)} className="text-xs px-2 py-1 rounded bg-red-100 text-red-600 hover:bg-red-200">Delete</button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : activeTab === 'jobs' ? (
+              <div>
+                <div className="p-4 border-b border-slate-200 flex justify-end">
+                  <button onClick={() => navigate('/admin/jobs/new')} className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
+                    <FiPlus className="w-4 h-4" />
+                    Post a job
+                  </button>
+                  <button onClick={() => navigate('/admin/training/new')} className="ml-2 flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+                    <FiPlus className="w-4 h-4" />
+                    Post training
+                  </button>
+                  <button onClick={() => navigate('/admin/internships/new')} className="ml-2 flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                    <FiPlus className="w-4 h-4" />
+                    Post internship
+                  </button>
+                </div>
+                <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Title</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Status</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Location</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Type</th>
+                      <th className="px-4 py-3 text-right text-xs font-semibold text-slate-600 uppercase">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {careersStatus === 'loading' ? (
+                      <tr><td colSpan="5" className="px-4 py-8 text-center">Loading...</td></tr>
+                    ) : adminJobs.length === 0 ? (
+                      <tr><td colSpan="5" className="px-4 py-8 text-center text-slate-500">No jobs found.</td></tr>
+                    ) : adminJobs.map((job) => (
+                      <tr key={job.id} className="hover:bg-slate-50">
+                        <td className="px-4 py-3 text-slate-800">{job.title}</td>
+                        <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${job.status === 'PUBLISHED' ? 'bg-green-100 text-green-700' : 'bg-slate-200 text-slate-700'}`}>{job.status}</span></td>
+                        <td className="px-4 py-3 text-slate-600">{job.location}</td>
+                        <td className="px-4 py-3 text-slate-600">{job.employmentType}</td>
+                        <td className="px-4 py-3 text-right">
+                          <div className="flex items-center justify-end gap-2">
+                            <button onClick={() => navigate(`/admin/jobs/${job.id}/edit`)} className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200">
+                              <FiEdit className="w-3 h-3" />
+                              Edit
+                            </button>
+                            <button onClick={() => handleToggleJobStatus(job.id, job.status)} className="text-xs px-2 py-1 rounded bg-teal-600 text-white hover:bg-teal-700">{job.status === 'PUBLISHED' ? 'Unpublish' : 'Publish'}</button>
+                            <button onClick={() => handleDeleteJob(job.id)} className="text-xs px-2 py-1 rounded bg-red-100 text-red-600 hover:bg-red-200">Delete</button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                </div>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Applicant</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Role</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Status</th>
+                      <th className="px-4 py-3 text-right text-xs font-semibold text-slate-600 uppercase">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {careersStatus === 'loading' ? (
+                      <tr><td colSpan="4" className="px-4 py-8 text-center">Loading...</td></tr>
+                    ) : adminApplications.length === 0 ? (
+                      <tr><td colSpan="4" className="px-4 py-8 text-center text-slate-500">No applications found.</td></tr>
+                    ) : adminApplications.map((app) => (
+                      <tr key={app.id} className="hover:bg-slate-50">
+                        <td className="px-4 py-3 text-slate-800">{app.name}</td>
+                        <td className="px-4 py-3 text-slate-600">{app.job?.title || 'General'}</td>
+                        <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${app.status === 'SHORTLISTED' ? 'bg-green-100 text-green-700' : app.status === 'REJECTED' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>{app.status}</span></td>
+                        <td className="px-4 py-3 text-right">
+                          <div className="flex items-center justify-end gap-2">
+                            <button onClick={() => handleApplicationStatusUpdate(app.id, app.status)} className="text-xs px-2 py-1 rounded bg-teal-600 text-white hover:bg-teal-700">Advance</button>
+                            <button onClick={() => handleDeleteApplication(app.id)} className="text-xs px-2 py-1 rounded bg-red-100 text-red-600 hover:bg-red-200">Delete</button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
           </div>
         </div>
@@ -615,3 +797,4 @@ export default function AdminDashboard() {
     </div>
   );
 }
+

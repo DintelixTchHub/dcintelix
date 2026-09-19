@@ -50,16 +50,13 @@ export const checkAuth = createAsyncThunk(
   'auth/checkAuth',
   async (_, { rejectWithValue }) => {
     try {
-      // Try to verify with backend using cookie
       const response = await api.get('/auth/profile');
       const { admin } = response.data.data;
       
-      // Get token from localStorage if available, otherwise use cookie
       const token = localStorage.getItem('adminToken');
       
       return { email: admin.email, name: admin.name, token };
     } catch (error) {
-      // Clear localStorage if cookie verification fails
       localStorage.removeItem('adminToken');
       localStorage.removeItem('adminEmail');
       return rejectWithValue('Not authenticated');

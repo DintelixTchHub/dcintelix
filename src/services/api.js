@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5003/';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -31,7 +31,6 @@ api.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      // Only redirect to login if accessing admin routes, not public pages
       const currentPath = window.location.pathname;
       const isAdminRoute = currentPath.startsWith('/admin/dashboard');
       

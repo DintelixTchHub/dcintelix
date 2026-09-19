@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
-import LegalModal from './LegalModal'
+import { Link } from 'react-router-dom'
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
-  const [showPrivacyModal, setShowPrivacyModal] = useState(false)
 
   useEffect(() => {
     const consent = localStorage.getItem('dcintelix-cookie-consent')
@@ -33,11 +32,6 @@ export default function CookieConsent() {
 
   return (
     <>
-      <LegalModal 
-        isOpen={showPrivacyModal} 
-        onClose={() => setShowPrivacyModal(false)} 
-        type="privacy" 
-      />
     <div 
       className={`fixed bottom-0 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300 ${
         isAnimating 
@@ -83,16 +77,12 @@ export default function CookieConsent() {
               </div>
               <p className="text-slate-300 text-[10px] sm:text-xs leading-tight">
                 We use cookies to enhance your browsing experience. 
-                <a 
-                  href="#" 
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setShowPrivacyModal(true)
-                  }}
+                <Link
+                  to="/privacy"
                   className="text-teal-400 hover:text-teal-300 underline ml-1 transition-colors cursor-pointer"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </p>
             </div>
 

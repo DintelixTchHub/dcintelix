@@ -1,4 +1,4 @@
-import { FiX, FiShield, FiFileText } from 'react-icons/fi'
+﻿import { FiX, FiShield, FiFileText } from 'react-icons/fi'
 
 const privacyPolicyContent = (
   <div className="space-y-4 text-[#475569]">
@@ -131,7 +131,7 @@ export default function LegalModal({ isOpen, onClose, type }) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#E2E8F0] bg-[#F8FAFC]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[#0F766E] text-white flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-[#0D6D63] text-white flex items-center justify-center">
               {icon}
             </div>
             <h2 className="text-xl font-semibold text-[#1E293B]">{title}</h2>
@@ -153,7 +153,7 @@ export default function LegalModal({ isOpen, onClose, type }) {
         <div className="px-6 py-4 border-t border-[#E2E8F0] bg-[#F8FAFC]">
           <button
             onClick={onClose}
-            className="w-full py-2.5 px-4 bg-[#0F766E] hover:bg-[#0D9488] text-white font-medium rounded-lg transition-colors"
+            className="w-full py-2.5 px-4 bg-[#0D6D63] hover:bg-[#09534C] text-white font-medium rounded-lg transition-colors"
           >
             Close
           </button>
@@ -162,3 +162,4 @@ export default function LegalModal({ isOpen, onClose, type }) {
     </div>
   )
 }
+

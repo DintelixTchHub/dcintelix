@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader, FiInstagram, FiFacebook } from 'react-icons/fi'
 import { FaTiktok } from 'react-icons/fa'
 import { useState } from 'react'
@@ -16,6 +16,7 @@ const quickLinks = [
   { name: 'Projects', path: '/projects' },
   { name: 'Blogs', path: '/blogs' },
   { name: 'Contact', path: '/contact' },
+  { name: 'Share a Testimonial', path: '/testimonials' },
 ]
 
 const services = [
@@ -72,15 +73,15 @@ export default function Footer() {
               custom web applications, e-commerce platforms, and mobile apps that drive business growth.
             </p>
             {/* Trust Badges */}
-            <div className="mb-6 p-4 bg-[#1E293B] rounded-lg border border-[#334155]">
+            <div className="mb-6 p-4 bg-[#09534C] rounded-lg border border-[#0D6D63]">
               <div className="flex items-center gap-2 mb-2">
-                <FiCheck className="w-4 h-4 text-[#14B8A6]" />
+                <FiCheck className="w-4 h-4 text-[#0D6D63]" />
                 <p className="text-white text-sm font-medium">
                   Registered Company in Rwanda
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <FiCheck className="w-4 h-4 text-[#14B8A6]" />
+                <FiCheck className="w-4 h-4 text-[#0D6D63]" />
                 <p className="text-white text-sm font-medium">
                   Professional Development Team
                 </p>
@@ -91,7 +92,7 @@ export default function Footer() {
                 href="https://www.facebook.com/dcintelix"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
+                className="w-10 h-10 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
                 aria-label="Facebook"
               >
                 <FiFacebook className="w-5 h-5" />
@@ -100,7 +101,7 @@ export default function Footer() {
                 href="https://www.instagram.com/dcintelix"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
+                className="w-10 h-10 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
                 aria-label="Instagram"
               >
                 <FiInstagram className="w-5 h-5" />
@@ -109,7 +110,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@dcintelix1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0F766E] hover:text-white transition-all duration-200"
+                className="w-10 h-10 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
                 aria-label="TikTok"
               >
                 <FaTiktok className="w-5 h-5" />
@@ -133,7 +134,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -150,7 +151,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <Link
                     to={service.path}
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm"
                   >
                     {service.name}
                   </Link>
@@ -166,9 +167,9 @@ export default function Footer() {
             {/* Newsletter Form */}
             <div className="w-full mb-6">
               {subscribeStatus === 'succeeded' ? (
-                <div className="bg-[#14B8A6]/10 border border-[#14B8A6]/30 rounded-lg p-3 text-center">
-                  <FiCheck className="w-5 h-5 text-[#14B8A6] mx-auto mb-1" />
-                  <p className="text-[#14B8A6] text-sm">Thanks for subscribing!</p>
+                <div className="bg-[#0D6D63]/10 border border-[#0D6D63]/30 rounded-lg p-3 text-center">
+                  <FiCheck className="w-5 h-5 text-[#0D6D63] mx-auto mb-1" />
+                  <p className="text-[#0D6D63] text-sm">Thanks for subscribing!</p>
                 </div>
               ) : (
                 <form onSubmit={handleNewsletterSubmit} className="space-y-2">
@@ -178,13 +179,13 @@ export default function Footer() {
                       value={newsletterEmail}
                       onChange={(e) => setNewsletterEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className="flex-1 px-3 py-2 text-sm bg-[#1E293B] border border-[#334155] rounded-l-lg text-white placeholder-[#64748B] focus:outline-none focus:border-[#14B8A6]"
+                      className="flex-1 px-3 py-2 text-sm bg-[#09534C] border border-[#0D6D63] rounded-l-lg text-white placeholder-[#64748B] focus:outline-none focus:border-[#0D6D63]"
                       required
                     />
                     <button
                       type="submit"
                       disabled={subscribeStatus === 'loading'}
-                      className="px-3 py-2 bg-[#14B8A6] text-white rounded-r-lg hover:bg-[#0D9488] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-2 bg-[#0D6D63] text-white rounded-r-lg hover:bg-[#09534C] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {subscribeStatus === 'loading' ? (
                         <FiLoader className="w-5 h-5 animate-spin" />
@@ -203,47 +204,47 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-lg mb-4">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <FiMail className="w-5 h-5 text-[#14B8A6] mt-0.5 flex-shrink-0" />
+                <FiMail className="w-5 h-5 text-[#0D6D63] mt-0.5 flex-shrink-0" />
                 <div className="space-y-1">
                   <a
                     href="mailto:dcintelix@gmail.com"
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm block"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm block"
                   >
                     dcintelix@gmail.com
                   </a>
                   <a
                     href="mailto:dushimec515@gmail.com"
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm block"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm block"
                   >
                     dushimec515@gmail.com
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <FiPhone className="w-5 h-5 text-[#14B8A6] flex-shrink-0" />
+                <FiPhone className="w-5 h-5 text-[#0D6D63] flex-shrink-0" />
                 <div className="space-y-1">
                   <a
                     href="tel:+250789356233"
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm block"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm block"
                   >
                     +250 789 356 233
                   </a>
                   <a
                     href="tel:+250794027348"
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm block"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm block"
                   >
                     +250 794 027 348
                   </a>
                   <a
                     href="tel:+250781591552"
-                    className="text-[#94A3B8] hover:text-[#14B8A6] transition-colors duration-200 text-sm block"
+                    className="text-[#94A3B8] hover:text-[#0D6D63] transition-colors duration-200 text-sm block"
                   >
                     +250 781 591 552
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <FiMapPin className="w-5 h-5 text-[#14B8A6] mt-0.5 flex-shrink-0" />
+                <FiMapPin className="w-5 h-5 text-[#0D6D63] mt-0.5 flex-shrink-0" />
                 <span className="text-[#94A3B8] text-sm">
                   Kigali, Rwanda
                 </span>
@@ -254,22 +255,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[#1E293B]">
+      <div className="border-t border-[#09534C]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#64748B] text-sm">
-              © {new Date().getFullYear()} DCintelix. All rights reserved.
+              Â© {new Date().getFullYear()} DCintelix. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <button 
-                onClick={() => openLegalModal('privacy')} 
-                className="text-[#64748B] hover:text-[#14B8A6] text-sm transition-colors cursor-pointer bg-transparent border-none"
+              <Link
+                to="/privacy"
+                className="text-[#64748B] hover:text-[#0D6D63] text-sm transition-colors"
               >
                 Privacy Policy
-              </button>
+              </Link>
               <button 
                 onClick={() => openLegalModal('terms')} 
-                className="text-[#64748B] hover:text-[#14B8A6] text-sm transition-colors cursor-pointer bg-transparent border-none"
+                className="text-[#64748B] hover:text-[#0D6D63] text-sm transition-colors cursor-pointer bg-transparent border-none"
               >
                 Terms of Service
               </button>
@@ -285,3 +286,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+

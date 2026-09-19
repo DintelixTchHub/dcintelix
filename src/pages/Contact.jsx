@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiLoader, FiHome, FiUsers, FiClock } from 'react-icons/fi'
@@ -103,7 +103,7 @@ export default function Contact() {
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-3">
+            <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-3">
               Contact Us
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4">
@@ -126,16 +126,16 @@ export default function Contact() {
               <div className="space-y-6">
                 {/* Office image placeholder */}
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
-                  <div className="h-64 md:h-80 bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center">
+                  <div className="h-64 md:h-80 bg-gradient-to-br from-[#09534C] to-[#0D6D63] flex items-center justify-center">
                     {/* Decorative elements */}
                     <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-10 left-10 w-32 h-32 bg-[#14B8A6] rounded-full blur-3xl"></div>
-                      <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#0F766E] rounded-full blur-3xl"></div>
+                      <div className="absolute top-10 left-10 w-32 h-32 bg-[#0D6D63] rounded-full blur-3xl"></div>
+                      <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#0D6D63] rounded-full blur-3xl"></div>
                     </div>
                     
                     {/* Office content illustration */}
                     <div className="relative z-10 text-center text-white px-4">
-                      <FiHome className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 text-[#14B8A6]" />
+                      <FiHome className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 text-[#0D6D63]" />
                       <h3 className="text-lg md:text-xl font-bold mb-2">DCintelix Kigali</h3>
                       <p className="text-sm text-white/80 max-w-md mx-auto">
                         Our headquarters in the heart of Kigali, Rwanda
@@ -155,15 +155,15 @@ export default function Contact() {
                 {/* Quick stats */}
                 <div className="grid grid-cols-2 gap-4">
                   <Card className="p-4 text-center">
-                    <div className="w-10 h-10 bg-[#0F766E]/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <FiClock className="w-5 h-5 text-[#0F766E]" />
+                    <div className="w-10 h-10 bg-[#0D6D63]/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <FiClock className="w-5 h-5 text-[#0D6D63]" />
                     </div>
                     <h4 className="text-sm font-semibold text-[#0F172A] mb-1">24/7 Support</h4>
                     <p className="text-xs text-[#64748B]">Always here to help</p>
                   </Card>
                   <Card className="p-4 text-center">
-                    <div className="w-10 h-10 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <FiUsers className="w-5 h-5 text-[#14B8A6]" />
+                    <div className="w-10 h-10 bg-[#0D6D63]/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <FiUsers className="w-5 h-5 text-[#0D6D63]" />
                     </div>
                     <h4 className="text-sm font-semibold text-[#0F172A] mb-1">Expert Team</h4>
                     <p className="text-xs text-[#64748B]">Skilled professionals</p>
@@ -183,9 +183,9 @@ export default function Contact() {
                 </p>
 
                 {isSubmitted ? (
-                  <Card className="bg-[#14B8A6]/10 border-[#14B8A6]/30">
+                  <Card className="bg-[#0D6D63]/10 border-[#0D6D63]/30">
                     <div className="text-center py-6">
-                      <div className="w-12 h-12 bg-[#14B8A6] rounded-full flex items-center justify-center mx-auto mb-3">
+                      <div className="w-12 h-12 bg-[#0D6D63] rounded-full flex items-center justify-center mx-auto mb-3">
                         <FiCheck className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-base font-semibold text-[#0F172A] mb-2">
@@ -210,7 +210,7 @@ export default function Contact() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:border-transparent transition-colors"
+                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0D6D63] focus:border-transparent transition-colors"
                           placeholder="Kalisa Jean"
                         />
                       </div>
@@ -225,7 +225,7 @@ export default function Contact() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:border-transparent transition-colors"
+                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0D6D63] focus:border-transparent transition-colors"
                           placeholder="email@example.com"
                         />
                       </div>
@@ -242,7 +242,7 @@ export default function Contact() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:border-transparent transition-colors"
+                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0D6D63] focus:border-transparent transition-colors"
                           placeholder="+250 781111111"
                         />
                       </div>
@@ -256,7 +256,7 @@ export default function Contact() {
                           required
                           value={formData.subject}
                           onChange={handleChange}
-                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:border-transparent transition-colors"
+                          className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0D6D63] focus:border-transparent transition-colors"
                         >
                           <option value="">Select</option>
                           <option value="website">Website Design</option>
@@ -282,7 +282,7 @@ export default function Contact() {
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:border-transparent transition-colors resize-none"
+                        className="w-full px-3 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0D6D63] focus:border-transparent transition-colors resize-none"
                         placeholder="Tell us about your project..."
                       />
                     </div>
@@ -326,20 +326,20 @@ export default function Contact() {
                 <div className="space-y-4">
                   <Card className="p-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#0F766E]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <FiMail className="w-5 h-5 text-[#0F766E]" />
+                      <div className="w-10 h-10 bg-[#0D6D63]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <FiMail className="w-5 h-5 text-[#0D6D63]" />
                       </div>
                       <div>
                         <h4 className="text-xs font-medium text-[#0F172A] mb-0.5">Email</h4>
                         <a
                           href="mailto:dcintelix@gmail.com"
-                          className="text-xs text-[#475569] hover:text-[#0F766E] transition-colors block"
+                          className="text-xs text-[#475569] hover:text-[#0D6D63] transition-colors block"
                         >
                           dcintelix@gmail.com
                         </a>
                         <a
                           href="mailto:dushimec515@gmail.com"
-                          className="text-xs text-[#475569] hover:text-[#0F766E] transition-colors block"
+                          className="text-xs text-[#475569] hover:text-[#0D6D63] transition-colors block"
                         >
                           dushimec515@gmail.com
                         </a>
@@ -349,26 +349,26 @@ export default function Contact() {
 
                   <Card className="p-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <FiPhone className="w-5 h-5 text-[#14B8A6]" />
+                      <div className="w-10 h-10 bg-[#0D6D63]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <FiPhone className="w-5 h-5 text-[#0D6D63]" />
                       </div>
                       <div>
                         <h4 className="text-xs font-medium text-[#0F172A] mb-0.5">Phone</h4>
                         <a
                           href="tel:+250789356233"
-                          className="text-xs text-[#475569] hover:text-[#14B8A6] transition-colors block"
+                          className="text-xs text-[#475569] hover:text-[#0D6D63] transition-colors block"
                         >
                           +250 789 356 233
                         </a>
                         <a
                           href="tel:+250794027348"
-                          className="text-xs text-[#475569] hover:text-[#14B8A6] transition-colors block"
+                          className="text-xs text-[#475569] hover:text-[#0D6D63] transition-colors block"
                         >
                           +250 794 027 348
                         </a>
                         <a
                           href="tel:+250781591552"
-                          className="text-xs text-[#475569] hover:text-[#14B8A6] transition-colors block"
+                          className="text-xs text-[#475569] hover:text-[#0D6D63] transition-colors block"
                         >
                           +250 781 591 552
                         </a>
@@ -414,7 +414,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 FAQ
               </span>
             </FadeIn>
@@ -441,7 +441,7 @@ export default function Contact() {
                     <span className="text-xs md:text-sm font-medium text-[#0F172A] pr-3">
                       {faq.question}
                     </span>
-                    <span className={`flex-shrink-0 text-[#0F766E] transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`}>
+                    <span className={`flex-shrink-0 text-[#0D6D63] transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`}>
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -464,7 +464,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-[#0F766E] to-[#14B8A6]">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-[#0D6D63] to-[#0D6D63]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
@@ -476,7 +476,7 @@ export default function Contact() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0F766E] text-sm font-semibold rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0D6D63] text-sm font-semibold rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-lg"
               >
                 Get Free Quote
                 <FiArrowRight className="w-4 h-4" />
@@ -496,3 +496,5 @@ export default function Contact() {
     </>
   )
 }
+
+

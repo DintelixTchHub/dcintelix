@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { FiArrowRight, FiSearch, FiCalendar, FiUser, FiClock, FiChevronLeft, FiChevronRight, FiSend, FiCheck, FiLoader } from 'react-icons/fi'
@@ -13,8 +13,8 @@ const blogs = [
   {
     id: 1,
     title: "Why Every Business Needs a Professional Website",
-    excerpt: "In today's digital age, having a professional website is no longer optional—it's essential for business success. Learn why investing in a quality website can transform your business.",
-    content: "In today's digital age, having a professional website is no longer optional—it's essential for business success. A website serves as your business's digital storefront, available 24/7 to showcase your products, services, and brand story to potential customers worldwide.\n\nA professional website builds credibility and trust. When potential customers search for your business, they expect to find a polished online presence. Without one, they may question your professionalism or legitimacy.\n\nMoreover, a well-designed website acts as a powerful marketing tool. It can generate leads, support your sales funnel, and provide valuable information to customers at every stage of their buyer's journey.",
+    excerpt: "In today's digital age, having a professional website is no longer optionalâ€”it's essential for business success. Learn why investing in a quality website can transform your business.",
+    content: "In today's digital age, having a professional website is no longer optionalâ€”it's essential for business success. A website serves as your business's digital storefront, available 24/7 to showcase your products, services, and brand story to potential customers worldwide.\n\nA professional website builds credibility and trust. When potential customers search for your business, they expect to find a polished online presence. Without one, they may question your professionalism or legitimacy.\n\nMoreover, a well-designed website acts as a powerful marketing tool. It can generate leads, support your sales funnel, and provide valuable information to customers at every stage of their buyer's journey.",
     author: "Christian Dushime",
     date: "March 5, 2026",
     readTime: "5 min read",
@@ -25,7 +25,7 @@ const blogs = [
     id: 2,
     title: "How Custom Web Applications Improve Business Operations",
     excerpt: "Discover how custom web applications can streamline your business processes, improve efficiency, and give you a competitive edge in your industry.",
-    content: "Off-the-shelf software solutions don't always fit unique business needs. Custom web applications are designed specifically for your workflows, processes, and goals—making them far more effective at solving your specific challenges.\n\nCustom web applications can automate repetitive tasks, reducing manual effort and the risk of errors. They can integrate seamlessly with your existing systems, creating a unified platform for all your operations.\n\nThe scalability of custom applications means they grow with your business, accommodating increased users, data, and functionality without requiring expensive migrations or replacements.",
+    content: "Off-the-shelf software solutions don't always fit unique business needs. Custom web applications are designed specifically for your workflows, processes, and goalsâ€”making them far more effective at solving your specific challenges.\n\nCustom web applications can automate repetitive tasks, reducing manual effort and the risk of errors. They can integrate seamlessly with your existing systems, creating a unified platform for all your operations.\n\nThe scalability of custom applications means they grow with your business, accommodating increased users, data, and functionality without requiring expensive migrations or replacements.",
     author: "Danny Gikundiro",
     date: "February 28, 2026",
     readTime: "7 min read",
@@ -36,7 +36,7 @@ const blogs = [
     id: 3,
     title: "Key Benefits of Mobile Applications for Growing Companies",
     excerpt: "Mobile apps are revolutionizing how businesses connect with customers. Explore the key benefits of having a mobile app for your growing company.",
-    content: "Mobile applications have become a critical touchpoint for customer engagement. With more people using smartphones than ever before, having a dedicated mobile app can significantly enhance your customer relationships.\n\nMobile apps provide direct access to your customers, enabling push notifications, personalized content, and loyalty programs that keep users engaged and coming back.\n\nFor service-based businesses, mobile apps can streamline appointment booking, order management, and customer support—improving overall customer satisfaction and operational efficiency.",
+    content: "Mobile applications have become a critical touchpoint for customer engagement. With more people using smartphones than ever before, having a dedicated mobile app can significantly enhance your customer relationships.\n\nMobile apps provide direct access to your customers, enabling push notifications, personalized content, and loyalty programs that keep users engaged and coming back.\n\nFor service-based businesses, mobile apps can streamline appointment booking, order management, and customer supportâ€”improving overall customer satisfaction and operational efficiency.",
     author: "Christian Dushime",
     date: "February 20, 2026",
     readTime: "6 min read",
@@ -47,7 +47,7 @@ const blogs = [
     id: 4,
     title: "What Makes a Digital Product Scalable",
     excerpt: "Learn the key principles of building scalable digital products that can grow with your business and handle increasing demand without performance issues.",
-    content: "Scalability is one of the most critical factors in digital product success. A scalable product can handle growth—more users, more data, more transactions—without degrading performance or requiring complete redesigns.\n\nKey principles of scalability include:\n\n1. **Strong Architecture**: Modular, microservices-based architecture allows individual components to scale independently.\n\n2. **Efficient Database Design**: Proper indexing, query optimization, and caching strategies ensure fast data retrieval.\n\n3. **Cloud Infrastructure**: Leveraging cloud services enables automatic scaling based on demand.\n\n4. **Performance Optimization**: Regular monitoring and optimization prevent bottlenecks before they impact users.",
+    content: "Scalability is one of the most critical factors in digital product success. A scalable product can handle growthâ€”more users, more data, more transactionsâ€”without degrading performance or requiring complete redesigns.\n\nKey principles of scalability include:\n\n1. **Strong Architecture**: Modular, microservices-based architecture allows individual components to scale independently.\n\n2. **Efficient Database Design**: Proper indexing, query optimization, and caching strategies ensure fast data retrieval.\n\n3. **Cloud Infrastructure**: Leveraging cloud services enables automatic scaling based on demand.\n\n4. **Performance Optimization**: Regular monitoring and optimization prevent bottlenecks before they impact users.",
     author: "Christian Dushime",
     date: "February 12, 2026",
     readTime: "8 min read",
@@ -58,7 +58,7 @@ const blogs = [
     id: 5,
     title: "How Good UI and UX Build Customer Trust",
     excerpt: "The user interface and experience of your digital product significantly impact customer trust and conversion rates. Here's why investing in UI/UX matters.",
-    content: "User Interface (UI) and User Experience (UX) are more than just design considerations—they're business-critical factors that directly impact customer trust, satisfaction, and conversion rates.\n\nA well-designed interface communicates professionalism and attention to detail. When users encounter a clean, intuitive design, they naturally assume your business cares about quality in other areas too.\n\nGood UX reduces friction in the customer journey. When users can easily navigate your site, find information, and complete actions, they're more likely to trust your brand and become repeat customers.\n\nInvesting in professional UI/UX design isn't an expense—it's an investment in customer relationships and business growth.",
+    content: "User Interface (UI) and User Experience (UX) are more than just design considerationsâ€”they're business-critical factors that directly impact customer trust, satisfaction, and conversion rates.\n\nA well-designed interface communicates professionalism and attention to detail. When users encounter a clean, intuitive design, they naturally assume your business cares about quality in other areas too.\n\nGood UX reduces friction in the customer journey. When users can easily navigate your site, find information, and complete actions, they're more likely to trust your brand and become repeat customers.\n\nInvesting in professional UI/UX design isn't an expenseâ€”it's an investment in customer relationships and business growth.",
     author: "Gad Irahari",
     date: "February 5, 2026",
     readTime: "6 min read",
@@ -134,7 +134,7 @@ export default function Blogs() {
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <span className="inline-block text-[#14B8A6] font-medium text-sm uppercase tracking-wider mb-4">
+            <span className="inline-block text-[#0D6D63] font-medium text-sm uppercase tracking-wider mb-4">
               Insights & News
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6">
@@ -160,7 +160,7 @@ export default function Blogs() {
                   onClick={() => setActiveCategory(category)}
                   className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
                     activeCategory === category
-                      ? 'bg-[#0F766E] text-white'
+                      ? 'bg-[#0D6D63] text-white'
                       : 'bg-[#F1F5F9] text-[#475569] hover:bg-[#E2E8F0]'
                   }`}
                 >
@@ -177,7 +177,7 @@ export default function Blogs() {
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full md:w-80 pl-11 pr-4 py-2.5 bg-[#F1F5F9] border-0 rounded-lg text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                className="w-full md:w-80 pl-11 pr-4 py-2.5 bg-[#F1F5F9] border-0 rounded-lg text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0D6D63]"
               />
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Blogs() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div 
-              className="relative bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-2xl overflow-hidden cursor-pointer"
+              className="relative bg-gradient-to-br from-[#0D6D63] to-[#0D6D63] rounded-2xl overflow-hidden cursor-pointer"
               onClick={() => setSelectedBlog(featuredBlog)}
             >
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
@@ -235,9 +235,9 @@ export default function Blogs() {
                 <FadeIn key={blog.id} delay={index * 100}>
                   <Card className="h-full flex flex-col" padding="none">
                     {/* Blog Image */}
-                    <div className="h-48 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-xl flex items-center justify-center">
+                    <div className="h-48 bg-gradient-to-br from-[#0D6D63]/20 to-[#0D6D63]/20 rounded-t-xl flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-xs text-[#0F766E]/60 font-medium uppercase tracking-wider">
+                        <div className="text-xs text-[#0D6D63]/60 font-medium uppercase tracking-wider">
                           {blog.category}
                         </div>
                       </div>
@@ -264,7 +264,7 @@ export default function Blogs() {
                       
                       <button
                         onClick={() => setSelectedBlog(blog)}
-                        className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 text-[#0D6D63] font-medium text-sm hover:gap-3 transition-all"
                       >
                         Read More
                         <FiArrowRight className="w-4 h-4" />
@@ -295,12 +295,12 @@ export default function Blogs() {
               onClick={() => setSelectedBlog(null)}
               className="absolute top-4 right-4 p-2 bg-[#F1F5F9] rounded-lg text-[#475569] hover:bg-[#E2E8F0] transition-colors z-10"
             >
-              ×
+              Ã—
             </button>
             
             {/* Modal Content */}
-            <div className="h-48 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-2xl flex items-center justify-center">
-              <span className="text-[#0F766E]/60 font-medium">{selectedBlog.category}</span>
+            <div className="h-48 bg-gradient-to-br from-[#0D6D63]/20 to-[#0D6D63]/20 rounded-t-2xl flex items-center justify-center">
+              <span className="text-[#0D6D63]/60 font-medium">{selectedBlog.category}</span>
             </div>
             
             <div className="p-8">
@@ -333,7 +333,7 @@ export default function Blogs() {
                 <Link
                   to="/contact"
                   onClick={() => setSelectedBlog(null)}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D6D63] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
                 >
                   Get in Touch
                   <FiArrowRight className="w-4 h-4" />
@@ -356,8 +356,8 @@ export default function Blogs() {
               digital solutions, and technology trends.
             </p>
             {subscribeStatus === 'succeeded' ? (
-              <div className="bg-[#14B8A6]/10 border border-[#14B8A6]/30 rounded-lg p-6 max-w-md mx-auto">
-                <FiCheck className="w-12 h-12 text-[#14B8A6] mx-auto mb-3" />
+              <div className="bg-[#0D6D63]/10 border border-[#0D6D63]/30 rounded-lg p-6 max-w-md mx-auto">
+                <FiCheck className="w-12 h-12 text-[#0D6D63] mx-auto mb-3" />
                 <h3 className="text-lg font-semibold text-[#0F172A] mb-2">
                   Thanks for subscribing!
                 </h3>
@@ -373,12 +373,12 @@ export default function Blogs() {
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   required
-                  className="flex-1 px-5 py-3 bg-[#F1F5F9] border-0 rounded-lg text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                  className="flex-1 px-5 py-3 bg-[#F1F5F9] border-0 rounded-lg text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0D6D63]"
                 />
                 <button 
                   type="submit"
                   disabled={subscribeStatus === 'loading'}
-                  className="px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-[#0D6D63] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {subscribeStatus === 'loading' ? (
                     <>
@@ -404,3 +404,4 @@ export default function Blogs() {
     </>
   )
 }
+

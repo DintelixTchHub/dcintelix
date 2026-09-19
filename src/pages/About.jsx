@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+﻿import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCheck, FiTarget, FiEye, FiAward, FiUsers, FiClock, FiShield, FiGlobe, FiLinkedin, FiTwitter, FiGithub, FiBox, FiUser, FiMessageSquare, FiLayers, FiCode } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
@@ -92,7 +92,7 @@ export default function About() {
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+            <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
               About Us
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4">
@@ -100,7 +100,7 @@ export default function About() {
             </h1>
             <p className="text-sm md:text-base text-[#475569] max-w-xl">
               We are a leading digital solutions provider in Rwanda, delivering innovative technology solutions that empower businesses to succeed in the digital age. 
-              No fancy jargon—just solid solutions for real business needs.
+              No fancy jargonâ€”just solid solutions for real business needs.
             </p>
           </FadeIn>
         </div>
@@ -112,7 +112,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn>
               <div className="relative">
-                <div className="bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-xl md:rounded-2xl p-5 md:p-8 text-white">
+                <div className="bg-gradient-to-br from-[#0D6D63] to-[#0D6D63] rounded-xl md:rounded-2xl p-5 md:p-8 text-white">
                   <div className="grid grid-cols-2 gap-3 md:gap-6">
                     {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center">
                       <div className="text-xl md:text-2xl font-bold mb-1">7+</div>
@@ -172,7 +172,7 @@ export default function About() {
               <h2 className="text-xl md:text-2xl font-bold text-[#0F172A]">Types of Websites We Build</h2>
             </FadeIn>
             <FadeIn delay={100}>
-              <p className="text-sm md:text-base text-[#475569] max-w-2xl mx-auto mt-3">From landing pages to full e-commerce platforms — we deliver business-ready websites with clear ROI. Starting prices shown in RWF.</p>
+              <p className="text-sm md:text-base text-[#475569] max-w-2xl mx-auto mt-3">From landing pages to full e-commerce platforms â€” we deliver business-ready websites with clear ROI. Starting prices shown in RWF.</p>
             </FadeIn>
           </div>
 
@@ -191,7 +191,7 @@ export default function About() {
             </FadeIn>
             <FadeIn delay={200}>
               <div className="p-5 bg-white rounded-lg text-center border">
-                <div className="text-sm font-semibold text-[#0F172A] mb-2">E‑commerce / Custom</div>
+                <div className="text-sm font-semibold text-[#0F172A] mb-2">Eâ€‘commerce / Custom</div>
                 <div className="text-lg font-bold text-[#0F172A]">From RWF 5,000,000+</div>
               </div>
             </FadeIn>
@@ -205,8 +205,8 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             <FadeIn>
               <Card className="h-full p-5 md:p-6">
-                <div className="w-12 h-12 bg-[#0F766E]/10 rounded-xl flex items-center justify-center mb-4">
-                  <FiTarget className="w-6 h-6 text-[#0F766E]" />
+                <div className="w-12 h-12 bg-[#0D6D63]/10 rounded-xl flex items-center justify-center mb-4">
+                  <FiTarget className="w-6 h-6 text-[#0D6D63]" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-3">Our Mission</h3>
                 <p className="text-xs md:text-sm text-[#475569] leading-relaxed">
@@ -218,8 +218,8 @@ export default function About() {
 
             <FadeIn delay={100}>
               <Card className="h-full p-5 md:p-6">
-                <div className="w-12 h-12 bg-[#14B8A6]/10 rounded-xl flex items-center justify-center mb-4">
-                  <FiEye className="w-6 h-6 text-[#14B8A6]" />
+                <div className="w-12 h-12 bg-[#0D6D63]/10 rounded-xl flex items-center justify-center mb-4">
+                  <FiEye className="w-6 h-6 text-[#0D6D63]" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-3">Our Vision</h3>
                 <p className="text-xs md:text-sm text-[#475569] leading-relaxed">
@@ -237,7 +237,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 What We Stand For
               </span>
             </FadeIn>
@@ -252,8 +252,8 @@ export default function About() {
             {values.map((value, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <Card className="h-full text-center p-5 md:p-6">
-                  <div className="w-12 h-12 bg-[#0F766E]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-6 h-6 text-[#0F766E]" />
+                  <div className="w-12 h-12 bg-[#0D6D63]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <value.icon className="w-6 h-6 text-[#0D6D63]" />
                   </div>
                   <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2">
                     {value.title}
@@ -279,8 +279,8 @@ export default function About() {
               <div className="mt-6 space-y-4">
                 {whyChooseUs.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-[#14B8A6]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <FiCheck className="w-3 h-3 text-[#14B8A6]" />
+                    <div className="w-5 h-5 bg-[#0D6D63]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <FiCheck className="w-3 h-3 text-[#0D6D63]" />
                     </div>
                     <div>
                       <h4 className="text-xs md:text-sm font-medium text-[#0F172A]">{item.title}</h4>
@@ -294,12 +294,12 @@ export default function About() {
             <FadeIn delay={200}>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-[#E2E8F0]">
-                  <FiGlobe className="w-6 h-6 text-[#0F766E] mb-2" />
+                  <FiGlobe className="w-6 h-6 text-[#0D6D63] mb-2" />
                   <h4 className="text-sm font-semibold text-[#0F172A] mb-1">Global Reach</h4>
                   <p className="text-xs text-[#64748B]">Serving clients worldwide</p>
                 </div>
                 <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-[#E2E8F0]">
-                  <FiClock className="w-6 h-6 text-[#14B8A6] mb-2" />
+                  <FiClock className="w-6 h-6 text-[#0D6D63] mb-2" />
                   <h4 className="text-sm font-semibold text-[#0F172A] mb-1">Fast Delivery</h4>
                   <p className="text-xs text-[#64748B]">Quick turnaround times</p>
                 </div>
@@ -309,7 +309,7 @@ export default function About() {
                   <p className="text-xs text-[#64748B]">Best security practices</p>
                 </div>
                 <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-[#E2E8F0]">
-                  <FiAward className="w-6 h-6 text-[#0F766E] mb-2" />
+                  <FiAward className="w-6 h-6 text-[#0D6D63] mb-2" />
                   <h4 className="text-sm font-semibold text-[#0F172A] mb-1">Quality</h4>
                   <p className="text-xs text-[#64748B]">Industry-leading standards</p>
                 </div>
@@ -339,13 +339,13 @@ export default function About() {
 
             <FadeIn delay={200}>
               <div>
-                <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+                <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                   Founder & Business Leader
                 </span>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-1">
                   Christian Dushime
                 </h2>
-                <p className="text-sm text-[#14B8A6] font-medium mb-4">
+                <p className="text-sm text-[#0D6D63] font-medium mb-4">
                   Building solutions that matter
                 </p>
                 <div className="space-y-3 text-xs md:text-sm text-[#475569] leading-relaxed mb-6">
@@ -388,7 +388,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 Our Team
               </span>
             </FadeIn>
@@ -418,10 +418,10 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="flex gap-2 justify-center">
-                      <a href="https://www.linkedin.com/in/christian-dushime/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                      <a href="https://www.linkedin.com/in/christian-dushime/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                         <FiLinkedin className="w-4 h-4" />
                       </a>
-                      <a href="https://github.com/dushimec" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                      <a href="https://github.com/dushimec" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                         <FiGithub className="w-4 h-4" />
                       </a>
                     </div>
@@ -447,10 +447,10 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="flex gap-2 justify-center">
-                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                         <FiLinkedin className="w-4 h-4" />
                       </a>
-                      <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                      <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                         <FiGithub className="w-4 h-4" />
                       </a>
                     </div>
@@ -476,10 +476,10 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="flex gap-2 justify-center">
-                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                         <FiLinkedin className="w-4 h-4" />
                       </a>
-                      <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0F766E] transition-colors">
+                      <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                         <FiBox className="w-4 h-4" />
                       </a>
                     </div>
@@ -502,7 +502,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <FadeIn>
-              <span className="inline-block text-[#14B8A6] font-medium text-xs uppercase tracking-wider mb-2">
+              <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">
                 How We Work
               </span>
             </FadeIn>
@@ -520,7 +520,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-4 gap-4 md:gap-6 relative">
             {/* Connecting line */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-[#0F766E]/20"></div>
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-[#0D6D63]/20"></div>
 
             {[
               {
@@ -550,11 +550,11 @@ export default function About() {
             ].map((process, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <div className="relative text-center">
-                  <div className="relative z-10 w-16 h-16 bg-[#0F766E] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <div className="relative z-10 w-16 h-16 bg-[#0D6D63] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <process.icon className="w-7 h-7 text-white" />
                   </div>
                   <div className="absolute top-16 left-1/2 -translate-x-1/2 hidden md:block">
-                    <span className="text-[10px] font-bold text-[#0F766E] bg-white px-2 py-0.5 rounded">{process.step}</span>
+                    <span className="text-[10px] font-bold text-[#0D6D63] bg-white px-2 py-0.5 rounded">{process.step}</span>
                   </div>
                   <h3 className="text-sm md:text-base font-semibold text-[#0F172A] mb-2 mt-4">{process.title}</h3>
                   <p className="text-xs md:text-sm text-[#64748B] leading-relaxed">{process.description}</p>
@@ -566,7 +566,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-[#0F766E] to-[#14B8A6]">
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-[#0D6D63] to-[#0D6D63]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
@@ -578,7 +578,7 @@ export default function About() {
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0F766E] font-semibold text-sm rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0D6D63] font-semibold text-sm rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
               >
                 Get in Touch
                 <FiArrowRight className="w-4 h-4" />
@@ -597,3 +597,4 @@ export default function About() {
     </>
   )
 }
+

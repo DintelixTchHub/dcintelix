@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock, FiExternalLink, FiGithub, FiMenu } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
@@ -166,7 +166,7 @@ export default function Projects() {
       <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <span className="inline-block text-[#14B8A6] font-medium text-sm uppercase tracking-wider mb-4">
+            <span className="inline-block text-[#0D6D63] font-medium text-sm uppercase tracking-wider mb-4">
               Our Work
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6">
@@ -177,7 +177,7 @@ export default function Projects() {
               with care to solve real problems.
             </p>
             <div className="mt-4 text-sm text-[#64748B]">
-              <em>Need a similar site? Website projects start from RWF 200,000 for landing pages — contact us for a tailored quote.</em>
+              <em>Need a similar site? Website projects start from RWF 200,000 for landing pages â€” contact us for a tailored quote.</em>
             </div>
           </FadeIn>
         </div>
@@ -205,7 +205,7 @@ export default function Projects() {
                     onClick={() => setActiveCategory(category.name)}
                     className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-200 ${
                       activeCategory === category.name
-                        ? 'bg-[#0F766E] text-white shadow-lg shadow-[#0F766E]/20'
+                        ? 'bg-[#0D6D63] text-white shadow-lg shadow-[#0D6D63]/20'
                         : 'bg-[#F1F5F9] text-[#475569] hover:bg-[#E2E8F0] hover:text-[#0F172A]'
                     }`}
                   >
@@ -241,7 +241,7 @@ export default function Projects() {
                   onClick={() => { setActiveCategory(category.name); setMenuOpen(false); }}
                   className={`w-full text-left inline-flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-150 ${
                     activeCategory === category.name
-                      ? 'bg-[#0F766E] text-white'
+                      ? 'bg-[#0D6D63] text-white'
                       : 'bg-[#F8FAFC] text-[#0F172A] hover:bg-[#E2E8F0]'
                   }`}
                 >
@@ -277,13 +277,13 @@ export default function Projects() {
                     ) : (
                       <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0D6D63]/30 to-[#0D6D63]/30 flex flex-col items-center justify-center">
                       <span className="text-3xl font-bold text-white/90 mb-2">{project.title}</span>
                       <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">Coming Soon</span>
                     </div>
                   </>
                 ) : project.image === 'karykelly' ? (
-                  <FiLayers className="w-16 h-16 text-[#0F766E]/30" />
+                  <FiLayers className="w-16 h-16 text-[#0D6D63]/30" />
                 ) : (
                   project.image
                 )
@@ -293,7 +293,7 @@ export default function Projects() {
                     <Card image={imageProp} imageAlt={project.title} badge={project.category} className="h-full flex flex-col overflow-hidden group" padding="md">
                       {/* Project Content */}
                       <div className="flex-1 flex flex-col">
-                        <h3 className="text-lg font-semibold text-[#0F172A] mb-2 group-hover:text-[#0F766E] transition-colors">
+                        <h3 className="text-lg font-semibold text-[#0F172A] mb-2 group-hover:text-[#0D6D63] transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-sm text-[#64748B] mb-4 flex-1">
@@ -316,7 +316,7 @@ export default function Projects() {
                         <div className="mt-auto flex items-center gap-4">
                           <button
                             onClick={() => setSelectedProject(project)}
-                            className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:gap-3 transition-all"
+                            className="inline-flex items-center gap-2 text-[#0D6D63] font-medium text-sm hover:gap-3 transition-all"
                           >
                             {project.comingSoon ? 'Learn More' : 'View Details'}
                             <FiArrowRight className="w-4 h-4" />
@@ -328,7 +328,7 @@ export default function Projects() {
                               target="_blank"
                               rel="noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-[#0F766E] font-medium text-sm hover:underline"
+                              className="inline-flex items-center gap-2 text-[#0D6D63] font-medium text-sm hover:underline"
                             >
                               <FiExternalLink className="w-4 h-4" />
                               Live Site
@@ -352,11 +352,11 @@ export default function Projects() {
                 </h3>
                 <p className="text-[#64748B] max-w-md mb-8">
                   We haven't completed any projects in {activeCategory} yet, but we're always expanding our expertise.
-                  Let us know if you have a project in this area – we'd love to help!
+                  Let us know if you have a project in this area â€“ we'd love to help!
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D6D63] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
                 >
                   Discuss Your Project
                   <FiArrowRight className="w-4 h-4" />
@@ -384,9 +384,9 @@ export default function Projects() {
             </button>
             
             {/* Modal Content */}
-            <div className="h-64 bg-gradient-to-br from-[#0F766E]/20 to-[#14B8A6]/20 rounded-t-2xl flex items-center justify-center overflow-hidden relative">
+            <div className="h-64 bg-gradient-to-br from-[#0D6D63]/20 to-[#0D6D63]/20 rounded-t-2xl flex items-center justify-center overflow-hidden relative">
               {selectedProject.comingSoon ? (
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E]/30 to-[#14B8A6]/30 flex flex-col items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0D6D63]/30 to-[#0D6D63]/30 flex flex-col items-center justify-center">
                   <span className="text-4xl font-bold text-white/90 mb-2">E-Curuza</span>
                   <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
                     Coming Soon
@@ -394,7 +394,7 @@ export default function Projects() {
                 </div>
               ) : typeof selectedProject.image === 'string' ? (
                 selectedProject.image === 'karykelly' ? (
-                  <FiLayers className="w-20 h-20 text-[#0F766E]/30" />
+                  <FiLayers className="w-20 h-20 text-[#0D6D63]/30" />
                 ) : (
                   <img
                     src={selectedProject.image}
@@ -412,7 +412,7 @@ export default function Projects() {
             </div>
             
             <div className="p-8">
-              <div className="text-xs text-[#14B8A6] font-medium uppercase tracking-wider mb-2">
+              <div className="text-xs text-[#0D6D63] font-medium uppercase tracking-wider mb-2">
                 {selectedProject.category}
               </div>
               <h3 className="text-2xl font-bold text-[#0F172A] mb-4">
@@ -436,7 +436,7 @@ export default function Projects() {
               <Link
                 to="/contact"
                 onClick={() => setSelectedProject(null)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F766E] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D6D63] text-white font-medium rounded-lg hover:bg-[#0D6D63] transition-colors"
               >
                 {selectedProject.comingSoon ? 'Stay Tuned' : 'Start Similar Project'}
                 <FiArrowRight className="w-4 h-4" />
@@ -447,7 +447,7 @@ export default function Projects() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-br from-[#0F766E] to-[#14B8A6]">
+      <section className="py-20 lg:py-28 bg-gradient-to-br from-[#0D6D63] to-[#0D6D63]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -458,7 +458,7 @@ export default function Projects() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0F766E] font-semibold rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0D6D63] font-semibold rounded-lg hover:bg-[#F8FAFC] transition-all duration-200 hover:shadow-xl"
             >
               Get in Touch
               <FiArrowRight className="w-5 h-5" />
@@ -470,3 +470,4 @@ export default function Projects() {
     </>
   )
 }
+

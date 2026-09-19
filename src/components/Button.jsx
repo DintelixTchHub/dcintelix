@@ -1,4 +1,4 @@
-import { FiArrowRight } from 'react-icons/fi'
+﻿import { FiArrowRight } from 'react-icons/fi'
 
 export default function Button({
   children,
@@ -10,13 +10,13 @@ export default function Button({
   icon: Icon,
   animate = false,
 }) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] focus-visible:ring-offset-2'
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6D63] focus-visible:ring-offset-2'
 
   const variants = {
-    primary: 'bg-[#0F766E] text-white hover:bg-[#0D6D63] hover:shadow-lg hover:shadow-[#0F766E]/20',
-    secondary: 'bg-[#14B8A6] text-white hover:bg-[#0F766E]',
-    outline: 'border-2 border-[#0F766E] text-[#0F766E] hover:bg-[#0F766E] hover:text-white',
-    ghost: 'text-[#475569] hover:text-[#0F766E] hover:bg-[#F8FAFC]',
+    primary: 'bg-[#0D6D63] text-white hover:bg-[#0D6D63] hover:shadow-lg hover:shadow-[#0D6D63]/20',
+    secondary: 'bg-[#0D6D63] text-white hover:bg-[#0D6D63]',
+    outline: 'border-2 border-[#0D6D63] text-[#0D6D63] hover:bg-[#0D6D63] hover:text-white',
+    ghost: 'text-[#475569] hover:text-[#0D6D63] hover:bg-[#F8FAFC]',
     accent: 'bg-[#F59E0B] text-white hover:bg-[#D97706] hover:shadow-lg hover:shadow-[#F59E0B]/20',
   }
 
@@ -73,7 +73,7 @@ export function SectionHeading({
   return (
     <div className={`max-w-2xl ${alignment[align]} ${className}`}>
       {subtitle && (
-        <span className="inline-block text-[#14B8A6] font-medium text-sm uppercase tracking-wider mb-3">
+        <span className="inline-block text-[#0D6D63] font-medium text-sm uppercase tracking-wider mb-3">
           {subtitle}
         </span>
       )}
@@ -114,7 +114,7 @@ export function Card({
 
           {badge && (
             <div className="absolute top-4 left-4">
-              <span className="px-3 py-1 bg-white/90 text-[#0F766E] text-xs font-medium rounded-full card-badge">{badge}</span>
+              <span className="px-3 py-1 bg-white/90 text-[#0D6D63] text-xs font-medium rounded-full card-badge">{badge}</span>
             </div>
           )}
         </div>
@@ -126,3 +126,4 @@ export function Card({
     </div>
   )
 }
+

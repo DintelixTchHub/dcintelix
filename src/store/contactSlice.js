@@ -5,7 +5,7 @@ export const submitContact = createAsyncThunk(
   'contact/submit',
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await api.post('/contact', formData);
+      const response = await api.post('/contacts', formData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || 'Failed to submit contact form');
@@ -17,7 +17,7 @@ export const fetchContacts = createAsyncThunk(
   'contact/fetchAll',
   async (page = 1, { rejectWithValue }) => {
     try {
-      const response = await api.get(`/contact?page=${page}`);
+      const response = await api.get(`/contacts?page=${page}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || 'Failed to fetch contacts');
@@ -29,7 +29,7 @@ export const fetchContactById = createAsyncThunk(
   'contact/fetchById',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await api.get(`/contact/${id}`);
+      const response = await api.get(`/contacts/${id}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || 'Failed to fetch contact');
@@ -41,7 +41,7 @@ export const deleteContact = createAsyncThunk(
   'contact/delete',
   async (id, { rejectWithValue }) => {
     try {
-      await api.delete(`/contact/${id}`);
+      await api.delete(`/contacts/${id}`);
       return id;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || 'Failed to delete contact');
@@ -53,7 +53,7 @@ export const replyToContact = createAsyncThunk(
   'contact/reply',
   async ({ id, subject, message }, { rejectWithValue }) => {
     try {
-      const response = await api.post(`/contact/${id}/reply`, { subject, message });
+      const response = await api.post(`/contacts/${id}/reply`, { subject, message });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || 'Failed to send reply');
