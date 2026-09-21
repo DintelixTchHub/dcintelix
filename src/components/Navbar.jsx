@@ -1,7 +1,7 @@
 ﻿import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiArrowRight, FiPhone } from "react-icons/fi";
-import logo from "../assets/logo.png";
+
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+const logo = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962834/dcintelix_edited_white_logo-removebg-preview.png'
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

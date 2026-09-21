@@ -132,7 +132,7 @@ export default function Careers() {
 
                       <div className="xl:text-right">
                         <Link
-                          to={`/careers/${job.slug}`}
+                          to={`/careers/${job.id}`}
                           className="inline-flex items-center gap-2 px-5 py-3 bg-[#0D6D63] text-white text-sm font-medium rounded-lg hover:bg-[#09534C] transition-all duration-200 shadow-sm hover:shadow-lg hover:shadow-[#0D6D63]/20"
                         >
                           View role

@@ -7,11 +7,11 @@ import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
 const Partnerships = lazy(() => import('../components/Partnerships'))
 import { submitContact, resetSubmitStatus, updateFormData, resetFormData } from '../store/contactSlice'
+import { fetchApprovedTestimonials } from '../store/testimonialsSlice'
 import heroImage from '../assets/hero.webp'
 import founderImage from '../assets/pasport.webp'
 import gadImage from '../assets/Gad.webp'
 import dannyImage from '../assets/danny.webp'
-import ecuruzaImage from '../assets/ecuruza.webp'
 import mooorHallBranding from '../assets/moor hall branding.png'
 import mooorHallLogo from '../assets/moor logo.png'
 const CaseStudies = lazy(() => import('../components/CaseStudies'))
@@ -21,6 +21,9 @@ const BlogPreview = lazy(() => import('../components/BlogPreview'))
 // Image optimization: Add loading strategies
 const LAZY_LOAD = 'lazy'
 const EAGER_LOAD = 'eager'
+
+ const ecuruzaImage = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962990/ecuruza_compressed.png'
+
 
 const services = [
   {
@@ -61,6 +64,7 @@ const services = [
   },
 ]
 
+
 const features = [
   {
     icon: FiCode,
@@ -97,21 +101,21 @@ const featuredProjects = [
     title: 'Moor Logo Design',
     category: 'Logo Design',
     description: 'A clean, modern logo design featuring bold typography and minimalist aesthetics.',
-    image: mooorHallLogo,
+    image: 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963004/moor_logo.png',
   },
    {
     id: 3,
     title: 'Moor Hall Branding Package',
     category: 'Logo Design',
     description: 'Comprehensive branding solution including logo, color scheme, and visual guidelines.',
-    image: mooorHallBranding,
+    image: 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962998/Moor_Hall_Branding.png',
   },
 ]
 
 // Normalize any embedded data-URI images to use the local `ecuruzaImage` asset
 featuredProjects.forEach(p => { if (typeof p.image === 'string' && p.image.startsWith('data:')) p.image = ecuruzaImage; });
 
-const testimonials = [
+const fallbackTestimonials = [
   {
     quote: "DCintelix delivered an exceptional e-commerce website that significantly boosted our online sales within the first month. Their deep understanding of the Rwanda market combined with technical expertise resulted in a platform that perfectly meets our business needs.",
     author: "Mugisha Joseph",
@@ -194,6 +198,19 @@ function AnimatedCounter({ end, suffix = '', duration = 2000 }) {
 }
 
 export default function Home() {
+  const dispatch = useDispatch()
+  const { items: approvedTestimonials, status: testimonialsStatus } = useSelector((state) => state.testimonials)
+
+  useEffect(() => {
+    dispatch(fetchApprovedTestimonials())
+  }, [dispatch])
+
+  const testimonials = (approvedTestimonials?.length ? approvedTestimonials : fallbackTestimonials).map((item) => ({
+    quote: item.testimonial || item.quote || '',
+    author: item.name || item.author || 'Client',
+    role: item.role || item.position || 'Client',
+  }))
+
   return (
     <>
       <SEO 
@@ -272,7 +289,7 @@ export default function Home() {
 
                   {/* Main Image */}
                   <img
-                    src={heroImage}
+                    src="https://res.cloudinary.com/dxjodwemx/image/upload/v1789962996/hero.png"
                     alt="DCintelix Digital Solutions"
                     className="w-full h-auto object-contain relative z-10"
                     loading="eager"
@@ -711,7 +728,7 @@ export default function Home() {
             <FadeIn>
               <div className="relative max-w-xs mx-auto lg:mx-0">
                 <img 
-                  src={founderImage} 
+                  src="https://res.cloudinary.com/dxjodwemx/image/upload/v1789963003/pasport.png"
                   alt="Christian Dushime - Founder" 
                   className="w-full aspect-square max-w-[280px] mx-auto object-cover rounded-xl md:rounded-2xl"
                 />
@@ -781,7 +798,7 @@ export default function Home() {
               <Card className="h-full">
                 <div className="flex flex-col items-center text-center p-4">
                   <img 
-                    src={gadImage} 
+                    src="https://res.cloudinary.com/dxjodwemx/image/upload/v1789962994/Gad_compressed.png"
                     alt="Gad Irahari - UI/UX Designer at DCintelix - Creative Designer Specializing in Beautiful and Intuitive User Interfaces" 
                     className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0D6D63]/20"
                     loading="lazy"
@@ -806,7 +823,7 @@ export default function Home() {
               <Card className="h-full">
                 <div className="flex flex-col items-center text-center p-4">
                   <img 
-                    src={dannyImage} 
+                    src="https://res.cloudinary.com/dxjodwemx/image/upload/v1789962989/danny.webp" 
                     alt="Danny - Frontend Developer at DCintelix - Specialist in Responsive and Interactive Web Applications with Modern Frameworks" 
                     className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-[#0D6D63]/20"
                     loading="lazy"
@@ -845,26 +862,39 @@ export default function Home() {
             </FadeIn>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-            {testimonials.map((testimonial, index) => (
-              <FadeIn key={index} delay={index * 100}>
-                <Card className="h-full">
-                  <div className="mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-[#F59E0B] text-xs">â˜…</span>
-                    ))}
-                  </div>
-                  <p className="text-xs md:text-sm text-[#475569] mb-4 leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <div className="text-xs md:text-sm font-medium text-[#0F172A]">{testimonial.author}</div>
-                    <div className="text-xs text-[#64748B]">{testimonial.role}</div>
-                  </div>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
+          {testimonials.length > 0 ? (
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10" />
+              <div className="marquee-track flex min-w-max gap-4 md:gap-6 py-2">
+                {(() => {
+                  const items = testimonials.length > 0 ? [...testimonials, ...testimonials] : [];
+                  return items.map((testimonial, index) => (
+                    <div key={`${testimonial.author}-${index}`} className="w-[320px] md:w-[380px] flex-shrink-0">
+                      <Card className="h-full">
+                        <div className="mb-3">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i} className="text-[#F59E0B] text-xs">★</span>
+                          ))}
+                        </div>
+                        <p className="text-xs md:text-sm text-[#475569] mb-4 leading-relaxed">
+                          "{testimonial.quote}"
+                        </p>
+                        <div>
+                          <div className="text-xs md:text-sm font-medium text-[#0F172A]">{testimonial.author}</div>
+                          <div className="text-xs text-[#64748B]">{testimonial.role}</div>
+                        </div>
+                      </Card>
+                    </div>
+                  ));
+                })()}
+              </div>
+            </div>
+          ) : (
+            <div className="text-center text-sm text-[#64748B] py-6">
+              {testimonialsStatus === 'loading' ? 'Loading testimonials...' : 'No testimonials available yet.'}
+            </div>
+          )}
           <div className="text-center mt-8">
             <Link to="/testimonials" className="inline-flex items-center gap-2 text-[#0D6D63] font-medium text-sm hover:text-[#09534C]">
               <FiMessageSquare className="w-4 h-4" />
@@ -874,6 +904,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <style>{`
+        @keyframes slide-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .marquee-track {
+          animation: slide-left 28s linear infinite;
+          will-change: transform;
+        }
+
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
       <Suspense fallback={<div className="py-8" />}>
         <BlogPreview />

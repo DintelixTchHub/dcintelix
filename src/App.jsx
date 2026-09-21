@@ -58,7 +58,7 @@ function AppShell() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/careers/:slug" element={<CareerDetails />} />
+          <Route path="/careers/:identifier" element={<CareerDetails />} />
 
           {/* Admin routes use their own layout and never render public chrome. */}
           <Route path="/admin" element={<AdminLayout />}>

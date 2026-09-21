@@ -45,17 +45,18 @@ export default function AdminRegister() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        {/* Logo/Brand */}
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(13,109,99,0.16),transparent_28%),linear-gradient(135deg,#0F172A_0%,#1E293B_35%,#F8FAFC_100%)] flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
         <div className="text-center mb-6">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#0D6D63] shadow-[0_18px_40px_rgba(13,109,99,0.3)] mb-4">
+            <FiUserPlus className="w-7 h-7 text-white" />
+          </div>
           <h1 className="text-2xl font-bold text-white">DCintelix</h1>
-          <p className="text-slate-400 text-sm mt-1">Admin Registration</p>
+          <p className="text-slate-300 text-sm mt-1">Admin Registration</p>
         </div>
 
-        {/* Register Card */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-lg font-bold text-slate-800 mb-4 text-center">
+        <div className="bg-white/95 backdrop-blur-sm rounded-2xl border border-white/50 shadow-[0_25px_60px_rgba(15,23,42,0.18)] p-6 md:p-7">
+          <h2 className="text-lg font-bold text-[#0F172A] mb-4 text-center">
             Create your account
           </h2>
 
@@ -66,9 +67,8 @@ export default function AdminRegister() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-xs font-medium text-slate-700 mb-1">
+              <label htmlFor="name" className="block text-xs font-medium text-[#475569] mb-1.5">
                 Name (optional)
               </label>
               <div className="relative">
@@ -80,15 +80,14 @@ export default function AdminRegister() {
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="block w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                  className="block w-full pl-9 pr-3 py-2.5 text-sm border border-[#D9E1E7] rounded-xl bg-white text-[#0F172A] focus:ring-2 focus:ring-[#0D6D63] focus:border-[#0D6D63] transition-colors outline-none"
                   placeholder="Your name"
                 />
               </div>
             </div>
 
-            {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-xs font-medium text-slate-700 mb-1">
+              <label htmlFor="email" className="block text-xs font-medium text-[#475569] mb-1.5">
                 Email
               </label>
               <div className="relative">
@@ -100,16 +99,15 @@ export default function AdminRegister() {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                  className="block w-full pl-9 pr-3 py-2.5 text-sm border border-[#D9E1E7] rounded-xl bg-white text-[#0F172A] focus:ring-2 focus:ring-[#0D6D63] focus:border-[#0D6D63] transition-colors outline-none"
                   placeholder="you@example.com"
                   required
                 />
               </div>
             </div>
 
-            {/* Password */}
             <div>
-              <label htmlFor="password" className="block text-xs font-medium text-slate-700 mb-1">
+              <label htmlFor="password" className="block text-xs font-medium text-[#475569] mb-1.5">
                 Password
               </label>
               <div className="relative">
@@ -121,16 +119,15 @@ export default function AdminRegister() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                  className="block w-full pl-9 pr-3 py-2.5 text-sm border border-[#D9E1E7] rounded-xl bg-white text-[#0F172A] focus:ring-2 focus:ring-[#0D6D63] focus:border-[#0D6D63] transition-colors outline-none"
                   placeholder="Min 6 characters"
                   required
                 />
               </div>
             </div>
 
-            {/* Confirm Password */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-xs font-medium text-slate-700 mb-1">
+              <label htmlFor="confirmPassword" className="block text-xs font-medium text-[#475569] mb-1.5">
                 Confirm Password
               </label>
               <div className="relative">
@@ -142,18 +139,17 @@ export default function AdminRegister() {
                   id="confirmPassword"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="block w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                  className="block w-full pl-9 pr-3 py-2.5 text-sm border border-[#D9E1E7] rounded-xl bg-white text-[#0F172A] focus:ring-2 focus:ring-[#0D6D63] focus:border-[#0D6D63] transition-colors outline-none"
                   placeholder="Repeat password"
                   required
                 />
               </div>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#0D6D63] hover:bg-[#0b5c53] text-white text-sm font-medium rounded-xl transition-colors shadow-lg shadow-[#0D6D63]/20 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === 'loading' ? (
                 <>
@@ -175,26 +171,24 @@ export default function AdminRegister() {
               Already have an account?{' '}
               <Link
                 to="/admin/login"
-                className="text-teal-600 hover:text-teal-700 font-medium"
+                className="text-[#0D6D63] hover:text-[#0b5c53] font-medium"
               >
                 Sign in
               </Link>
             </p>
           </div>
 
-          {/* Back to Home */}
           <div className="mt-3 text-center">
             <a
               href="/"
-              className="text-xs text-slate-500 hover:text-teal-600 transition-colors"
+              className="text-xs text-slate-500 hover:text-[#0D6D63] transition-colors"
             >
               ← Back to Website
             </a>
           </div>
         </div>
 
-        {/* Footer */}
-        <p className="text-center text-slate-500 text-xs mt-6">
+        <p className="text-center text-slate-300 text-xs mt-6">
           © {new Date().getFullYear()} DCintelix
         </p>
       </div>

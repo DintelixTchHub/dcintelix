@@ -3,7 +3,6 @@ import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiC
 import { FaTiktok } from 'react-icons/fa'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import logo from "../assets/logo.png";
 import LegalModal from './LegalModal'
 import { subscribeNewsletter, resetSubscribeStatus } from '../store/newsletterSlice'
 
@@ -19,6 +18,7 @@ const quickLinks = [
   { name: 'Share a Testimonial', path: '/testimonials' },
 ]
 
+const logo = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962834/dcintelix_edited_black_logo-removebg-preview.png'
 const services = [
   { name: 'Website Creation', path: '/projects' },
   { name: 'Web Application', path: '/projects' },

@@ -19,7 +19,7 @@ const defaultValues = {
   status: 'DRAFT',
 }
 
-const inputClass = 'w-full px-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500'
+const inputClass = 'w-full px-3 py-2.5 border border-[#D9E1E7] rounded-xl bg-white text-[#0F172A] text-sm focus:outline-none focus:ring-2 focus:ring-[#0D6D63] focus:border-[#0D6D63] shadow-sm'
 
 function toLines(value) {
   return value
@@ -187,12 +187,12 @@ export default function AdminJobForm({
 
       {error && <p className="text-sm text-red-600" role="alert">{error}</p>}
 
-      <div className="flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-5">
-        <button type="button" onClick={onCancel} className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-lg">
+      <div className="flex flex-wrap justify-end gap-3 border-t border-[#E2E8F0] pt-5">
+        <button type="button" onClick={onCancel} className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[#475569] hover:bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] transition-colors">
           <FiArrowLeft className="w-4 h-4" />
           Cancel
         </button>
-        <button type="submit" disabled={isSubmitting} className="inline-flex items-center gap-2 px-4 py-2.5 bg-teal-600 text-white text-sm font-medium rounded-lg hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed">
+        <button type="submit" disabled={isSubmitting} className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0D6D63] text-white text-sm font-medium rounded-xl shadow-lg shadow-[#0D6D63]/20 hover:bg-[#0b5c53] disabled:opacity-60 disabled:cursor-not-allowed transition-colors">
           {isSubmitting ? <FiLoader className="w-4 h-4 animate-spin" /> : <FiSave className="w-4 h-4" />}
           {isSubmitting ? 'Saving...' : 'Save job posting'}
         </button>
@@ -203,13 +203,13 @@ export default function AdminJobForm({
 
 export function AdminJobFormIntro({ title = 'Post a training opportunity', description = 'Create a training opportunity for the public careers page.' }) {
   return (
-    <div className="flex items-start gap-3">
-      <div className="w-10 h-10 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-3 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-4">
+      <div className="w-11 h-11 rounded-xl bg-[#0D6D63]/10 text-[#0D6D63] flex items-center justify-center flex-shrink-0">
         <FiBriefcase className="w-5 h-5" />
       </div>
       <div>
-        <h1 className="text-xl font-semibold text-slate-800">{title}</h1>
-        <p className="text-sm text-slate-500 mt-1">{description}</p>
+        <h1 className="text-xl font-semibold text-[#0F172A]">{title}</h1>
+        <p className="text-sm text-[#475569] mt-1">{description}</p>
       </div>
     </div>
   )

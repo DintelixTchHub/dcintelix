@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { FiArrowLeft, FiBriefcase, FiCheckCircle, FiClock, FiDollarSign, FiLoader, FiMapPin, FiSend } from 'react-icons/fi';
 import SEO from '../components/SEO';
-import { fetchPublicJobBySlug, resetCareerSubmitStatus, submitJobApplication } from '../store/careersSlice';
+import { fetchPublicJobById, fetchPublicJobBySlug, resetCareerSubmitStatus, submitJobApplication } from '../store/careersSlice';
 
 const initialForm = {
   name: '',
@@ -23,18 +23,23 @@ const formatMoney = (value) => {
 };
 
 export default function CareerDetails() {
-  const { slug } = useParams();
+  const { identifier } = useParams();
   const dispatch = useDispatch();
   const { selectedPublicJob, status, error, submitStatus, submitError } = useSelector((state) => state.careers);
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (slug) {
-      dispatch(fetchPublicJobBySlug(slug));
+    if (!identifier) return;
+
+    if (/^\d+$/.test(identifier)) {
+      dispatch(fetchPublicJobById(identifier));
+    } else {
+      dispatch(fetchPublicJobBySlug(identifier));
     }
+
     dispatch(resetCareerSubmitStatus());
-  }, [dispatch, slug]);
+  }, [dispatch, identifier]);
 
   useEffect(() => {
     if (submitStatus === 'succeeded') {
