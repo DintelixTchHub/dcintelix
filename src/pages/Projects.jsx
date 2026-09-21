@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiLayers, FiGlobe, FiSmartphone, FiShoppingBag, FiGrid, FiX, FiImage, FiBox, FiClock, FiExternalLink, FiGithub, FiMenu } from 'react-icons/fi'
 import { Card, SectionHeading } from '../components/Button'
 import SEO from '../components/SEO'
-import ecuruza from "../assets/ecuruza.webp"
-import mooorHallBranding from '../assets/moor hall branding.png'
-import mooorHallLogo from '../assets/moor logo.png'
-import MooorCharactor from '../assets/moor harry.png'
+
+const mooorHallBranding = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962998/Moor_Hall_Branding.png'
+const mooorHallLogo = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963004/moor_logo.png'
+const MooorCharactor = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963004/moor_logo.png'
 
 const projects = [
   {

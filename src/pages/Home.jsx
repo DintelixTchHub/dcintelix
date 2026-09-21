@@ -8,12 +8,6 @@ import SEO from '../components/SEO'
 const Partnerships = lazy(() => import('../components/Partnerships'))
 import { submitContact, resetSubmitStatus, updateFormData, resetFormData } from '../store/contactSlice'
 import { fetchApprovedTestimonials } from '../store/testimonialsSlice'
-import heroImage from '../assets/hero.webp'
-import founderImage from '../assets/pasport.webp'
-import gadImage from '../assets/Gad.webp'
-import dannyImage from '../assets/danny.webp'
-import mooorHallBranding from '../assets/moor hall branding.png'
-import mooorHallLogo from '../assets/moor logo.png'
 const CaseStudies = lazy(() => import('../components/CaseStudies'))
 const BlogPreview = lazy(() => import('../components/BlogPreview'))
 
