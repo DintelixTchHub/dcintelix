@@ -205,7 +205,15 @@ export default function Home() {
     dispatch(fetchApprovedTestimonials())
   }, [dispatch])
 
-  const testimonials = (approvedTestimonials?.length ? approvedTestimonials : fallbackTestimonials).map((item) => ({
+  const visibleApprovedTestimonials = Array.isArray(approvedTestimonials)
+    ? approvedTestimonials.filter((item) => {
+        const status = String(item?.status || item?.approvalStatus || '').toUpperCase();
+        const isApproved = typeof item?.isApproved === 'boolean' ? item.isApproved : status === 'APPROVED';
+        return isApproved;
+      })
+    : [];
+
+  const testimonials = (visibleApprovedTestimonials.length ? visibleApprovedTestimonials : fallbackTestimonials).map((item) => ({
     quote: item.testimonial || item.quote || '',
     author: item.name || item.author || 'Client',
     role: item.role || item.position || 'Client',
