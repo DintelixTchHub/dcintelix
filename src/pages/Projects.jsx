@@ -6,7 +6,7 @@ import SEO from '../components/SEO'
 
 const mooorHallBranding = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962998/Moor_Hall_Branding.png'
 const mooorHallLogo = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963004/moor_logo.png'
-const MooorCharactor = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963004/moor_logo.png'
+const MooorCharactor = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963001/moor_harry.png'
 
 const projects = [
   {
