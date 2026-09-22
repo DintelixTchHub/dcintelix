@@ -14,6 +14,16 @@ const formatMoney = (value) => {
   }).format(value);
 };
 
+const formatClosingDate = (value) => {
+  if (!value) return null;
+  return new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
+};
+
+const isClosed = (job) => (
+  String(job.status || '').toUpperCase() === 'CLOSED'
+  || (job.closesAt && new Date(job.closesAt).getTime() <= Date.now())
+);
+
 export default function Careers() {
   const dispatch = useDispatch();
   const { publicJobs, status, error } = useSelector((state) => state.careers);
@@ -58,7 +68,7 @@ export default function Careers() {
                   <h3 className="text-base font-semibold text-[#0F172A]">Opportunities</h3>
                 </div>
                 <p className="text-2xl font-bold text-[#0F172A]">{publicJobs.length}</p>
-                <p className="text-sm text-[#64748B] mt-1">Open roles</p>
+                <p className="text-sm text-[#64748B] mt-1">Available training programs</p>
               </div>
 
               <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
@@ -87,7 +97,7 @@ export default function Careers() {
             {status === 'loading' ? (
               <div className="flex items-center justify-center py-20 text-[#0D6D63]">
                 <FiLoader className="w-6 h-6 animate-spin mr-3" />
-                Loading roles...
+                Loading training opportunities...
               </div>
             ) : error ? (
               <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-6">
@@ -95,8 +105,8 @@ export default function Careers() {
               </div>
             ) : publicJobs.length === 0 ? (
               <div className="bg-white border border-[#E2E8F0] rounded-2xl p-10 text-center shadow-sm">
-                <h2 className="text-2xl font-bold text-[#0F172A] mb-2">No roles posted yet</h2>
-                <p className="text-[#475569]">Check back soon for new opportunities and internship openings.</p>
+                <h2 className="text-2xl font-bold text-[#0F172A] mb-2">No training opportunities posted yet</h2>
+                <p className="text-[#475569]">Check back soon for new training programs.</p>
               </div>
             ) : (
               <div className="space-y-5">
@@ -109,11 +119,12 @@ export default function Careers() {
                       <div className="space-y-3">
                         <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
                           <span className="bg-[#0D6D63]/10 text-[#0D6D63] px-2.5 py-1 rounded-full">
-                            {job.opportunityType || 'ROLE'}
+                            TRAINING
                           </span>
                           <span className="bg-[#E2E8F0] text-[#475569] px-2.5 py-1 rounded-full">
                             {job.workMode || 'REMOTE'}
                           </span>
+                          {isClosed(job) && <span className="bg-red-100 text-red-700 px-2.5 py-1 rounded-full">CLOSED</span>}
                         </div>
 
                         <div>
@@ -122,6 +133,7 @@ export default function Careers() {
                             <span className="inline-flex items-center gap-2"><FiMapPin className="w-4 h-4" /> {job.location || 'Remote'}</span>
                             <span className="inline-flex items-center gap-2"><FiBriefcase className="w-4 h-4" /> {job.employmentType || 'FULL_TIME'}</span>
                             <span className="inline-flex items-center gap-2"><FiDollarSign className="w-4 h-4" /> {formatMoney(job.monthlyFee)}</span>
+                            {job.closesAt && <span className="inline-flex items-center gap-2"><FiClock className="w-4 h-4" /> Closes {formatClosingDate(job.closesAt)}</span>}
                           </div>
                         </div>
 
@@ -135,7 +147,7 @@ export default function Careers() {
                           to={`/careers/${job.id}`}
                           className="inline-flex items-center gap-2 px-5 py-3 bg-[#0D6D63] text-white text-sm font-medium rounded-lg hover:bg-[#09534C] transition-all duration-200 shadow-sm hover:shadow-lg hover:shadow-[#0D6D63]/20"
                         >
-                          View role
+                          {isClosed(job) ? 'View closed training' : 'View training opportunity'}
                           <FiArrowRight className="w-4 h-4" />
                         </Link>
                       </div>

@@ -22,12 +22,20 @@ const formatMoney = (value) => {
   }).format(value);
 };
 
+const formatClosingDate = (value) => {
+  if (!value) return null;
+  return new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
+};
+
 export default function CareerDetails() {
   const { identifier } = useParams();
   const dispatch = useDispatch();
   const { selectedPublicJob, status, error, submitStatus, submitError } = useSelector((state) => state.careers);
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const isTraining = true;
+  const isClosed = String(selectedPublicJob?.status || '').toUpperCase() === 'CLOSED'
+    || (selectedPublicJob?.closesAt && new Date(selectedPublicJob.closesAt).getTime() <= Date.now());
 
   useEffect(() => {
     if (!identifier) return;
@@ -73,7 +81,7 @@ export default function CareerDetails() {
     return (
       <div className="pt-16 min-h-screen bg-[#F8FAFC] flex items-center justify-center">
         <div className="text-[#0D6D63] flex items-center gap-3 text-lg font-medium">
-          <FiLoader className="w-5 h-5 animate-spin" /> Loading role...
+          <FiLoader className="w-5 h-5 animate-spin" /> Loading training opportunity...
         </div>
       </div>
     );
@@ -83,7 +91,7 @@ export default function CareerDetails() {
     return (
       <div className="pt-16 min-h-screen bg-[#F8FAFC] flex items-center justify-center px-4">
         <div className="bg-white border border-red-200 rounded-2xl p-8 max-w-xl w-full text-center">
-          <h1 className="text-2xl font-bold text-[#0F172A] mb-3">Role unavailable</h1>
+          <h1 className="text-2xl font-bold text-[#0F172A] mb-3">Training opportunity unavailable</h1>
           <p className="text-[#475569] mb-6">{error}</p>
           <Link to="/careers" className="inline-flex items-center gap-2 text-[#0D6D63] font-medium">
             <FiArrowLeft className="w-4 h-4" /> Back to careers
@@ -110,8 +118,9 @@ export default function CareerDetails() {
 
             <div className="bg-white border border-[#E2E8F0] rounded-3xl p-6 md:p-8 shadow-sm">
               <div className="flex flex-wrap items-center gap-2 mb-5">
-                <span className="bg-[#0D6D63]/10 text-[#0D6D63] px-2.5 py-1 rounded-full text-xs font-medium">{selectedPublicJob.opportunityType || 'ROLE'}</span>
+                <span className="bg-[#0D6D63]/10 text-[#0D6D63] px-2.5 py-1 rounded-full text-xs font-medium">{isTraining ? 'TRAINING' : (selectedPublicJob.opportunityType || 'ROLE')}</span>
                 <span className="bg-[#E2E8F0] text-[#475569] px-2.5 py-1 rounded-full text-xs font-medium">{selectedPublicJob.workMode || 'REMOTE'}</span>
+                {isClosed && <span className="bg-red-100 text-red-700 px-2.5 py-1 rounded-full text-xs font-medium">CLOSED</span>}
               </div>
 
               <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
@@ -129,7 +138,8 @@ export default function CareerDetails() {
                   <ul className="space-y-3 text-sm text-[#475569]">
                     <li className="flex items-center gap-2"><FiClock className="w-4 h-4 text-[#0D6D63]" /> {selectedPublicJob.durationMonths ? `${selectedPublicJob.durationMonths} months` : 'Flexible duration'}</li>
                     <li className="flex items-center gap-2"><FiBriefcase className="w-4 h-4 text-[#0D6D63]" /> {selectedPublicJob.department || 'Product & Design'}</li>
-                    <li className="flex items-center gap-2"><FiCheckCircle className="w-4 h-4 text-[#0D6D63]" /> {selectedPublicJob.status || 'Open'}</li>
+                    <li className="flex items-center gap-2"><FiCheckCircle className="w-4 h-4 text-[#0D6D63]" /> {isClosed ? 'Closed' : 'Open'}</li>
+                    {selectedPublicJob.closesAt && <li className="flex items-center gap-2"><FiClock className="w-4 h-4 text-[#0D6D63]" /> Closes {formatClosingDate(selectedPublicJob.closesAt)}</li>}
                   </ul>
                 </div>
               </div>
@@ -142,7 +152,7 @@ export default function CareerDetails() {
             <div className="grid lg:grid-cols-[1fr_0.9fr] gap-8">
               <div className="space-y-8">
                 <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 md:p-8 shadow-sm">
-                  <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Role description</h2>
+                  <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Training description</h2>
                   <p className="text-[#475569] leading-relaxed whitespace-pre-line">{selectedPublicJob.description}</p>
                 </div>
 
@@ -172,9 +182,15 @@ export default function CareerDetails() {
               </div>
 
               <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 md:p-8 shadow-sm h-fit">
-                <h2 className="text-2xl font-bold text-[#0F172A] mb-5">Apply now</h2>
+                <h2 className="text-2xl font-bold text-[#0F172A] mb-2">Apply for training</h2>
+                <p className="text-sm text-[#64748B] mb-5">Submit your details to join this training opportunity.</p>
 
-                {submitted ? (
+                {isClosed ? (
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-5 text-center">
+                    <h3 className="text-xl font-bold text-[#0F172A] mb-2">Applications are closed</h3>
+                    <p className="text-[#475569]">This training opportunity is no longer accepting applications.</p>
+                  </div>
+                ) : submitted ? (
                   <div className="bg-[#0D6D63]/5 border border-[#0D6D63]/20 rounded-xl p-5 text-center">
                     <div className="w-12 h-12 mx-auto rounded-full bg-[#0D6D63] text-white flex items-center justify-center mb-3">
                       <FiCheckCircle className="w-6 h-6" />
@@ -205,7 +221,7 @@ export default function CareerDetails() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-[#0F172A] mb-2">Cover letter</label>
+                      <label className="block text-sm font-medium text-[#0F172A] mb-2">Why do you want to join this training?</label>
                       <textarea name="coverLetter" rows="6" value={form.coverLetter} onChange={handleChange} className="w-full px-4 py-3 border border-[#DCE5E8] rounded-lg bg-[#F8FAFC] text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0D6D63]" />
                     </div>
 
