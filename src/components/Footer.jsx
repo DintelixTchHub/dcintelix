@@ -1,5 +1,5 @@
-﻿import { Link } from 'react-router-dom'
-import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader, FiInstagram, FiFacebook } from 'react-icons/fi'
+import { Link } from '@/lib/router-compat'
+import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiGithub, FiSend, FiCheck, FiLoader, FiInstagram, FiFacebook, FiShare2 } from 'react-icons/fi'
 import { FaTiktok } from 'react-icons/fa'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,6 +19,7 @@ const quickLinks = [
 ]
 
 const logo = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962834/dcintelix_edited_black_logo-removebg-preview.png'
+const shareUrl = encodeURIComponent('https://www.dcintelix.rw/')
 const services = [
   { name: 'Website Creation', path: '/projects' },
   { name: 'Web Application', path: '/projects' },
@@ -69,8 +70,7 @@ export default function Footer() {
                        </div>
                      </Link>
             <p className="text-[#94A3B8] text-sm leading-relaxed mb-6">
-              Leading digital solutions provider in Rwanda. We deliver professional websites, 
-              custom web applications, e-commerce platforms, and mobile apps that drive business growth.
+              Based in Rwanda, DCintelix builds websites, web applications, e-commerce platforms, and mobile apps for businesses and organizations.
             </p>
             {/* Trust Badges */}
             <div className="mb-6 p-4 bg-[#09534C] rounded-lg border border-[#0D6D63]">
@@ -116,9 +116,50 @@ export default function Footer() {
                 <FaTiktok className="w-5 h-5" />
               </a>
             </div>
+            <div className="mt-4">
+              <p className="text-[#94A3B8] text-xs mb-2">Share our website</p>
+              <div className="flex gap-2">
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share DCintelix on Facebook"
+                  className="w-9 h-9 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
+                >
+                  <FiFacebook className="w-4 h-4" />
+                </a>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share DCintelix on LinkedIn"
+                  className="w-9 h-9 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
+                >
+                  <FiLinkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${encodeURIComponent('DCintelix | Digital solutions for your business')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share DCintelix on X"
+                  className="w-9 h-9 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
+                >
+                  <FiTwitter className="w-4 h-4" />
+                </a>
+                <a
+                  href={`https://api.whatsapp.com/send?text=${encodeURIComponent('DCintelix digital solutions https://www.dcintelix.rw/')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share DCintelix on WhatsApp"
+                  className="w-9 h-9 bg-[#09534C] rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#0D6D63] hover:text-white transition-all duration-200"
+                >
+                  <FiShare2 className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-primary inline-flex items-center gap-2 px-4 py-2">
-                Start Your Digital Transformation
+                Talk to Us About Your Project
               </Link>
               <Link to="/contact" className="btn-outline inline-flex items-center gap-2 px-4 py-2">
                 Partner With Us
@@ -259,7 +300,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#64748B] text-sm">
-              Â© {new Date().getFullYear()} DCintelix. All rights reserved.
+              © {new Date().getFullYear()} DCintelix. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link
@@ -286,5 +327,3 @@ export default function Footer() {
     </footer>
   )
 }
-
-

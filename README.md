@@ -1,16 +1,42 @@
-# React + Vite
+# DCINTELIX Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend uses Next.js App Router, React, TypeScript for the application
+foundation, Tailwind CSS v4, and the existing Redux/Axios client integration.
+Existing page components and business logic remain in `src/legacy-pages` and
+`src/components`.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use Node.js 20.9 or later and npm:
 
-## React Compiler
+```sh
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Set `NEXT_PUBLIC_API_URL` in `.env.local` to the backend API base URL (including
+the `/api/v1` prefix). This value is intentionally public because browser
+requests use it; do not put credentials or private keys in any `NEXT_PUBLIC_`
+variable.
 
-## Expanding the ESLint configuration
+## Checks and production
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npm start
+```
+
+Netlify supports the Next.js App Router through its automatic Next.js adapter.
+Use `npm run build` as the build command and leave the publish directory
+unset. Do not add a catch-all static redirect; Next.js handles routes and 404s.
+
+## Routes
+
+Public pages: `/`, `/about`, `/projects`, `/blogs`, `/contact`, `/privacy`,
+`/testimonials`, `/careers`, and `/careers/[identifier]`.
+
+Admin pages: `/admin/login`, `/admin/register`, `/admin/dashboard`,
+`/admin/jobs/new`, `/admin/training/new`, `/admin/internships/new`, and
+`/admin/jobs/[id]/edit`. `/admin` redirects to `/admin/login`.

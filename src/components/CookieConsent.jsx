@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false)

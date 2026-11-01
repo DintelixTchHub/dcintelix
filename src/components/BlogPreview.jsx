@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import { motion } from 'framer-motion'
 
 const samplePosts = [
@@ -15,7 +15,7 @@ export default function BlogPreview() {
         <div className="text-center mb-8">
           <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">Insights</span>
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A]">From Our Blog</h2>
-          <p className="text-sm text-[#475569] max-w-2xl mx-auto mt-3">Latest thinking on AI, automation, and technology strategy for African businesses.</p>
+          <p className="text-sm text-[#475569] max-w-2xl mx-auto mt-3">Ideas and practical advice on websites, software, mobile apps, and growing a business online.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -35,4 +35,3 @@ export default function BlogPreview() {
     </section>
   )
 }
-

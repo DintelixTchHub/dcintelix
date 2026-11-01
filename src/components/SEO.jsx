@@ -11,10 +11,10 @@ import { useEffect } from 'react'
  * @param {string} props.type - OG type (website, article, etc.)
  */
 function SEO({ 
-  title = 'DCintelix - Expert Web Development & Digital Solutions in Rwanda',
-  description = 'DCintelix offers professional web development, mobile apps, SEO services, and digital marketing in Rwanda. Transform your business with expert custom software solutions.',
-  keywords = 'web development Rwanda, website design Rwanda, mobile app development, SEO services Rwanda, digital marketing Rwanda, custom software development, e-commerce solutions, ui/ux design',
-  image = '/logo1.webp',
+  title = 'Web Design & Development in Rwanda | DCintelix',
+  description = 'DCintelix builds websites, mobile apps, and custom software for businesses in Rwanda, with SEO and digital marketing to help you grow online.',
+  keywords = 'web development Rwanda, website design Rwanda, web design Kigali, web development Kigali, software development Rwanda, mobile app development Rwanda, SEO services Rwanda, digital marketing Rwanda, e-commerce website development Rwanda, custom software Rwanda',
+  image = '/logo2.png',
   url = 'https://www.dcintelix.rw/',
   type = 'website'
 }) {

@@ -5,7 +5,7 @@ import authReducer from './authSlice';
 import testimonialsReducer from './testimonialsSlice';
 import careersReducer from './careersSlice';
 
-export const store = configureStore({
+export const makeStore = () => configureStore({
   reducer: {
     contact: contactReducer,
     newsletter: newsletterReducer,
@@ -19,5 +19,6 @@ export const store = configureStore({
     }),
 });
 
+export const store = makeStore();
 export const dispatch = store.dispatch;
 export default store;

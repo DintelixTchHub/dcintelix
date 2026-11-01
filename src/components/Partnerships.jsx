@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import { FiUsers, FiGlobe, FiHome, FiBriefcase, FiBookOpen, FiArrowRight } from 'react-icons/fi'
 
 export default function Partnerships() {
@@ -17,8 +17,8 @@ export default function Partnerships() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <span className="inline-block text-[#0D6D63] font-medium text-xs uppercase tracking-wider mb-2">Strategic Partnership Opportunities</span>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A]">DCINTELIX collaborates across sectors</h2>
-          <p className="text-sm text-[#475569] max-w-2xl mx-auto mt-3">DCINTELIX collaborates with businesses, NGOs, startups, schools, universities, government institutions, and international organizations to build innovative digital solutions.</p>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A]">Working with organizations across sectors</h2>
+          <p className="text-sm text-[#475569] max-w-2xl mx-auto mt-3">We work with businesses, NGOs, startups, schools, universities, public institutions, and international organizations to create digital solutions that fit their needs.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-6">
@@ -30,7 +30,7 @@ export default function Partnerships() {
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-[#0F172A]">{cat.title}</h3>
-                  <p className="text-xs text-[#64748B] mt-1">Partner with us to co-design programs, pilots, and enterprise solutions that deliver measurable impact.</p>
+                  <p className="text-xs text-[#64748B] mt-1">Work with us to plan and build programs, pilot projects, and digital tools for your organization.</p>
                 </div>
               </div>
             </div>
@@ -51,4 +51,3 @@ export default function Partnerships() {
     </section>
   )
 }
-
