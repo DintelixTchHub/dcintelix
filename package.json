@@ -22,9 +22,10 @@
     "react-redux": "^9.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@netlify/plugin-nextjs": "^5.16.5",
     "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^24.0.0",
-    "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",

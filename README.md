@@ -28,9 +28,11 @@ npm run build
 npm start
 ```
 
-Netlify supports the Next.js App Router through its automatic Next.js adapter.
-Use `npm run build` as the build command and leave the publish directory
-unset. Do not add a catch-all static redirect; Next.js handles routes and 404s.
+Netlify serves the Next.js App Router through `@netlify/plugin-nextjs`, which
+is configured in `netlify.toml`. The build command is `npm run build` and the
+publish directory is `.next`. The plugin must run during deployment to
+configure Next.js routes and server-rendered pages. Do not add a catch-all
+static redirect; Next.js handles routes and 404s.
 
 ## Routes
 
