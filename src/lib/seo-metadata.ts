@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+export const socialShareImage = '/dcintelix-team.png'
+
 type SeoMetadataInput = {
   title: string
   description: string
@@ -13,10 +15,11 @@ export function createSeoMetadata({
   description,
   url,
   keywords,
-  image = '/logo2.png',
+  image = socialShareImage,
 }: SeoMetadataInput): Metadata {
   const siteName = 'DCintelix'
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`
+  const imageAlt = 'The DCintelix digital solutions team in Rwanda.'
 
   return {
     title: fullTitle,
@@ -30,13 +33,13 @@ export function createSeoMetadata({
       url,
       siteName,
       locale: 'en_US',
-      images: [image],
+      images: [{ url: image, alt: imageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [image],
+      images: [{ url: image, alt: imageAlt }],
     },
   }
 }

@@ -9,6 +9,8 @@ import SEO from '../components/SEO'
 
 const founderImage = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789963003/pasport.png'
 const gadImage = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962991/Gad.webp'
+const Rayhab = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1793622740/WhatsApp_Image_2026-11-02_at_11.05.43.jpg'
+const Celie = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1793622739/WhatsApp_Image_2026-11-02_at_10.46.23_1.jpg'
 const dannyImage = 'https://res.cloudinary.com/dxjodwemx/image/upload/v1789962989/danny.webp'
 
 const values = [
@@ -419,28 +421,46 @@ export default function About() {
               </FadeIn>
               <FadeIn delay={200}>
                 <p className="text-sm md:text-base text-[#475569] max-w-xl mx-auto">
-                  Our developers and designers work together to create digital products that solve practical problems.
+                  Meet the people behind our design, development, and digital solutions work.
                 </p>
               </FadeIn>
             </div>
 
+            <FadeIn className="max-w-5xl mx-auto mb-8 md:mb-10">
+              <img
+                src="/dcintelix-team.png"
+                alt="The DCintelix team: CEO and Founder Christian Dushime, Full-Stack Engineer Celie Nishimwe, Back-end Engineer Reyhab Kajeneza, Frontend Engineer Danny Gikundiro, and UI/UX Designer Gad Irahari."
+                className="w-full h-auto rounded-xl md:rounded-2xl shadow-sm"
+                loading="lazy"
+              />
+            </FadeIn>
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {[
                 { name: 'Christian Dushime', role: 'Founder & CEO', image: founderImage, linkedin: 'https://www.linkedin.com/in/christian-dushime/', github: 'https://github.com/dushimec' },
-                { name: 'Gad IRAHARI', role: 'UI/UX Designer', image: gadImage, linkedin: '', github: '' },
-                { name: 'Danny GIKUNDIRO', role: 'Senior Developer', image: dannyImage, linkedin: '', github: '' },
+                { name: 'Celie Nishimwe', role: 'Full-Stack Engineer', image: Celie, linkedin: '', github: '' },
+                { name: 'Reyhab Kajeneza', role: 'Back-end Engineer', image: Rayhab, linkedin: '', github: '' },
+                { name: 'Danny Gikundiro', role: 'Frontend Engineer', image: dannyImage, linkedin: '', github: '' },
+                { name: 'Gad Irahari', role: 'UI/UX Designer', image: gadImage, linkedin: '', github: '' },
               ].map((member, index) => (
                 <FadeIn key={member.name} delay={index * 100}>
                   <div className="group">
                     <div className="relative overflow-hidden rounded-xl md:rounded-2xl mb-4 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full aspect-square bg-[#0D6D63]/10 flex items-center justify-center">
+                          <FiUser className="w-16 h-16 text-[#0D6D63]/50" aria-hidden="true" />
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                      {member.linkedin && member.github && (
+                        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div className="flex gap-2 justify-center">
                           <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#0D6D63] transition-colors">
                             <FiLinkedin className="w-4 h-4" />
@@ -449,7 +469,8 @@ export default function About() {
                             <FiGithub className="w-4 h-4" />
                           </a>
                         </div>
-                      </div>
+                        </div>
+                      )}
                     </div>
                     <div className="text-center">
                       <h3 className="text-sm md:text-base font-semibold text-[#0F172A]">{member.name}</h3>

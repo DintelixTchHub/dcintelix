@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Script from 'next/script'
+import { socialShareImage } from '../lib/seo-metadata'
 import ClientProviders from '../components/ClientProviders'
 import './globals.css'
 
@@ -65,13 +66,23 @@ export const metadata: Metadata = {
     description: siteDescription,
     siteName: 'DCintelix',
     locale: 'en_US',
-    images: ['/logo2.png'],
+    images: [
+      {
+        url: socialShareImage,
+        alt: 'The DCintelix digital solutions team in Rwanda.',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteTitle,
     description: siteDescription,
-    images: ['/logo2.png'],
+    images: [
+      {
+        url: socialShareImage,
+        alt: 'The DCintelix digital solutions team in Rwanda.',
+      },
+    ],
   },
   icons: {
     icon: '/logo2.png',

@@ -14,7 +14,7 @@ function SEO({
   title = 'Web Design & Development in Rwanda | DCintelix',
   description = 'DCintelix builds websites, mobile apps, and custom software for businesses in Rwanda, with SEO and digital marketing to help you grow online.',
   keywords = 'web development Rwanda, website design Rwanda, web design Kigali, web development Kigali, software development Rwanda, mobile app development Rwanda, SEO services Rwanda, digital marketing Rwanda, e-commerce website development Rwanda, custom software Rwanda',
-  image = '/logo2.png',
+  image = '/dcintelix-team.png',
   url = 'https://www.dcintelix.rw/',
   type = 'website'
 }) {
@@ -50,7 +50,8 @@ function SEO({
     // Open Graph tags
     updateMetaTag('og:title', fullTitle, true)
     updateMetaTag('og:description', description, true)
-    updateMetaTag('og:image', image, true)
+    updateMetaTag('og:image', new URL(image, window.location.origin).href, true)
+    updateMetaTag('og:image:alt', 'The DCintelix digital solutions team in Rwanda.', true)
     updateMetaTag('og:url', url, true)
     updateMetaTag('og:type', type, true)
     updateMetaTag('og:site_name', siteName, true)
@@ -60,7 +61,8 @@ function SEO({
     updateMetaTag('twitter:card', 'summary_large_image')
     updateMetaTag('twitter:title', fullTitle)
     updateMetaTag('twitter:description', description)
-    updateMetaTag('twitter:image', image)
+    updateMetaTag('twitter:image', new URL(image, window.location.origin).href)
+    updateMetaTag('twitter:image:alt', 'The DCintelix digital solutions team in Rwanda.')
     updateMetaTag('twitter:url', url)
 
     // Canonical URL
